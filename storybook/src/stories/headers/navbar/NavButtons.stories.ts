@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import NavButtons from './navbuttons.vue'
+import NavButtons from './NavButtons.vue'
 
 const meta: Meta<typeof NavButtons> = {
   /* 👇 The title prop is optional.
@@ -14,9 +14,10 @@ export default meta;
 
 type Story = StoryObj<typeof NavButtons>;
 
-export const  Primary: Story = {
+export const  NavButton: Story = {
   render: () => ({
     components: {NavButtons },
-    template: 'NavButtons/>',
+    template: '<NavButtons text ="Home" isActive = true >',
+
   }),
 };
