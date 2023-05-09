@@ -15,7 +15,7 @@ export default meta;
 
 type Story = StoryObj<typeof MyHeader>;
 
-export const  Primary: Story = {
+export const  Header: Story = {
   render: () => ({
     components: { MyHeader },
     template: '<MyHeader/>',

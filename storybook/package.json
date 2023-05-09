@@ -49,6 +49,7 @@
     "react-dom": "^18.2.0",
     "sass": "^1.32.12",
     "storybook": "^7.0.9",
+    "storybook-dark-mode": "^3.0.0",
     "typescript": "~5.0.4",
     "vite": "^4.3.4",
     "vitest": "^0.31.0",

@@ -1,26 +1,29 @@
 <template>
-       <a :class="{ isActive: isActive }">{{text}}</a>
+       <a class = "" :class="{ active: isActive }" @click="handleButton">{{text}}</a>
 </template>
 
 <script lang="ts" >
 import './NavButtons.scss';
 
 export default {
-  name: 'defaultCard',
+  name: 'NavButtons',
     props: {
     text:{
       required: true, 
       type: String, 
       default: 'link'
     },
-    isActive: {
-      required: true, 
-      type: Boolean, 
-      default: false
-    },
-    handleClick: {
-      required: true, 
-      type: Function, 
+  },
+
+  data() {
+    return {
+      isActive: false
+    }
+  },
+
+  methods: {
+    handleButton()  {
+      this.isActive = !this.isActive
     }
   },
 

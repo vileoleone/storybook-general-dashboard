@@ -3,7 +3,11 @@
     <div class="wrapper">
       <img src="../assets/images/Logo.png" alt="logo" class="logo"/>
       <nav class="navbar">
-       
+       <NavButtons text="Home"/>
+       <NavButtons text="A empresa"/>
+       <NavButtons text="Soluções"/>
+       <NavButtons text="Suporte"/>
+       <NavButtons text="Contato"/>
       </nav>
       <div class="search-form">
         <input class="search" placeholder="Pesquisar..." type="text"/>
@@ -24,8 +28,8 @@
 
 <script lang="ts" >
 import './header.scss';
-import Home from '../navSections/Home.vue';
-
+import Home from './navSections/Home.vue';
+import NavButtons from './navbar/NavButtons.vue'
 export default {
   name: 'defaultCard',
     props: {
@@ -37,7 +41,8 @@ export default {
   },
 
   components: {
-      Home:Home
+      Home:Home,
+      NavButtons:NavButtons
     },
    
 }
