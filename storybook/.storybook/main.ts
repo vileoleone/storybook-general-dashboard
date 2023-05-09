@@ -5,12 +5,17 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    'storybook-dark-mode'
+    'storybook-dark-mode',
+    '@etchteam/storybook-addon-status',
+    '@storybook/addon-actions',
+    '@storybook/test-runner',
+    "@whitespace/storybook-addon-html"
   ],
   framework: {
     name: '@storybook/vue3-vite',
     options: {}
   },
+  features: { storyStoreV7: true, buildStoriesJson: true },
   docs: {
     autodocs: 'tag'
   }
