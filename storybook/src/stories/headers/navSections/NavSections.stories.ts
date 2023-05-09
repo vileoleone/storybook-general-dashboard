@@ -1,23 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Home from './Home.vue';
+import NavCard from './NavCard.vue';
 
-const meta: Meta<typeof Home> = {
+const meta: Meta<typeof NavCard> = {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'components/NavSections',
-  component:Home,
+  title: 'components/Header/NavSections',
+  component:NavCard,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Home>;
+type Story = StoryObj<typeof NavCard>;
 
 export const  Primary: Story = {
   render: () => ({
-    components: { Home },
-    template: '<Home/>',
+    components: { NavCard },
+    template: '<NavCard/>',
   }),
 };
