@@ -1,0 +1,59 @@
+.logo-paragraph-card {
+  box-sizing: border-box;
+ 
+  width: 60px;
+  height: 60px; 
+  border-bottom: 1px solid #C5C5C5;
+
+  .inner-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 110px 110px 0px;
+    background-color:  #FFFFFF;
+    width: 60px;
+    height: 60px; 
+  }
+}
+
+.icon-left {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+}
+
+.icon-right {
+  display: flex;
+  margin-left: 11.29px;
+  justify-content: center;
+  height: 7.12px;
+  width: 11.41px;
+  border-radius: 0px;
+}
+
+.menu-paragraph-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  color: #FFFFFF;
+
+  width: 159px;
+  height: 60px;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  height: 15px;
+
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 15px;
+
+  color: #FFFFFF;
+}
+
