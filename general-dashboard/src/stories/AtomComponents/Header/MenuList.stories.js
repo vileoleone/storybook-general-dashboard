@@ -30,8 +30,8 @@ export const MenuLists = {
     primary: true,
     label: 'Example',
     backgroundColor: '#FFFFFF',
-    list: ['Agentes','Filas','Atendimentos', 'Campanhas', 'Geral'],
-    marginBottom: 14.5
+    list: ['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral'],
+    marginBottom: 0
   },
 };
 
@@ -48,6 +48,6 @@ export const MenuUser = {
     label: 'Example',
     backgroundColor: '#FFFFFF',
     list: ['Login','LogOut'],
-    marginBottom: 10
+    marginBottom: 0
   },
 };

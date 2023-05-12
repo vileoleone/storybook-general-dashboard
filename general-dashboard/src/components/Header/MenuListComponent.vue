@@ -1,32 +1,16 @@
 <template>
-  <div type="span" class="menu-list" :class="classes" :style="style">
-    <div v-for="(item, index) in list" :key="index">
-      <template v-if="typeof item === 'object'">
-        <div v-for="(value, key) in item" :key="key">
-          <MenuListComponent :label="key" :style="{ marginBottom: marginBottom + 'px' }" />
-          <li
-            v-for="item in value"
-            :key="item"
-            :style="{ marginBottom: marginBottom + 'px' }"
-          >{{ item }}</li>
-        </div>
-      </template>
-
-      <template v-else>
-        <MenuListComponent :label="item" :style="{ marginBottom: marginBottom + 'px' }" />
-      </template>
-    </div>
-  </div>
+  <li :class="classes" :style="style" @click="onClick">
+    {{ label }}
+  </li>
 </template>
 
 <script>
 import '../../assets/scss/MenuList.scss'
-import MenuListComponent from './MenuListComponent.vue'
 
 export default {
   name: 'MenuLayout',
 
-  components: { MenuListComponent },
+  components: {},
 
   data() {
     return {
@@ -71,7 +55,8 @@ export default {
     },
     style() {
       return {
-        backgroundColor: this.backgroundColor
+        backgroundColor: this.backgroundColor,
+        marginBottom: this.marginBottom + 'px'
       }
     }
   },
@@ -79,6 +64,7 @@ export default {
   methods: {
     onClick() {
       this.$emit('click')
+      this.isActive = !this.isActive
     }
   }
 }

@@ -1,10 +1,11 @@
 import Card from '../../../../src/components/Header/Cards.vue'
 import DashboardsLogo from '../../../../src/assets/icons/DashboardsLogo.svg';
-import iconPhone from '../../../../src/assets/icons/iconPhone.svg';
+import iconPhone from '../../../../src/assets/icons/IconPhone.svg';
 import ChatsLogo from '../../../../src/assets/icons/ChatsLogo.svg';
 import AgentsLogo from  '../../../../src/assets/icons/AgentsLogo.svg'
 import SettingsIcon from  '../../../../src/assets/icons/SettingsIcon.svg'
 import UserLogo from  '../../../../src/assets/icons/UserLogo.svg'
+
 export default {
   title: 'Atoms/Headers/Cards',
   component: Card,

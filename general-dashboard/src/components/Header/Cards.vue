@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import '../../assets/scss/dashboardCards.scss'
+import '../../assets/scss/DashboardCards.scss'
 import ArrowDown from '../../assets/icons/ArrowDown.vue';
 import MenuList from './MenuList.vue';
 export default {

@@ -22,7 +22,7 @@ import '../../assets/scss/Header.scss'
 import Logo from './Logo.vue'
 import Cards from './Cards.vue';
 import DashboardsLogo from '../../assets/icons/DashboardsLogo.svg'
-import iconPhone from '../../assets/icons/iconPhone.svg'
+import iconPhone from '../../assets/icons/IconPhone.svg'
 import ChatsLogo from '../../assets/icons/ChatsLogo.svg'
 import AgentsLogo from  '../../assets/icons/AgentsLogo.svg'
 import SettingsIcon from  '../../assets/icons/SettingsIcon.svg'

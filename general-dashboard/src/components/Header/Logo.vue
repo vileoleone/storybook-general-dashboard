@@ -8,7 +8,7 @@
 
 <script>
 import VonixLogo from '../../assets/icons/VonixLogo.vue';
-import '../../assets/scss/dashboardCards.scss'
+import '../../assets/scss/DashboardCards.scss'
 
 export default {
   name: 'LogoCard',
