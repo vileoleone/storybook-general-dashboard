@@ -2,11 +2,11 @@
   <span type="span" class="header" :class="classes" @click="onClick" :style="style">
     <span class="left-section">
       <Logo label ='Logo' backgroundColor = '#FD9802'/>
-      <Cards label= 'Dashboards' backgroundColor= '#FD9802' :icon ="DashboardsLogo"/>
-      <Cards label= 'Chamadas' backgroundColor= '#3D55AE' :icon ="iconPhone"/>
-      <Cards label= 'Conversas' backgroundColor= '#3D55AE' :icon ="ChatsLogo"/>
-      <Cards label= 'Agentes' backgroundColor= '#3D55AE' :icon ="AgentsLogo"/>
-      <Cards label= 'Configurações' backgroundColor= '#3D55AE' :icon ="SettingsIcon"/>
+      <Cards label= 'Dashboards' backgroundColor= '#FD9802' :icon ="DashboardsLogo" :list="dashboardList"/>
+      <Cards label= 'Chamadas' backgroundColor= '#3D55AE' :icon ="iconPhone" :list="ChamadasList"/>
+      <Cards label= 'Conversas' backgroundColor= '#3D55AE' :icon ="ChatsLogo" :list="ConversasList"/>
+      <Cards label= 'Agentes' backgroundColor= '#3D55AE' :icon ="AgentsLogo" :list="AgentesList"/>
+      <Cards label= 'Configurações' backgroundColor= '#3D55AE' :icon ="SettingsIcon" :list="ConfiguraçõesList"/>
     </span>
     <span class="right-section">
       <img class="api" :src="ApiButton" :alt="ApiButton"/>
@@ -45,6 +45,11 @@ export default {
       UserLogo,
       ApiButton, 
       ChangeLogButton,
+      dashboardList :['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral'],
+      ChamadasList:['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral'],
+      ConversasList:['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral'],
+      AgentesList:['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral'],
+      ConfiguraçõesList:['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral'],
     }
   },
 

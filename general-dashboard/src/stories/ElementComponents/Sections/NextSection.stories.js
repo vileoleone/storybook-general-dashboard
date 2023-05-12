@@ -1,7 +1,7 @@
-import Logo from '../../../../src/components/Header/Logo.vue'
+ import NextSection from '../../../../src/components/Sections/NextSection.vue'
 export default {
-  title: 'Atoms/Headers/Cards',
-  component: Logo,
+  title: 'Elements/Sections/NextSection',
+  component: NextSection,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -20,17 +20,18 @@ export default {
   },
 };
 
-export const LogoCard = {
+export const NextSectionCard = {
   render: (args) => ({
-    components: { Logo },
+    components: { NextSection },
     setup() {
       return { args };
     },
-    template: '<Logo v-bind="args" />',
+    template: '<NextSection v-bind="args" />',
   }),
   args: {
     primary: true,
-    label: 'Logo',
-    backgroundColor: '#FD9802',
+    label: 'NextSection',
+    backgroundColor: '#FFFFFF;',
+    routes: ['Dashboards', 'Campanhas', 'Importação']
   },
-};
+}; 

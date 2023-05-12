@@ -1,6 +1,6 @@
-import Logo from '../../../../src/components/Header/Logo.vue'
+/* import Logo from '../../../../src/components/Header/Logo.vue'
 export default {
-  title: 'Atoms/Headers/Cards',
+  title: 'Atoms/Headers',
   component: Logo,
   tags: ['autodocs'],
   argTypes: {
@@ -33,4 +33,4 @@ export const LogoCard = {
     label: 'Logo',
     backgroundColor: '#FD9802',
   },
-};
+}; */

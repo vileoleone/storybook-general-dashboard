@@ -1,7 +1,7 @@
-import Logo from '../../../../src/components/Header/Logo.vue'
+import StepSection from '../../../../src/components/Sections/StepSection.vue'
 export default {
-  title: 'Atoms/Headers/Cards',
-  component: Logo,
+  title: 'Elements/Sections/StepSection',
+  component:StepSection,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -20,17 +20,17 @@ export default {
   },
 };
 
-export const LogoCard = {
+export const StepSectionCard = {
   render: (args) => ({
-    components: { Logo },
+    components: {StepSection },
     setup() {
       return { args };
     },
-    template: '<Logo v-bind="args" />',
+    template: '<StepSection v-bind="args" />',
   }),
   args: {
     primary: true,
-    label: 'Logo',
-    backgroundColor: '#FD9802',
+    label: 'Etapas de Importação',
+    backgroundColor: '#FFFFFF',
   },
 };

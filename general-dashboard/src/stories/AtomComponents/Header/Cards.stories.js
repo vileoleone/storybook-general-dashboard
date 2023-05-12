@@ -52,7 +52,8 @@ export const DashboardCard = {
     primary: false,
     label: 'Dashboards',
     backgroundColor: '#FD9802',
-    icon: DashboardsLogo
+    icon: DashboardsLogo,
+    list: ['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral']
   },
 };
 
@@ -68,7 +69,8 @@ export const CallsCard = {
     primary: false,
     label: 'Chamadas',
     backgroundColor: '#3D55AE',
-    icon: iconPhone
+    icon: iconPhone, 
+    list: ['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral']
   },
 };
 
@@ -84,7 +86,8 @@ export const TalksCard = {
     primary: false,
     label: 'Conversas',
     backgroundColor: '#3D55AE',
-    icon: ChatsLogo
+    icon: ChatsLogo, 
+    list: ['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral']
   },
 };
 
@@ -102,7 +105,8 @@ export const AgentCard = {
     label: 'Agentes',
     backgroundColor: '#3D55AE',
     icon: AgentsLogo,
-    marginBottom: 5
+    marginBottom: 5, 
+    list: ['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral']
   },
 };
 
@@ -119,7 +123,8 @@ export const ConfigCard = {
     label: 'Configurações',
     backgroundColor: '#3D55AE',
     icon: SettingsIcon,
-    marginBottom: 1
+    marginBottom: 1, 
+    list: ['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral']
   },
 };
 
@@ -136,7 +141,7 @@ export const UserCard = {
     label: 'Olá Rodrigo Santos',
     backgroundColor: '#3D55AE',
     icon: UserLogo,
-
+    list: ['LogIn','LogOut'],
     iconRightMargin: 7.5
   },
 };

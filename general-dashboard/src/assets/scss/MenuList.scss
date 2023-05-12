@@ -3,7 +3,6 @@
   display: flex;
   padding: 20px 20px 20px 20px;
   width: 159px;
-  min-height: 174px;
   flex-direction: column;
   background: #ffffff;
 
@@ -19,14 +18,9 @@
   font-weight: 500;
   font-size: 13px;
 
-  list-style-type: none;
-}
+  cursor:pointer;
 
-li {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  height: 25px;
+  list-style-type: none;
 }
 
 .active {
@@ -34,15 +28,73 @@ li {
   color: #252525 !important;
   background-color: #f0f0f0;
   display: flex;
-
   justify-content: flex-start;
-  padding: 5px 10px;
+  padding-left: 10px ;
 
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 15px;
 
+  max-height: 25px;
+}
+
+.clicker {
+  box-sizing: border-box;
+  color: #252525 !important;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px ;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+
+  max-height: 25px;
+}
+
+.subitem {
+  padding-left: 10px;
+}
+
+.subitem.active  {
+  box-sizing: border-box;
+  color: #FFFFFF !important;
+  background-color: #4B68D2;
+  display: flex;
+
+  justify-content: flex-start;
+  padding-left: 10px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 15px;
+
   width: 116px;
   height: 25px;
+}
+
+
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 25px;
+  width: fit-content;
+  margin-right: 10px;
+  margin-bottom: 14.5px;
+}
+
+.list-object{
+  max-height: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width:max-content;
+  background: #F0F0F0;
+  padding: 0;
 }

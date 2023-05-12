@@ -1,4 +1,5 @@
 <template>
+  <div class="card-menu">
   <span type="span" class="menu-paragraph-card" :class="classes" @click="onClick" :style="style">
     <div class="icon-left" :style="{marginTop: marginTop + 'px', marginBottom: marginBottom + 'px', marginRight: iconRightMargin + 'px'}">
         <img :src="icon" :alt="label"/>
@@ -8,7 +9,8 @@
         <ArrowDown/>
     </div>
   </span>
-  <MenuList marginBottom = '14.5' :list = "list"/>
+  <MenuList v-if="clicked ==true" :list = "list" />
+</div>
 </template>
 
 <script>
@@ -19,6 +21,12 @@ export default {
   name: 'CardLayout',
 
   components: { ArrowDown, MenuList },
+
+  data() {
+    return {
+      clicked: false
+    }
+  },
 
   props: {
     label: {
@@ -74,6 +82,7 @@ export default {
   methods: {
     onClick() {
       this.$emit('click');
+      this.clicked =!this.clicked
     },
   },
 };

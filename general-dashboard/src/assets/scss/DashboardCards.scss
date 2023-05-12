@@ -1,9 +1,7 @@
 .logo-paragraph-card {
   box-sizing: border-box;
- 
   width: 60px;
   height: 60px; 
-  border-bottom: 1px solid #C5C5C5;
 
   .inner-logo {
     display: flex;
@@ -36,11 +34,17 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  align-self: flex-start;
   
   color: #FFFFFF;
+  cursor:pointer;
 
   width: 159px;
-  height: 60px;
+  min-height: 60px;
+}
+.card-menu {
+  display: flex;
+  flex-direction: column;
 }
 
 p {

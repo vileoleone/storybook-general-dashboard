@@ -1,11 +1,10 @@
 <template>
-  <li :class="classes" :style="style" @mouseover="onMouse" @mouseleave="onMouse">
-    {{ label }}
-  </li>
+  <button type="button" class="next-section-button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
 </template>
 
 <script>
-import '../../assets/scss/MenuList.scss'
+import '../../assets/scss/NextSection.scss'
+import ChevronRight from '../../../src/assets/icons/ChevronRight.svg'
 
 export default {
   name: 'MenuLayout',
@@ -14,34 +13,28 @@ export default {
 
   data() {
     return {
-      isActive: false,
-      clicked: false
+      ChevronRight
     }
   },
 
   props: {
     label: {
-      required: true
+      type: String,
+      required: true,
     },
     primary: {
       type: Boolean,
-      default: false
+      default: false,
     },
     size: {
       type: String,
-      validator: function (value) {
-        return ['small', 'medium', 'large'].indexOf(value) !== -1
-      }
+      validator: function(value) {
+        return ['small', 'medium', 'large'].indexOf(value) !== -1;
+      },
     },
     backgroundColor: {
-      type: String
+      type: String,
     },
-    list: {
-      type: Array
-    },
-    marginBottom: {
-      type: String
-    }
   },
 
   computed: {
@@ -51,21 +44,19 @@ export default {
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
         [`storybook-button--${this.size || 'medium'}`]: true,
-        active: this.isActive || this.clicked
-      }
+      };
     },
     style() {
       return {
         backgroundColor: this.backgroundColor,
-        marginBottom: this.marginBottom + 'px'
-      }
-    }
+      };
+    },
   },
 
   methods: {
-    onMouse() {
-      this.isActive = !this.isActive
-    }
-  }
-}
+    onClick() {
+      this.$emit('click');
+    },
+  },
+};
 </script>
