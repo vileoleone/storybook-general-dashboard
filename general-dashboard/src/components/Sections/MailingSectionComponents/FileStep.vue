@@ -1,10 +1,17 @@
 <template>
-  <button type="button" class="next-section-button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+  <div type="span" class="file-option-box" :class="classes"  :style="style">
+    <div class="csv-box">
+    </div>
+    <div class="list-all-queues">
+      <span class="header"></span>
+    <div class="outer-list-queue"></div>
+    </div>
+  </div>
 </template>
 
 <script>
-import ChevronRight from '../../../src/assets/icons/ChevronRight.svg'
-
+import TriangleDown from '../../../../src/assets/icons/TriangleDown.svg'
+import TriangleUp from '../../../../src/assets/icons/TriangleUp.svg'
 export default {
   name: 'MenuLayout',
 
@@ -12,7 +19,9 @@ export default {
 
   data() {
     return {
-      ChevronRight
+      TriangleDown,
+      TriangleUp,
+      active: false
     }
   },
 
@@ -34,6 +43,9 @@ export default {
     backgroundColor: {
       type: String,
     },
+    list: {
+      type: Array
+    }
   },
 
   computed: {
@@ -54,31 +66,21 @@ export default {
 
   methods: {
     onClick() {
-      this.$emit('click');
+      this.active = !this.active
     },
   },
 };
 </script>
 
 <style lang="scss">
-  .next-section-button {
-    box-sizing: border-box;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 87px;
-    height: 39px;
-    
-    border: 1px solid #C5C5C5;
-    border-radius: 5px;
-
-    color: #3D55AE;
-
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 15px;
+ 
+.file-option-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.outer-list-queue {
+  display: flex;
+  flex-direction: column;
 }
 </style>

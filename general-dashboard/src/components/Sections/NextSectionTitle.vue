@@ -11,7 +11,7 @@
   </template>
   
   <script>
-  import '../../assets/scss/NextSection.scss'
+
   import ChevronRight from '../../../src/assets/icons/ChevronRight.svg'
   
   export default {
@@ -72,3 +72,52 @@
   };
   </script>
   
+  <style lang="scss">
+    .next-section-title {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+   .routes {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+    } 
+    .allRoutes {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    h1 {
+      width: 213px;
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 21px;
+      display: flex;
+      color: #444444;
+      margin-bottom: 5px;
+      margin-top: 0;
+    
+    }
+
+    h2 {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 11px;
+
+      color: #AFAFAF;
+
+      height: 13px;
+    }
+
+    .chevron-right {
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+
+  </style>

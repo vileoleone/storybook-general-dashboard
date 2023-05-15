@@ -32,8 +32,7 @@
   </div>
 </template>
 
-<script>
-import '../../assets/scss/MenuList.scss'
+<script>  
 import MenuListComponent from './MenuListComponent.vue'
 import ChevronUpIcon from '../../assets/icons/ChevronUpIcon.vue'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon.vue'
@@ -100,3 +99,108 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+
+.active {
+  box-sizing: border-box;
+  color: #252525 !important;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px ;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+
+  max-height: 25px;
+}
+
+.clicker {
+  box-sizing: border-box;
+  color: #252525 !important;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px ;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+
+  max-height: 25px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 25px;
+  width: fit-content;
+  margin-right: 10px;
+  margin-bottom: 14.5px;
+}
+
+
+.list-object{
+  max-height: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width:max-content;
+  background: #F0F0F0;
+  padding: 0;
+}
+
+.menu-list {
+  box-sizing: border-box;
+  display: flex;
+  padding: 20px 20px 20px 20px;
+  width: 159px;
+  flex-direction: column;
+  background: #ffffff;
+
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: #c5c5c5;
+  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 0px 0px 5px 5px;
+
+  color: #6f6f6f;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+
+  cursor:pointer;
+
+  list-style-type: none;
+}
+
+.subitem {
+  padding-left: 10px;
+}
+
+.subitem.active  {
+  box-sizing: border-box;
+  color: #FFFFFF !important;
+  background-color: #4B68D2;
+  display: flex;
+
+  justify-content: flex-start;
+  padding-left: 10px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 15px;
+
+  width: 116px;
+  height: 25px;
+}
+
+
+</style>

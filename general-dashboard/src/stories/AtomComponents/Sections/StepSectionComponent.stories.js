@@ -1,6 +1,6 @@
 import StepSectionComponent from '../../../../src/components/Sections/stepsSectionComponent.vue'
 export default {
-  title: 'Elements/Sections/StepSection',
+  title: 'Elements/Sections/StepSection/StepSectionComponent',
   component:StepSectionComponent,
   tags: ['autodocs'],
   argTypes: {
@@ -32,8 +32,8 @@ export const StepComponentCard = {
     primary: true,
     label: 'Fila',
     backgroundColor: '#FFFFFF',
-    routerName: 'other',
-    concluded: false,
+    step: 0, 
+    index: 1
   },
 };
 
@@ -49,8 +49,8 @@ export const StepComponentMarked = {
     primary: true,
     label: 'Fila',
     backgroundColor: '#FFFFFF',
-    routerName: 'Fila',
-    concluded: false,
+    step: 0, 
+    index: 0
   },
 };
 
@@ -67,6 +67,8 @@ export const StepComponentConcluded = {
     label: 'Fila',
     backgroundColor: '#FFFFFF',
     routerName: 'Other',
-    concluded: true,
+    step: 1, 
+    index: 0,
+    subtext: 'Nome da Fila Escolhida'
   },
 };

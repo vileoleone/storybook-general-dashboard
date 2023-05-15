@@ -1,18 +1,29 @@
 <template>
-  <button type="button" class="next-section-button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+  <div type="span" class="dropzone-outerbox" :class="classes" @click="onClick" :style="style">
+    <label for="dropZoneFile">
+      <img :src="dropZoneIcon" alt="csvTable">
+      <h1 class="h1-text">Arraste ou Escolha o Arquivo</h1>
+      <h2 class="h2-text">O arquivo deve ser .CSV</h2>
+    </label>
+
+    <input class="dropzone" type="file">
+    
+  </input>
+    
+  </div>
 </template>
 
 <script>
-import ChevronRight from '../../../src/assets/icons/ChevronRight.svg'
-
+import '../../assets/scss/MenuList.scss'
+import dropZoneIcon from '../../../../src/assets/icons/DropZoneIcon.svg'
 export default {
-  name: 'MenuLayout',
+  name: 'DropZone',
 
-  components: {},
+  components: { },
 
   data() {
     return {
-      ChevronRight
+      dropZoneIcon
     }
   },
 
@@ -59,26 +70,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-  .next-section-button {
-    box-sizing: border-box;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 87px;
-    height: 39px;
-    
-    border: 1px solid #C5C5C5;
-    border-radius: 5px;
-
-    color: #3D55AE;
-
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 15px;
-}
-</style>

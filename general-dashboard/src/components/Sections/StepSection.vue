@@ -3,20 +3,22 @@
     <h1 class="section-head">
       {{label}}
     </h1>   
-    <div class="checkbox-list" v-for="(item, index) in list" :key="index">
-      <button class="mark-step"></button>
-      {{ item }}
+   <div class="step-div">
+    <div v-for="(subtext, label, index) in dict" :key="index" class="step-div">
+      <StepsSectionComponent :label="label" :index="index" :subtext="subtext" :step="step"/>
     </div>
+   </div>
+ 
+    
   </div>
 </template>
 
 <script>
-import '../../assets/scss/StepSection.scss'
-
+import StepsSectionComponent from './stepsSectionComponent.vue';
 export default {
   name: 'MenuLayout',
 
-  components: {},
+  components: {StepsSectionComponent},
 
   props: {
     label: {
@@ -36,6 +38,15 @@ export default {
     backgroundColor: {
       type: String,
     },
+    dict: {
+      type:Object
+    },
+    step: {
+      type: Number
+    }, 
+    index: {
+      type: Number
+    }
   },
 
   computed: {
@@ -61,3 +72,47 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  .step-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px 50px 0 60px;
+
+    width: fit-content;
+    height: 100%;
+    
+    background: #FFFFFF;
+
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+
+    color: #444444;
+
+  }
+
+  .section-head {
+    width: 141px;
+    height: 15px;
+
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    color: #444444;
+  }
+
+  .step-div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-right: 18px;
+    margin-bottom: 14px;
+  }
+</style>

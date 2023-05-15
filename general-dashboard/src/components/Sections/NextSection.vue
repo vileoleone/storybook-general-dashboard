@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import '../../assets/scss/MenuList.scss'
 import NextSectionButton from './NextSectionButton.vue';
 import NextSectionTitle from './NextSectionTitle.vue';
 export default {
@@ -60,3 +59,20 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  .next-section {
+    box-sizing: border-box;
+    height: 93px;
+    border-bottom: 1px #CED4DA solid;
+/*     border-top: none; */
+ /*    border-left: none; */
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 25px 25px 0 25px;
+    width: 100%;
+    margin-top:60px;
+
+  }
+</style>

@@ -1,20 +1,18 @@
 <template>
-  <button type="button" class="next-section-button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+  <div type="span" class="outer-container" :class="classes" @click="onClick" :style="style">
+   <h1 class="mailing-main-header">{{ label }}</h1>
+    <div  class="step-container" >
+      <component :list="queues" :is="vueComponent"/>
+    </div>
+  </div>
 </template>
 
 <script>
-import ChevronRight from '../../../src/assets/icons/ChevronRight.svg'
 
 export default {
   name: 'MenuLayout',
 
-  components: {},
-
-  data() {
-    return {
-      ChevronRight
-    }
-  },
+  components: { },
 
   props: {
     label: {
@@ -34,6 +32,10 @@ export default {
     backgroundColor: {
       type: String,
     },
+    queues: {
+      type: Array
+    },
+    vueComponent: {}, 
   },
 
   computed: {
@@ -61,24 +63,37 @@ export default {
 </script>
 
 <style lang="scss">
-  .next-section-button {
-    box-sizing: border-box;
+.mailing-main-header {
+	width: 37px;
+	height: 23px;
+ 
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 87px;
-    height: 39px;
-    
-    border: 1px solid #C5C5C5;
-    border-radius: 5px;
+	margin-bottom: 18px;
+	
+	color: #444444;
+}
 
-    color: #3D55AE;
+.outer-container{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+	justify-content: flex-start;
+  border-top: none;
+  border-right: none;
+  padding: 30px 0 0 70px;
+	background-color: #444444;
 
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 15px;
+  background: #FAFAFA;
+  
+  width: 79vw;
+}
+
+.step-container {
+		padding: 18px;
 }
 </style>

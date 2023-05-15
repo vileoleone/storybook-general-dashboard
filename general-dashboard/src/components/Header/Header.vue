@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import '../../assets/scss/Header.scss'
 import Logo from './Logo.vue'
 import Cards from './Cards.vue';
 import DashboardsLogo from '../../assets/icons/DashboardsLogo.svg'
@@ -92,3 +91,42 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  .header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    height: 60px;
+    background-color:#3D55AE;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: row;
+  max-height: 60px;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: row;
+  max-height: 60px;
+  img{
+    margin-right: 43px;
+  }
+
+  .api {
+   height: 11px;
+   width: 20px; 
+   align-self: center;
+   cursor: pointer;
+  }
+  .changeLog {
+    align-self: center;
+    cursor: pointer;
+    height: 18px;
+    width: 18px; 
+   }
+}
+</style>
