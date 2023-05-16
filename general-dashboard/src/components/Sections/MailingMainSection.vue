@@ -10,7 +10,7 @@
 <script>
 
 export default {
-  name: 'MenuLayout',
+  name: 'MailingMainSection',
 
   components: { },
 
@@ -89,11 +89,12 @@ export default {
 	background-color: #444444;
 
   background: #FAFAFA;
-  
-  width: 79vw;
+  width: 100%;
+
 }
 
 .step-container {
-		padding: 18px;
+  width: 100%;
+  margin-right: 20px;
 }
 </style>

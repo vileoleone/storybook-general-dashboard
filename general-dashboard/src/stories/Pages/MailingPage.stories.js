@@ -40,14 +40,14 @@ export const FileStepPageCard = {
   render: (args) => ({
     components: { ImportMailingPage },
     setup() {
-      return { args };
+      return { args }
     },
-    template: '<ImportMailingPage v-bind="args" />',
+    template: '<ImportMailingPage v-bind="args" />'
   }),
   args: {
     primary: true,
-    label: 'Fila',
+    label: 'File',
     backgroundColor: '#FFFFFF',
-    step: 1
-  },
-};
+    step: 1,
+  }
+}

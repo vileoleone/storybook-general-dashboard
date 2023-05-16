@@ -3,36 +3,33 @@
     <div v-for="(item, index) in list" :key="index">
       <template v-if="typeof item === 'object'">
         <div v-for="(value, key) in item" :key="key">
-          
-          <span class="list-object" @click="onClick" >
+          <span class="list-object" @click="onClick">
             <MenuListComponent :label="key" :style="{ marginBottom: marginBottom + 'px' }" />
-            <ChevronUpIcon v-if="clicked ==false"/>
-            <ChevronDownIcon v-if="clicked ==true"/>
+            <ChevronUpIcon v-if="clicked == false" />
+            <ChevronDownIcon v-if="clicked == true" />
           </span>
-          
-          <span v-if="clicked ==true">
+
+          <span v-if="clicked == true">
             <MenuListComponent
               class="subitem"
               v-for="item in value"
               :label="item"
-              :key="item" 
+              :key="item"
               :style="{ marginBottom: marginBottom + 'px' }"
-            >{{ item }}
-          </MenuListComponent>
-        </span>
-        
-      </div>
+              >{{ item }}
+            </MenuListComponent>
+          </span>
+        </div>
       </template>
 
       <template v-else>
         <MenuListComponent :label="item" :style="{ marginBottom: marginBottom + 'px' }" />
       </template>
-
     </div>
   </div>
 </template>
 
-<script>  
+<script>
 import MenuListComponent from './MenuListComponent.vue'
 import ChevronUpIcon from '../../assets/icons/ChevronUpIcon.vue'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon.vue'
@@ -44,7 +41,7 @@ export default {
   data() {
     return {
       isActive: false,
-      clicked:false
+      clicked: false
     }
   },
 
@@ -100,15 +97,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
+<style scoped lang="scss">
 .active {
   box-sizing: border-box;
   color: #252525 !important;
   background-color: #f0f0f0;
   display: flex;
   justify-content: flex-start;
-  padding-left: 10px ;
+  padding-left: 10px;
 
   font-style: normal;
   font-weight: 500;
@@ -124,7 +120,7 @@ export default {
   background-color: #f0f0f0;
   display: flex;
   justify-content: flex-start;
-  padding-left: 10px ;
+  padding-left: 10px;
 
   font-style: normal;
   font-weight: 500;
@@ -144,14 +140,13 @@ li {
   margin-bottom: 14.5px;
 }
 
-
-.list-object{
+.list-object {
   max-height: 25px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  width:max-content;
-  background: #F0F0F0;
+  width: max-content;
+  background: #f0f0f0;
   padding: 0;
 }
 
@@ -175,7 +170,7 @@ li {
   font-weight: 500;
   font-size: 13px;
 
-  cursor:pointer;
+  cursor: pointer;
 
   list-style-type: none;
 }
@@ -184,10 +179,10 @@ li {
   padding-left: 10px;
 }
 
-.subitem.active  {
+.subitem.active {
   box-sizing: border-box;
-  color: #FFFFFF !important;
-  background-color: #4B68D2;
+  color: #ffffff !important;
+  background-color: #4b68d2;
   display: flex;
 
   justify-content: flex-start;
@@ -201,6 +196,4 @@ li {
   width: 116px;
   height: 25px;
 }
-
-
 </style>

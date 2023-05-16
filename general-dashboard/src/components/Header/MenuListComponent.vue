@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'MenuLayout',
 
@@ -69,43 +68,42 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .mailing-main-header {
-	width: 37px;
-	height: 23px;
+  width: 37px;
+  height: 23px;
 
-	font-family: 'Work Sans';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 20px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
 
-	margin-bottom: 18px;
-	
-	color: #444444;
+  margin-bottom: 18px;
+
+  color: #444444;
 }
 
-.outer-container{
+.outer-container {
   box-sizing: border-box;
-    
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-		justify-content: flex-start;
+  justify-content: flex-start;
 
   padding: 30px 0 0 70px;
-		background-color: #444444;
+  background-color: #444444;
 
   width: 1133px;
   height: 619px;
 
-  background: #FAFAFA;
-  border: 1px solid #CED4DA ;
+  background: #fafafa;
+  border: 1px solid #ced4da;
   border-radius: 0px;
-    
 }
 
 .step-container {
-		border-top: 1px solid #CED4DA;
-		padding: 18px;
+  border-top: 1px solid #ced4da;
+  padding: 18px;
 }
 </style>

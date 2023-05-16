@@ -1,15 +1,14 @@
 <template>
-  <div type="span" class="queue-option-box" :class="classes"  :style="style">
-
-      <label class="queue-header" > Escolha a Fila * </label>
-          <button class="option-box" :class="{'option-box-active': this.active}" @click="onClick" >
-            Escolha uma opção
-            <img v-if="this.active ==false" :src="TriangleDown" alt="closed options">
-            <img v-if="this.active ==true" :src="TriangleUp" alt="open options"/>
-          </button>
-          <div class="queues" v-if="active ==true">
-            <div v-for="(item,index) in list" :key="index" class="option-box-queue">{{ item }}</div>
-          </div>
+  <div type="span" class="queue-option-box" :class="classes" :style="style">
+    <label class="queue-header"> Escolha a Fila * </label>
+    <button class="option-box" :class="{ 'option-box-active': this.active }" @click="onClick">
+      Escolha uma opção
+      <img v-if="this.active == false" :src="TriangleDown" alt="closed options" />
+      <img v-if="this.active == true" :src="TriangleUp" alt="open options" />
+    </button>
+    <div class="queues" v-if="active == true">
+      <div v-for="(item, index) in list" :key="index" class="option-box-queue">{{ item }}</div>
+    </div>
   </div>
 </template>
 
@@ -17,7 +16,7 @@
 import TriangleDown from '../../../../src/assets/icons/TriangleDown.svg'
 import TriangleUp from '../../../../src/assets/icons/TriangleUp.svg'
 export default {
-  name: 'MenuLayout',
+  name: 'QueueStep',
 
   components: {},
 
@@ -32,20 +31,20 @@ export default {
   props: {
     label: {
       type: String,
-      required: true,
+      required: true
     },
     primary: {
       type: Boolean,
-      default: false,
+      default: false
     },
     size: {
       type: String,
-      validator: function(value) {
-        return ['small', 'medium', 'large'].indexOf(value) !== -1;
-      },
+      validator: function (value) {
+        return ['small', 'medium', 'large'].indexOf(value) !== -1
+      }
     },
     backgroundColor: {
-      type: String,
+      type: String
     },
     list: {
       type: Array
@@ -58,31 +57,31 @@ export default {
         'storybook-button': true,
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
-        [`storybook-button--${this.size || 'medium'}`]: true,
-      };
+        [`storybook-button--${this.size || 'medium'}`]: true
+      }
     },
     style() {
       return {
-        backgroundColor: this.backgroundColor,
-      };
-    },
+        backgroundColor: this.backgroundColor
+      }
+    }
   },
 
   methods: {
     onClick() {
       this.active = !this.active
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
-<style lang="scss">
- .queues {
+<style scoped lang="scss">
+.queues {
   display: flex;
   flex-direction: column;
- }
+}
 
- .queue-header {
+.queue-header {
   width: 97px;
   height: 15px;
   margin-bottom: 7px;
@@ -96,7 +95,7 @@ export default {
   align-items: center;
 
   color: #444444;
- }
+}
 
 .queue-option-box {
   display: flex;
@@ -114,8 +113,8 @@ export default {
   width: 505px;
   height: 35px;
 
-  background: #FFFFFF;
-  border: 1px solid #CED4DA;
+  background: #ffffff;
+  border: 1px solid #ced4da;
   border-radius: 5px;
 
   font-family: 'Work Sans';
@@ -123,10 +122,10 @@ export default {
   font-weight: 400;
   font-size: 13px;
 
-  color: #8B949E;
- }
+  color: #8b949e;
+}
 
- .option-box-queue {
+.option-box-queue {
   box-sizing: border-box;
 
   display: flex;
@@ -136,8 +135,8 @@ export default {
   width: 505px;
   height: 35px;
 
-  background: #FFFFFF;
-  border: 1px solid #CED4DA;
+  background: #ffffff;
+  border: 1px solid #ced4da;
   border-top: none;
 
   font-family: 'Work Sans';
@@ -145,11 +144,10 @@ export default {
   font-weight: 400;
   font-size: 13px;
 
-  color: #8B949E;
- 
- }
+  color: #8b949e;
+}
 
- .option-box-active {
+.option-box-active {
   border-radius: 0;
- }
+}
 </style>

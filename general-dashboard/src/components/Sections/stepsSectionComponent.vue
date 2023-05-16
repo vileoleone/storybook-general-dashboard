@@ -1,170 +1,160 @@
 <template>
-    <div type="span" class="step-section-component" :class="classes" @click="onClick" :style="style">
-            <div class="list-label" v-if="step < index">
-                
-                <div class="checkbox"></div>
+  <div type="span" class="step-section-component" :class="classes" @click="onClick" :style="style">
+    <div class="list-label" v-if="step < index">
+      <div class="checkbox"></div>
 
-                {{ label }}
-                
-            </div>
-               
-            <div class="list-label marked"  v-if="step == index">
-                
-                <div class="checkbox marked"></div>
-
-                {{ label }}
-                
-            </div>
-
-            <div class="list-label concluded"  v-if="step > index">
-                
-                <div class="checkbox concluded"> <img :src="Checked" alt="Checked"/></div>
-
-                {{ label }}
-                
-            </div>
-
-            <div v-if="step > index" class="subtext">
-                {{ subtext }}
-            </div>
-
+      {{ label }}
     </div>
-  </template>
-  
-  <script>
 
-  import Checked from '../../../src/assets/icons/Checked.svg'
+    <div class="list-label marked" v-if="step == index">
+      <div class="checkbox marked"></div>
 
-  export default {
-    name: 'MenuLayout',
-  
-    components: {},
+      {{ label }}
+    </div>
 
-    data() {
-        return {
-            Checked
-        }
+    <div class="list-label concluded" v-if="step > index">
+      <div class="checkbox concluded"><img :src="Checked" alt="Checked" /></div>
+
+      {{ label }}
+    </div>
+
+    <div v-if="step > index" class="subtext">
+      {{ subtext }}
+    </div>
+  </div>
+</template>
+
+<script>
+import Checked from '../../../src/assets/icons/Checked.svg'
+
+export default {
+  name: 'StepSectionComponent',
+
+  components: {},
+
+  data() {
+    return {
+      Checked
+    }
+  },
+
+  props: {
+    label: {
+      type: String,
+      required: true
     },
-  
-    props: {
-      label: {
-        type: String,
-        required: true,
-      },
-      primary: {
-        type: Boolean,
-        default: false,
-      },
-      size: {
-        type: String,
-        validator: function(value) {
-          return ['small', 'medium', 'large'].indexOf(value) !== -1;
-        },
-      },
-      backgroundColor: {
-        type: String,
-      },
-      subtext: {
-        type: String,
-      }, 
-      step: {
-        type: Number
-      },
-      index: {
-        type: Number
+    primary: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      validator: function (value) {
+        return ['small', 'medium', 'large'].indexOf(value) !== -1
       }
     },
-  
-    computed: {
-      classes() {
-        return {
-          'storybook-button': true,
-          'storybook-button--primary': this.primary,
-          'storybook-button--secondary': !this.primary,
-          [`storybook-button--${this.size || 'medium'}`]: true,
-        };
-      },
-      style() {
-        return {
-          backgroundColor: this.backgroundColor,
-        };
-      },
+    backgroundColor: {
+      type: String
     },
-  
-    methods: {
-      onClick() {
-        this.$emit('click');
-      },
+    subtext: {
+      type: String
     },
-  };
-  </script>
-  
-  <style lang="scss">
-
-    .checkbox {
-      width: 7px;
-      height: 7px;
-      border: #7C7C7C 1px solid;
-      border-radius: 9px;
-      margin-right: 6px;
+    step: {
+      type: Number
+    },
+    index: {
+      type: Number
     }
+  },
 
-    .checkbox.marked { 
-      border: #3D55AE 1px solid;
-      background-color:#3D55AE ;
-    }
-
-    .checkbox.concluded { 
-      border:#7C7C7C 1px solid;
-      background-color:#7C7C7C ;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      img {
-          position: absolute;
-          display: flex;
-          align-self: center;
+  computed: {
+    classes() {
+      return {
+        'storybook-button': true,
+        'storybook-button--primary': this.primary,
+        'storybook-button--secondary': !this.primary,
+        [`storybook-button--${this.size || 'medium'}`]: true
+      }
+    },
+    style() {
+      return {
+        backgroundColor: this.backgroundColor
       }
     }
+  },
 
-    .list-label {
-      font-family: 'Work Sans';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 12px;
-      width: fit-content;
-      height: fit-content;
-
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-
-      color: #7C7C7C;
+  methods: {
+    onClick() {
+      this.$emit('click')
     }
+  }
+}
+</script>
 
-    .list-label.concluded {
-      color: #7C7C7C;
-    }
+<style scoped lang="scss">
+.checkbox {
+  width: 7px;
+  height: 7px;
+  border: #7c7c7c 1px solid;
+  border-radius: 9px;
+  margin-right: 6px;
+}
 
-    .list-label.marked {
-      color: #3D55AE;
-    }
+.checkbox.marked {
+  border: #3d55ae 1px solid;
+  background-color: #3d55ae;
+}
 
-    .subtext {
-      width: 135px;
-      height: 14px;
-      margin-left: 15px;
-      font-family: 'Work Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 12px;
+.checkbox.concluded {
+  border: #7c7c7c 1px solid;
+  background-color: #7c7c7c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      display: flex;
-      align-items: center;
+  img {
+    position: absolute;
+    display: flex;
+    align-self: center;
+  }
+}
 
-      color: #7C7C7C;
-    }
+.list-label {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  width: fit-content;
+  height: fit-content;
 
-  </style>
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  color: #7c7c7c;
+}
+
+.list-label.concluded {
+  color: #7c7c7c;
+}
+
+.list-label.marked {
+  color: #3d55ae;
+}
+
+.subtext {
+  width: 135px;
+  height: 14px;
+  margin-left: 15px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+
+  display: flex;
+  align-items: center;
+
+  color: #7c7c7c;
+}
+</style>

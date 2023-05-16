@@ -1,26 +1,31 @@
+
 <template>
   <button
     type="button"
-    class="next-section-button"
+    class="button-bottom"
     :class="classes"
     @click="onClick"
     :style="style"
+    v-if="isReady"
   >
     {{ label }}
+    <img :src="ArrowRightIcon" alt=" Arrow right">
   </button>
+
 </template>
 
 <script>
-import ChevronRight from '../../../src/assets/icons/ChevronRight.svg'
-
+import ChevronRight from '@/assets/icons/ChevronRight.svg'
+import ArrowRightIcon from '@/assets/icons/ArrowRightIcon.svg'
 export default {
-  name: 'NextSectionButton',
+  name: 'buttonBottom',
 
   components: {},
 
   data() {
     return {
-      ChevronRight
+      ChevronRight, 
+      ArrowRightIcon
     }
   },
 
@@ -41,6 +46,9 @@ export default {
     },
     backgroundColor: {
       type: String
+    },
+    isReady: {
+      type: Boolean
     }
   },
 
@@ -50,7 +58,7 @@ export default {
         'storybook-button': true,
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
-        [`storybook-button--${this.size || 'medium'}`]: true
+        [`storybook-button--${this.size || 'medium'}`]: true,
       }
     },
     style() {
@@ -69,24 +77,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.next-section-button {
-  box-sizing: border-box;
-
+.button-bottom {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 87px;
-  height: 39px;
+  align-items: center;
+  padding: 20px;
 
-  border: 1px solid #c5c5c5;
+  width: 100%;
+  height: 55px;
+
+  background: #4B68D2;
+  border: 2px solid #4B68D2;
   border-radius: 5px;
-
-  color: #3d55ae;
 
   font-family: 'Work Sans';
   font-style: normal;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 15px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+
+  color:#FFFFFF;
+
+  img {
+    margin-left: 7px;
+  }
+
 }
 </style>

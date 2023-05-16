@@ -1,4 +1,4 @@
- import NextSection from '../../../../src/components/Sections/NextSection.vue'
+ import NextSection from '@/components/Sections/NextSection.vue'
 export default {
   title: 'Elements/Sections/NextSection',
   component: NextSection,

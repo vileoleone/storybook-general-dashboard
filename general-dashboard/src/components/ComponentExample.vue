@@ -1,35 +1,31 @@
 <template>
-  <div type="span" class="menu-list" :class="classes" @click="onClick" :style="style">
-    
-  </div>
+  <div type="span" class="outer-box" :class="classes" @click="onClick" :style="style"></div>
 </template>
 
 <script>
-import '../../assets/scss/MenuList.scss'
-
 export default {
   name: 'MenuLayout',
 
-  components: { },
+  components: {},
 
   props: {
     label: {
       type: String,
-      required: true,
+      required: true
     },
     primary: {
       type: Boolean,
-      default: false,
+      default: false
     },
     size: {
       type: String,
-      validator: function(value) {
-        return ['small', 'medium', 'large'].indexOf(value) !== -1;
-      },
+      validator: function (value) {
+        return ['small', 'medium', 'large'].indexOf(value) !== -1
+      }
     },
     backgroundColor: {
-      type: String,
-    },
+      type: String
+    }
   },
 
   computed: {
@@ -38,20 +34,35 @@ export default {
         'storybook-button': true,
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
-        [`storybook-button--${this.size || 'medium'}`]: true,
-      };
+        [`storybook-button--${this.size || 'medium'}`]: true
+      }
     },
     style() {
       return {
-        backgroundColor: this.backgroundColor,
-      };
-    },
+        backgroundColor: this.backgroundColor
+      }
+    }
   },
 
   methods: {
     onClick() {
-      this.$emit('click');
-    },
-  },
-};
+      this.$emit('click')
+    }
+  }
+}
 </script>
+
+<style scoped lang="scss">
+
+.outer-box {
+
+}
+
+.h1-text {
+
+}
+
+.h2-text {
+
+}
+</style>

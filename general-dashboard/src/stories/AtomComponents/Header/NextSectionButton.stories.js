@@ -1,7 +1,9 @@
-import NextSectionButton from '../../../../src/components/Sections/NextSectionButton.vue'
+import NextSectionButton from '@/components/Sections/NextSectionButton.vue'
+import ButtonBottom from '@/components/Sections/ButtonBottom.vue'
+
 export default {
   title: 'Atoms/Sections/NextSection',
-  component: NextSectionButton,
+  component: NextSectionButton, ButtonBottom,
   tags: ['autodocs'],
   decorators: [
     (story) => ({
@@ -26,7 +28,7 @@ export default {
   },
 };
 
-export const NextSectionButtonAtom = {
+export const NextSectionButtonStory = {
   render: (args) => ({
     components: { NextSectionButton},
     setup() {
@@ -40,3 +42,18 @@ export const NextSectionButtonAtom = {
     backgroundColor: '#FFFFFF',
   },
 };
+
+export const ButtonBottomStory = {
+  render: (args) => ({
+    components: { ButtonBottom },
+    setup() {
+      return { args }
+    },
+    template: '<ButtonBottom v-bind="args" />'
+  }),
+  args: {
+    primary: true,
+    label: 'Ir para a próxima Etapa',
+    isReady: true
+  }
+}

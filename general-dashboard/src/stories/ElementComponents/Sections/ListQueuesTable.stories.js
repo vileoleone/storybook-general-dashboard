@@ -1,4 +1,4 @@
-/* import ListQueues from '@/components/Sections/MailingSectionComponents/ListQueues.vue'
+import ListQueues from '@/components/Sections/MailingSectionComponents/ListQueues.vue'
 export default {
   title: 'Atoms/Sections/ListQueuesTable',
   component: ListQueues,
@@ -38,8 +38,8 @@ export const ListQueuesTable = {
       data: {
         nomedacoluna: 'itemdacoluna',
         nomedacoluna2: 'itemdacoluna',
-        nomedacoluna3: 'itemdacoluna'
+        nomedacoluna3: 'itemdacoluna',
       }
     }
   }
-} */
+}

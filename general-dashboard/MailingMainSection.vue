@@ -1,18 +1,17 @@
 <template>
-  <div type="span" class="logo-paragraph-card" :class="classes" @click="onClick" :style="style">
-    <div class="inner-logo" :style="this.innerBackgroundColor">
-      <VonixLogo />
+  <div type="span" class="outer-container" :class="classes" @click="onClick" :style="style">
+    <h1 class="mailing-main-header">{{ label }}</h1>
+    <div class="step-container">
+      <component :list="queues" :is="vueComponent" />
     </div>
   </div>
 </template>
 
 <script>
-import VonixLogo from '../../assets/icons/VonixLogo.vue'
-
 export default {
-  name: 'LogoCard',
+  name: 'MenuLayout',
 
-  components: { VonixLogo },
+  components: {},
 
   props: {
     label: {
@@ -31,7 +30,11 @@ export default {
     },
     backgroundColor: {
       type: String
-    }
+    },
+    queues: {
+      type: Array
+    },
+    vueComponent: {}
   },
 
   computed: {
@@ -59,20 +62,37 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.logo-paragraph-card {
+.mailing-main-header {
+  width: 37px;
+  height: 23px;
+
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+
+  margin-bottom: 18px;
+
+  color: #444444;
+}
+
+.outer-container {
   box-sizing: border-box;
-  border-bottom: 1px solid #c5c5c5;
-  width: 60px;
-  height: 61px;
-  .inner-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0px 110px 110px 0px;
-    border-bottom: 1px solid #ffffff;
-    background-color: #ffffff;
-    width: 60px;
-    height: 60px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-top: none;
+  border-right: none;
+  padding: 30px 0 0 70px;
+  background-color: #444444;
+
+  background: #fafafa;
+
+  width: 79vw;
+}
+
+.step-container {
+  padding: 18px;
 }
 </style>

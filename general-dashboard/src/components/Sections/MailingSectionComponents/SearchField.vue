@@ -1,26 +1,23 @@
 <template>
-  <div type="div" class="next-section-title" :class="classes" @click="onClick" :style="style">
-    <h1>{{ label }}</h1>
-    <span class="allRoutes">
-      <span v-for="(route, index) in list" :key="index" class="routes">
-        <h2>{{ route }}</h2>
-        <img :src="ChevronRight" :alt="label" class="chevron-right" />
-      </span>
-    </span>
+  <div type="span" class="search-field" :class="classes" @click="onClick" :style="style">
+    <h1 class="h1-text">Outras importações nessa fila</h1>
+    <div class="search-field-outer-box">
+      <img :src="SearchIcon" alt="search icon" />
+      <input type="text" placeholder="Pesquisar por arquivo" />
+    </div>
   </div>
 </template>
 
 <script>
-import ChevronRight from '../../../src/assets/icons/ChevronRight.svg'
-
+import SearchIcon from '@/assets/icons/SearchIcon.svg'
 export default {
-  name: 'nextSectionButton',
+  name: 'SearchField',
 
   components: {},
 
   data() {
     return {
-      ChevronRight
+      SearchIcon
     }
   },
 
@@ -41,9 +38,6 @@ export default {
     },
     backgroundColor: {
       type: String
-    },
-    list: {
-      type: Array
     }
   },
 
@@ -72,49 +66,67 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.next-section-title {
-  box-sizing: border-box;
+.search-field {
   display: flex;
-  flex-direction: column;
-}
-.routes {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-}
-.allRoutes {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
-h1 {
-  width: 213px;
+.h1-text {
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 14px;
+  line-height: 16px;
   display: flex;
+  align-items: center;
+
   color: #444444;
-  margin-bottom: 5px;
-  margin-top: 0;
 }
 
-h2 {
+.search-field-outer-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 10px;
+
+  width: 255px;
+
+
+  background: #ffffff;
+  border: 1px solid #c5c5c5;
+  border-radius: 5px;
+  color: #c5c5c5;
+
+  img {
+    margin-right: 8.3px;
+  }
+
+}
+
+
+input {
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 600;
-  font-size: 11px;
+  font-size: 13px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
 
-  color: #afafaf;
+  color: #8f8f8f;
+  border-style: none;
 
-  height: 13px;
+  width: 100%;
+  height: 100%;
 }
 
-.chevron-right {
-  margin-left: 12px;
-  margin-right: 12px;
+textarea:focus, input:focus{
+    outline: none;
 }
+
+
 </style>

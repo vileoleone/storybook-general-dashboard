@@ -1,7 +1,7 @@
-/* import ListQueues from '@/components/Sections/MailingSectionComponents/ListQueues.vue'
+import FileStep from '@/components/Sections/MailingSectionComponents/FileStep.vue'
 export default {
-  title: 'Atoms/Sections/ListQueuesTable',
-  component: ListQueues,
+  title: 'Elements/Sections/FileStep',
+  component: FileStep,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -20,17 +20,17 @@ export default {
   }
 }
 
-export const ListQueuesTable = {
+export const FileStepTable = {
   render: (args) => ({
-    components: { ListQueues },
+    components: { FileStep },
     setup() {
       return { args }
     },
-    template: '<ListQueues v-bind="args" />'
+    template: '<FileStep v-bind="args" />'
   }),
   args: {
     primary: true,
-    label: 'ListQueues',
+    label: 'FileStep',
     backgroundColor: '#FFFFFF',
     queues: {
       name: 'nomedoaquivoimportado.csv',
@@ -42,4 +42,4 @@ export const ListQueuesTable = {
       }
     }
   }
-} */
+}
