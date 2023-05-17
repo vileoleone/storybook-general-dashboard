@@ -1,5 +1,5 @@
 <template>
-    <div class="card-outer-box" @click="ToogleMenu" >
+    <div class="card-outer-box" @click="ToogleMenu">
       <span type="span" class="cards" :class="classes" :style="style">
         <div
           class="icon-left"
@@ -16,17 +16,17 @@
           <ArrowDown />
         </div>
       </span>
-      <MenuList v-show="showList" :list="list" />
+      <MenuListCalls v-show="showList" :list="list" />
     </div>
 </template>
 
 <script>
 import ArrowDown from '%/icons/ArrowDown.vue'
-import MenuList from '#/Header/MenuList.vue'
+import MenuListCalls from '#/Header/MenuListCalls.vue'
 export default {
   name: 'CardLayout',
 
-  components: { ArrowDown, MenuList },
+  components: { ArrowDown, MenuListCalls },
 
   data() {
     return {
@@ -78,7 +78,7 @@ export default {
         'storybook-button': true,
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
-        [`storybook-button--${this.size || 'medium'}`]: true, 
+        [`storybook-button--${this.size || 'medium'}`]: true,
         onHover: this.showList
       }
     },
@@ -91,8 +91,13 @@ export default {
 
   methods: {
     ToogleMenu() {
+      this.$emit('click')
       this.showList = !this.showList
     },
+    onClick() {
+      this.$emit('click')
+      this.showList = !this.showList
+    }
   }
 }
 </script>
@@ -121,7 +126,7 @@ export default {
 .cards {
   align-items: center;
   align-self: flex-start;
-  background-color: #3D55AE;
+  background-color: #FD9802;
   border-bottom: 1px solid #c5c5c5;
   color: #ffffff;
   cursor: pointer;
@@ -130,12 +135,9 @@ export default {
   justify-content: center;
   min-height: 60px;
   width: 159px;
-
 }
-
 .cards.onHover {
-  background-color: #FD9802;
-  
+  background-color: #3D55AE;
 }
 
 p {

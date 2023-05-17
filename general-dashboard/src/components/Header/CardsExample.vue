@@ -1,14 +1,8 @@
 <template>
-    <div class="card-outer-box" @click="ToogleMenu" >
-      <span type="span" class="cards" :class="classes" :style="style">
-        <div
-          class="icon-left"
-          :style="{
-            marginTop: marginTop + 'px',
-            marginBottom: marginBottom + 'px',
-            marginRight: iconRightMargin + 'px'
-          }"
-        >
+  <div class="card-outer-box" @click="ToogleMenu">
+    <q-btn type="span" :class="classes" :style="style">
+      <span class="inner-style">
+        <div class="icon-left" :style="styles">
           <img :src="icon" :alt="label" />
         </div>
         <p>{{ label }}</p>
@@ -16,13 +10,18 @@
           <ArrowDown />
         </div>
       </span>
-      <MenuList v-show="showList" :list="list" />
-    </div>
+      <q-menu>
+         <MenuList  v-show="showList" :list="list" />
+      </q-menu>
+    </q-btn>
+  </div>
 </template>
 
 <script>
 import ArrowDown from '%/icons/ArrowDown.vue'
 import MenuList from '#/Header/MenuList.vue'
+import ChevronUpIcon from '@/assets/icons/ChevronUpIcon.vue'
+
 export default {
   name: 'CardLayout',
 
@@ -33,7 +32,6 @@ export default {
       showList: false
     }
   },
-
   props: {
     label: {
       type: String,
@@ -67,8 +65,8 @@ export default {
     list: {
       type: Array
     },
-    cardSelected:{
-      type:String
+    cardSelected: {
+      type: String
     }
   },
 
@@ -78,8 +76,8 @@ export default {
         'storybook-button': true,
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
-        [`storybook-button--${this.size || 'medium'}`]: true, 
-        onHover: this.showList
+        [`storybook-button--${this.size || 'medium'}`]: true,
+        cards: true
       }
     },
     style() {
@@ -92,12 +90,12 @@ export default {
   methods: {
     ToogleMenu() {
       this.showList = !this.showList
-    },
+    }
   }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .card-outer-box {
   display: flex;
   flex-direction: column;
@@ -117,11 +115,16 @@ export default {
   margin-left: 11.29px;
   width: 11.41px;
 }
+.inner-style {
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
 
 .cards {
   align-items: center;
   align-self: flex-start;
-  background-color: #3D55AE;
+  background-color: #3d55ae;
   border-bottom: 1px solid #c5c5c5;
   color: #ffffff;
   cursor: pointer;
@@ -130,12 +133,10 @@ export default {
   justify-content: center;
   min-height: 60px;
   width: 159px;
-
 }
 
 .cards.onHover {
-  background-color: #FD9802;
-  
+  background-color: #fd9802;
 }
 
 p {

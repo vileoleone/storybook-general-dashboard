@@ -1,16 +1,28 @@
 <template>
-  <div type="span" class="menu-list-outer-box" :class="classes" :style="style">
-    <q-list v-for="(item, index) in list" :key="index">
+  <div type="span" class="menu-list-call-outer-box" :class="classes" :style="style">
+    
+    <span class="menu-list-call-header">
+
+      <h1 class="calls-h1">Todas as chamadas</h1>
+      <h2 class="calls-h2">Chamadas por: </h2> 
+      
+      </span>
+    <div v-for="(item, index) in list" :key="index">
       <template v-if="typeof item === 'object'">
-        <div v-for="(value, key) in item" :key="key">
+        <div v-for="(value, key) in item" :key="key" @mouseleave="clicked = false">
           <span class="menu-list-object" @click="onClick">
-            <MenuItem :label="key"/>
-            <ChevronUpIcon v-if="clicked == true" />
-            <ChevronDownIcon v-if="clicked == false" />
+            <MenuItem :label="key" :style="{ marginBottom: marginBottom + 'px' }" />
+            <ChevronUpIcon v-if="clicked == false" />
+            <ChevronDownIcon v-if="clicked == true" />
           </span>
 
           <span v-if="clicked == true">
-            <MenuItem class="subitem" v-for="item in value" :label="item" :key="item"
+            <MenuItem
+              class="subitem"
+              v-for="item in value"
+              :label="item"
+              :key="item"
+              :style="{ marginBottom: marginBottom + 'px' }"
               >{{ item }}
             </MenuItem>
           </span>
@@ -20,7 +32,7 @@
       <template v-else>
         <MenuItem :label="item" :style="{ marginBottom: marginBottom + 'px' }" />
       </template>
-    </q-list>
+    </div>
   </div>
 </template>
 
@@ -107,6 +119,36 @@ export default {
   padding-left: 10px;
 }
 
+.calls-h1 {
+
+  align-items: center;
+  color: #6F6F6F;
+  display: flex;
+  font-family: 'Work Sans';
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  height: 15px;
+  line-height: 15px;
+  margin-top: 0;
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #D9D9D9 ;
+
+}
+.calls-h2 {
+
+  align-items: center;
+  color: #9F9F9F;
+  display: flex;
+  font-family: 'Work Sans';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 0;
+  width: 100%;
+}
+
 .clicker {
   background-color: #f0f0f0;
   box-sizing: border-box;
@@ -142,7 +184,13 @@ li {
   width: max-content;
 }
 
-.menu-list-outer-box {
+.menu-list-call-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.menu-list-call-outer-box {
   background: #ffffff;
   border-color: #c5c5c5;
   border-radius: 0px 0px 5px 5px;
@@ -159,7 +207,7 @@ li {
   font-style: normal;
   font-weight: 500;
   list-style-type: none;
-  padding: 20px 2px 0 20px;
+  padding: 20px 20px 20px 20px;
   width: 159px;
 }
 

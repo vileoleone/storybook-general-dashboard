@@ -1,0 +1,112 @@
+
+<template>
+  <div type="span" :class="classes" @click="onClick" :style="style" v-if="this.fileIsLoaded">
+  <button
+    type="button"
+    class="button-bottom"
+    :class="classes"
+    @click="nextStep"
+    :style="style"
+    v-if="isReady"
+  >
+    {{ label }}
+    <img :src="ArrowRightIcon" alt=" Arrow right">
+  </button>
+</div>
+</template>
+
+<script>
+import ChevronRight from '@/assets/icons/ChevronRight.svg'
+import ArrowRightIcon from '@/assets/icons/ArrowRightIcon.svg'
+import { mapWritableState } from 'pinia'
+import { useMailingStore } from '@/stores/store'
+export default {
+  name: 'buttonBottom',
+
+  components: {},
+
+  data() {
+    return {
+      ChevronRight, 
+      ArrowRightIcon
+    }
+  },
+
+  props: {
+    label: {
+      type: String,
+      required: true
+    },
+    primary: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      validator: function (value) {
+        return ['small', 'medium', 'large'].indexOf(value) !== -1
+      }
+    },
+    backgroundColor: {
+      type: String
+    },
+    isReady: {
+      type: Boolean
+    }
+  },
+
+  computed: {
+    classes() {
+      return {
+        'storybook-button': true,
+        'storybook-button--primary': this.primary,
+        'storybook-button--secondary': !this.primary,
+        [`storybook-button--${this.size || 'medium'}`]: true,
+      }
+    },
+    style() {
+      return {
+        backgroundColor: this.backgroundColor
+      }
+    }, 
+     ...mapWritableState(useMailingStore, {
+      step: 'globalStep',
+      fileIsLoaded: 'mailingCsvFile'
+      }),
+  },
+
+  methods: {
+    onClick() {
+      this.$emit('click')
+    }, 
+    nextStep() {
+      this.step++
+    },
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.button-bottom {
+  align-items: center;
+  background: #4B68D2;
+  border-radius: 5px;
+  border: 2px solid #4B68D2;
+  color:#FFFFFF;
+  display: flex;
+  font-family: 'Work Sans';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  height: 55px;
+  justify-content: center;
+  line-height: 12px;
+  padding: 20px;
+  width: 100%;
+
+  img {
+    margin-left: 7px;
+  }
+
+}
+</style>

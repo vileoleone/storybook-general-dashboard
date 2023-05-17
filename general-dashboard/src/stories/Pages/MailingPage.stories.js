@@ -1,4 +1,4 @@
- import ImportMailingPage from '../../../src/pages/ImportMailingPage.vue'
+import ImportMailingPage from "@/pages/ImportMailingPage.vue";
 export default {
   title: 'Pages/MailingPages',
   component: ImportMailingPage,
@@ -20,7 +20,7 @@ export default {
   },
 };
 
-export const QueueStepPageCard = {
+export const QueueStepPageStory = {
   render: (args) => ({
     components: { ImportMailingPage },
     setup() {
@@ -36,7 +36,7 @@ export const QueueStepPageCard = {
   },
 };
 
-export const FileStepPageCard = {
+export const FileStepPageStory = {
   render: (args) => ({
     components: { ImportMailingPage },
     setup() {

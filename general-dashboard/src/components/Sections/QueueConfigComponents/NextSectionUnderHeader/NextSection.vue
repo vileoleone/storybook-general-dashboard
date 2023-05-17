@@ -1,18 +1,24 @@
 <template>
-  <div type="span" class="logo-outer-box" :class="classes" @click="onClick" :style="style">
-    <div class="inner-logo-box" :style="this.innerBackgroundColor">
-      <VonixLogo />
-    </div>
+  <div
+    type="span"
+    class="next-section-outer-box"
+    :class="classes"
+    @click="onClick"
+    :style="styles"
+  >
+    <NextSectionTitle label="Importação de Contatos" :list="routes" />
+    <ButtonTopRight label="Próximo" />
   </div>
 </template>
 
 <script>
-import VonixLogo from '%/icons/VonixLogo.vue'
+import ButtonTopRight from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonTopRight.vue'
+import NextSectionTitle from '#/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSectionTitle.vue'
 
 export default {
-  name: 'LogoCard',
+  name: 'NextSection',
 
-  components: { VonixLogo },
+  components: { ButtonTopRight, NextSectionTitle },
 
   props: {
     label: {
@@ -31,6 +37,9 @@ export default {
     },
     backgroundColor: {
       type: String
+    },
+    routes: {
+      type: Array
     }
   },
 
@@ -47,7 +56,8 @@ export default {
       return {
         backgroundColor: this.backgroundColor
       }
-    }
+    },
+
   },
 
   methods: {
@@ -59,20 +69,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.logo-outer-box {
+.next-section-outer-box {
+  align-items: center;
+  border-bottom: 1px #ced4da solid;
   box-sizing: border-box;
-  border-bottom: 1px solid #c5c5c5;
-  width: 60px;
-  height: 61px;
-  .inner-logo-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0px 110px 110px 0px;
-    border-bottom: 1px solid #ffffff;
-    background-color: #ffffff;
-    width: 60px;
-    height: 60px;
-  }
+  display: flex;
+  height: 93px;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding: 25px 25px 0 25px;
+  width: 100%;
 }
 </style>

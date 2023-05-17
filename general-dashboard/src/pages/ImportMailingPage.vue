@@ -3,13 +3,13 @@
     <HeaderComponent />
     <NextSection :routes="nextSectionList" />
 
-    <div v-if="step == 0" class="import-sections">
+    <div v-if="this.step == 0" class="import-sections">
       <StepSection label="Etapas de Importação" :dict="stepSectionDict" :step="0" />
 
       <MailingMainSection label="Fila" :queues="queueList" :vueComponent="QueueStep" />
     </div>
 
-    <div v-if="step == 1" class="import-sections">
+    <div v-if="this.step == 1" class="import-sections">
       <StepSection label="Etapas de Importação" :dict="stepSectionDict" :step="1" />
 
       <MailingMainSection label="Arquivo" :queues="queueList" :vueComponent="FileStep" />
@@ -18,12 +18,14 @@
 </template>
 
 <script>
-import { default as HeaderComponent } from '../components/Header/Header.vue'
-import NextSection from '@/components/Sections/NextSection.vue'
-import StepSection from '../components/Sections/StepSection.vue'
-import MailingMainSection from '../components/Sections/MailingMainSection.vue'
-import QueueStep from '../components/Sections/MailingSectionComponents/QueueStep.vue'
-import FileStep from '@/components/Sections/MailingSectionComponents/FileStep.vue'
+import { default as HeaderComponent } from '#/Header/Header.vue'
+import NextSection from '#/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSection.vue'
+import StepSection from '#/Sections/QueueConfigComponents/LeftSectionSteps/LeftSectionSteps.vue'
+import { default as MailingMainSection } from '#/Sections/QueueConfigComponents/Main.vue'
+import QueueStep from '#/Sections/QueueConfigComponents/RightSectionSteps/QueueStep.vue'
+import { default as FileStep } from '#/Sections/QueueConfigComponents/RightSectionSteps/FileStep.vue'
+import { mapState } from 'pinia'
+import { useMailingStore } from '@/stores/store'
 export default {
   name: 'ImportMailingPage',
 
@@ -45,7 +47,6 @@ export default {
       queueList: ['filafonacao', 'filaatendimento']
     }
   },
-
   props: {
     label: {
       type: String,
@@ -63,9 +64,6 @@ export default {
     },
     backgroundColor: {
       type: String
-    },
-    step: {
-      type: Number
     },
     queuesObject: {
       type: Object
@@ -85,7 +83,10 @@ export default {
       return {
         backgroundColor: this.backgroundColor
       }
-    }
+    }, 
+     ...mapState(useMailingStore, {
+      step: 'globalStep',
+      }),
   },
 
   methods: {
