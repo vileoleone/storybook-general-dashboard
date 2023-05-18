@@ -1,36 +1,39 @@
 <template>
-    <div class="card-outer-box" @click="ToogleMenu">
-      <span type="span" class="cards" :class="classes" :style="style">
-        <div
-          class="icon-left"
-          :style="{
-            marginTop: marginTop + 'px',
-            marginBottom: marginBottom + 'px',
-            marginRight: iconRightMargin + 'px'
-          }"
-        >
+  <div class="card-outer-box" >
+    <q-btn
+      type="span"
+      :class="classes"
+      :style="style"
+    >
+      <span class="inner-style">
+        <div class="icon-left" :style="styles">
           <img :src="icon" :alt="label" />
         </div>
         <p>{{ label }}</p>
-        <div class="icon-right">
-          <ArrowDown />
-        </div>
+        <img :src="ArrowDown" v-if="showList == false" class="icon-right" alt="close Icon" />
+        <img :src="ArrowUpIcon" v-if="showList == true" class="icon-right" alt="open Icon" />
       </span>
-      <MenuListCalls v-show="showList" :list="list" />
-    </div>
+      <q-menu anchor="bottom middle" self="top middle" @before-show="showList = true" @before-hide="showList = false" >
+        <MenuListCalls :list="list" />
+      </q-menu>
+    </q-btn>
+  </div>
 </template>
 
 <script>
-import ArrowDown from '%/icons/ArrowDown.vue'
+import ArrowDown from '%/icons/ArrowDown.svg'
+import ArrowUpIcon from '@/assets/icons/ArrowUpIcon.svg'
 import MenuListCalls from '#/Header/MenuListCalls.vue'
 export default {
   name: 'CardLayout',
 
-  components: { ArrowDown, MenuListCalls },
+  components: { MenuListCalls },
 
   data() {
     return {
-      showList: false
+      showList: false,
+      ArrowDown,
+      ArrowUpIcon
     }
   },
 
@@ -67,8 +70,8 @@ export default {
     list: {
       type: Array
     },
-    cardSelected:{
-      type:String
+    cardSelected: {
+      type: String
     }
   },
 
@@ -79,12 +82,14 @@ export default {
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
         [`storybook-button--${this.size || 'medium'}`]: true,
+        cards: true,
         onHover: this.showList
       }
     },
     style() {
       return {
-        backgroundColor: this.backgroundColor
+        backgroundColor: this.backgroundColor,
+        
       }
     }
   },
@@ -106,8 +111,12 @@ export default {
 .card-outer-box {
   display: flex;
   flex-direction: column;
+  max-width: fit-content;
+  max-height: fit-content;
 }
-
+.card-call.onHover {
+  background-color: #fd9802;
+}
 .icon-left {
   height: 18px;
   margin-right: 5px;
@@ -126,7 +135,7 @@ export default {
 .cards {
   align-items: center;
   align-self: flex-start;
-  background-color: #FD9802;
+  background-color: #3d55ae;
   border-bottom: 1px solid #c5c5c5;
   color: #ffffff;
   cursor: pointer;
@@ -136,8 +145,9 @@ export default {
   min-height: 60px;
   width: 159px;
 }
+
 .cards.onHover {
-  background-color: #3D55AE;
+  background-color: #fd9802;
 }
 
 p {

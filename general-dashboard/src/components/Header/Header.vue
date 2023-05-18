@@ -1,34 +1,23 @@
 <template>
   <span type="span" class="header-outer-box" :class="classes" @click="onClick" :style="style">
-  <span class="left-section-cards">
-      <Logo label="Logo" backgroundColor="#FD9802"/>
-      <Cards
-        label="Dashboards"
-        backgroundColor="#FD9802"
-        :icon="DashboardsLogo"
-        :list="dashboardList"
-      />
-      <CallsCard label="Chamadas" backgroundColor="#3D55AE" :icon="iconPhone" :list="ChamadasList" />
-      <Cards label="Conversas" backgroundColor="#3D55AE" :icon="ChatsLogo" :list="ConversasList" />
-      <Cards label="Agentes" backgroundColor="#3D55AE" :icon="AgentsLogo" :list="AgentesList" />
-      <Cards
-        label="Configurações"
-        backgroundColor="#3D55AE"
-        :icon="SettingsIcon"
-        :list="ConfiguraçõesList"
-      />
+    <span class="left-section-cards">
+      <DashboardCard label="Dashboards" :icon="DashboardsLogo" :list="dashboardList" />
+      <CallsCard label="Chamadas" :icon="iconPhone" :list="ChamadasList" />
+      <Cards label="Conversas" :icon="ChatsLogo" :list="ConversasList" />
+      <Cards label="Agentes" :icon="AgentsLogo" :list="AgentesList" />
+      <Cards label="Configurações" :icon="SettingsIcon" :list="ConfiguraçõesList" />
     </span>
     <span class="right-section-cards">
       <img class="api-button-icon" :src="ApiButton" alt="ApiButton" />
       <img class="changeLog-button-icon" :src="ChangeLogButton" />
-      <Cards label="Olá Rodrigo Santos" backgroundColor="#3D55AE" :icon="UserLogo" />
+      <Cards label="Olá Rodrigo Santos" :icon="UserLogo" />
     </span>
   </span>
 </template>
 
 <script>
-import Logo from './Logo.vue'
 import Cards from './Cards.vue'
+import DashboardCard from './DashboardCard.vue'
 import DashboardsLogo from '%/icons/DashboardsLogo.svg'
 import iconPhone from '%/icons/IconPhone.svg'
 import ChatsLogo from '%/icons/ChatsLogo.svg'
@@ -42,7 +31,7 @@ import CallsCard from './CallsCard.vue'
 export default {
   name: 'HeaderLayout',
 
-  components: { Logo, Cards, CallsCard },
+  components: { Cards, CallsCard, DashboardCard },
 
   data() {
     return {
@@ -67,45 +56,41 @@ export default {
         'Tipo',
         'Número',
         'Localidade',
-        'Operadora', 
-        'Tronco', 
-        'Horário', 
-        'Duração', 
+        'Operadora',
+        'Tronco',
+        'Horário',
+        'Duração',
         'Filas',
         'Desempenho',
-        'Atendimentos por horário' 
+        'Atendimentos por horário'
       ],
-      ConversasList: [
-        'Chat', 
-        'Email', 
-        'Mensagens de Email' 
-      ],
+      ConversasList: ['Chat', 'Email', 'Mensagens de Email'],
       AgentesList: [
-        'Visão Geral', 
-        'Ranking', 
-        'Pausas', 
+        'Visão Geral',
+        'Ranking',
+        'Pausas',
         'Frequência',
         'Frequência/Dia',
-        'Sessões', 
-        'Detalhado', 
+        'Sessões',
+        'Detalhado',
         'Ociosidade'
       ],
       ConfiguraçõesList: [
-        'Filas', 
-        'Filas de Fonação', 
-        'Agentes', 
-        'Ramais', 
-        'Uras', 
-        'Cadastro de audios', 
-        'Número de Entrada', 
+        'Filas',
+        'Filas de Fonação',
+        'Agentes',
+        'Ramais',
+        'Uras',
+        'Cadastro de audios',
+        'Número de Entrada',
         'Rotas de saída',
-        'Ramais administrativos', 
-        'Perfiladores', 
-        'Motivos de pausas', 
-        'Brokers de atendimento', 
-        'Tokens', 
-        'Respostas rápidas', 
-        'Planos e tarifas', 
+        'Ramais administrativos',
+        'Perfiladores',
+        'Motivos de pausas',
+        'Brokers de atendimento',
+        'Tokens',
+        'Respostas rápidas',
+        'Planos e tarifas',
         'Usuários'
       ]
     }
@@ -144,49 +129,53 @@ export default {
   },
 
   methods: {
-    onClick() {
-      this.$emit('click')
-    }
   }
 }
 </script>
 
 <style scoped lang="scss">
-  .api-button-icon {
-    align-self: center;
-    cursor: pointer;
-    height: 11px;
-    width: 20px;
-    }
-  .changeLog-button-icon {
-    align-self: center;
-    cursor: pointer;
-    height: 18px;
-    width: 18px;
-  }
-  .header-outer-box {
-    background-color: #3d55ae;
-    display: flex;
-    height: 60px;
-    justify-content: space-between;
-    position: absolute;
-    width: 100%;
-  }
+.api-button-icon {
+  align-self: center;
+  cursor: pointer;
+  height: 11px;
+  width: 20px;
+}
+.changeLog-button-icon {
+  align-self: center;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+}
+.header-outer-box {
+  background-color: #3d55ae;
+  display: flex;
+  height: 59px;
+  justify-content: space-between;
 
-  .left-section-cards {
-    display: flex;
-    flex-direction: row;
-    max-height: 60px;
-  }
+  width: 100%;
+  margin: 0;
+}
 
-  .right-section-cards {
-    display: flex;
-    flex-direction: row;
-    max-height: 60px;
+.left-button {
+  display: flex;
+}
+.left-button.active {
+  display: flex;
+   background-color: #FD9802;
+}
+
+.left-section-cards {
+  display: flex;
+  flex-direction: row;
+  max-height: 60px;
+}
+
+.right-section-cards {
+  display: flex;
+  flex-direction: row;
+  max-height: 60px;
   img {
     margin-right: 43px;
   }
-
-  
 }
 </style>

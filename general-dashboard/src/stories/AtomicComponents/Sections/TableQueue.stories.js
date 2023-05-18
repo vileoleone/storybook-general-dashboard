@@ -1,4 +1,5 @@
 import TableQueue from '@/components/Sections/QueueConfigComponents/AtomicComponents/TableQueue.vue'
+
 export default {
   title: 'Atom Stories/Sections',
   component: TableQueue,
@@ -24,7 +25,7 @@ export const TableQueueStory = {
   render: (args) => ({
     components: { TableQueue },
     setup() {
-      return { args }
+      return {args}
     },
     template: '<TableQueue v-bind="args" />'
   }),
@@ -32,14 +33,5 @@ export const TableQueueStory = {
     primary: true,
     label: 'TableQueue',
     backgroundColor: '#FFFFFF',
-    queues: {
-      name: 'nomedoaquivoimportado.csv',
-      date: '08/03/2023',
-      data: {
-        nomedacoluna: 'itemdacoluna',
-        nomedacoluna2: 'itemdacoluna',
-        nomedacoluna3: 'itemdacoluna'
-      }
-    }
   }
 }

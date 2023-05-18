@@ -1,11 +1,12 @@
-import Card from '@/components/Header/Cards.vue';
-import CallsCard from '@/components/Header/CallsCard.vue';
-import DashboardsLogo from '%/icons/DashboardsLogo.svg';
-import iconPhone from '%/icons/IconPhone.svg';
-import ChatsLogo from '%/icons/ChatsLogo.svg';
-import AgentsLogo from  '%/icons/AgentsLogo.svg'
-import SettingsIcon from  '%/icons/SettingsIcon.svg'
-import UserLogo from  '%/icons/UserLogo.svg'
+import Card from '@/components/Header/Cards.vue'
+import DashboardCard from '@/components/Header/DashboardCard.vue'
+import CallsCard from '@/components/Header/CallsCard.vue'
+import DashboardsLogo from '%/icons/DashboardsLogo.svg'
+import iconPhone from '%/icons/IconPhone.svg'
+import ChatsLogo from '%/icons/ChatsLogo.svg'
+import AgentsLogo from '%/icons/AgentsLogo.svg'
+import SettingsIcon from '%/icons/SettingsIcon.svg'
+import UserLogo from '%/icons/UserLogo.svg'
 
 export default {
   title: 'Atom Stories/Headers',
@@ -13,49 +14,54 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
-      control: 'color',
+      control: 'color'
     },
-    onClick: {control: {actions: 'clicked'}},
+    onClick: { control: { actions: 'clicked' } },
     size: {
       control: {
-        type: 'select',
+        type: 'select'
       },
-      options: ['small', 'medium', 'large'],
-    },
-  },
-};
+      options: ['small', 'medium', 'large']
+    }
+  }
+}
 
 export const CardStory = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args };
+      return { args }
     },
-    template: '<Card v-bind="args" />',
+    template: '<Card v-bind="args" />'
   }),
   args: {
     primary: true,
     label: 'Example',
     icon: DashboardsLogo
-  },
-};
+  }
+}
 
-export const DashboardCard = {
+export const DashboardCardStory = {
   render: (args) => ({
-    components: { Card },
+    components: { DashboardCard },
     setup() {
-      return { args };
+      return { args }
     },
-    template: '<Card v-bind="args" />',
+    template: '<DashboardCard v-bind="args" />'
   }),
   args: {
     primary: false,
     label: 'Dashboards',
     icon: DashboardsLogo,
-    list: ['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral'],
-    cardSelected: 'Dashboards'
-  },
-};
+    list: [
+      'Agentes',
+      'Filas',
+      { Atendimentos: ['Acompanhamento', 'Importação'] },
+      'Campanhas',
+      'Geral'
+    ]
+  }
+}
 
 export const CallsCardStory = {
   render: (args) => ({
@@ -83,63 +89,80 @@ export const TalksCard = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args };
+      return { args }
     },
-    template: '<Card v-bind="args" />',
+    template: '<Card v-bind="args" />'
   }),
   args: {
     primary: false,
     label: 'Conversas',
-    icon: ChatsLogo, 
-    list: ['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral']
-  },
-};
-
+    icon: ChatsLogo,
+    list: [
+      'Agentes',
+      'Filas',
+      { Atendimentos: ['Acompanhamento', 'Importação'] },
+      'Campanhas',
+      'Geral'
+    ]
+  }
+}
 
 export const AgentCard = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args };
+      return { args }
     },
-    template: '<Card v-bind="args" />',
+    template: '<Card v-bind="args" />'
   }),
   args: {
     primary: false,
     label: 'Agentes',
     icon: AgentsLogo,
-    list: ['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral']
-  },
-};
+    list: [
+      'Agentes',
+      'Filas',
+      { Atendimentos: ['Acompanhamento', 'Importação'] },
+      'Campanhas',
+      'Geral'
+    ]
+  }
+}
 
 export const ConfigCard = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args };
+      return { args }
     },
-    template: '<Card v-bind="args" />',
+    template: '<Card v-bind="args" />'
   }),
   args: {
     primary: false,
     label: 'Configurações',
     icon: SettingsIcon,
-    list: ['Agentes','Filas',{'Atendimentos': ["Acompanhamento","Importação"]}, 'Campanhas', 'Geral']
-  },
-};
+    list: [
+      'Agentes',
+      'Filas',
+      { Atendimentos: ['Acompanhamento', 'Importação'] },
+      'Campanhas',
+      'Geral'
+    ]
+  }
+}
 
 export const UserCard = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args };
+      return { args }
     },
-    template: '<Card v-bind="args" />',
+    template: '<Card v-bind="args" />'
   }),
   args: {
     primary: false,
     label: 'Olá Rodrigo Santos',
     icon: UserLogo,
-    list: ['LogIn','LogOut'],
-  },
-};
+    list: ['LogIn', 'LogOut']
+  }
+}

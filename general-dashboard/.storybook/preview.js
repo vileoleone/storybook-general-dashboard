@@ -2,8 +2,15 @@
 import { setup } from '@storybook/vue3'
 import { createPinia } from 'pinia'
 import { Quasar } from 'quasar'
+import PrimeVue from 'primevue/config'
+import '@quasar/extras/mdi-v4/mdi-v4.css'
+
+import '@quasar/extras/roboto-font/roboto-font.css'
+import '@quasar/extras/material-icons/material-icons.css'
+import '@quasar/extras/material-icons-outlined/material-icons-outlined.css'
+import 'quasar/dist/quasar.css'
 setup((app) => {
-  app.use(createPinia()), app.use(Quasar, {})
+  app.use(createPinia()), app.use(Quasar, {}), app.use(PrimeVue)
 });
 const customViewports = {
   kindleFire2: {
@@ -27,7 +34,7 @@ const preview = {
     },
     options: {
       storySort: {
-        order: ['Atom Stories', 'Molecule', 'Pages' , '*']
+        order: ['Atom Stories', 'Molecule', 'Pages', '*']
       }
     }
   }

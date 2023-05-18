@@ -3,13 +3,12 @@
     <q-list v-for="(item, index) in list" :key="index">
       <template v-if="typeof item === 'object'">
         <div v-for="(value, key) in item" :key="key">
-          <span class="menu-list-object" @click="onClick">
-            <MenuItem :label="key"/>
-            <ChevronUpIcon v-if="clicked == true" />
-            <ChevronDownIcon v-if="clicked == false" />
+          <span class="menu-list-object" @click="this.showList = !this.showList">
+            <MenuItem :label="key" />
+            <img :src="ChevronUpIcon" v-if="showList == true" alt="Close Menu" />
+            <img :src="ChevronDownIcon" v-if="showList == false" alt="open Menu" />
           </span>
-
-          <span v-if="clicked == true">
+          <span v-if="showList == true">
             <MenuItem class="subitem" v-for="item in value" :label="item" :key="item"
               >{{ item }}
             </MenuItem>
@@ -18,7 +17,7 @@
       </template>
 
       <template v-else>
-        <MenuItem :label="item" :style="{ marginBottom: marginBottom + 'px' }" />
+        <MenuItem :label="item" />
       </template>
     </q-list>
   </div>
@@ -26,17 +25,20 @@
 
 <script>
 import MenuItem from '#/Header/MenuItem.vue'
-import ChevronUpIcon from '%/icons/ChevronUpIcon.vue'
-import ChevronDownIcon from '%/icons/ChevronDownIcon.vue'
+import ChevronUpIcon from '%/icons/ChevronUpIcon.svg'
+import ChevronDownIcon from '%/icons/ChevronDownIcon.svg'
 export default {
   name: 'MenuLayout',
 
-  components: { MenuItem, ChevronUpIcon, ChevronDownIcon },
+  components: { MenuItem },
 
   data() {
     return {
       isActive: false,
-      clicked: false
+      clicked: false,
+      ChevronUpIcon,
+      ChevronDownIcon,
+      showList: false
     }
   },
 
@@ -59,9 +61,6 @@ export default {
     },
     list: {
       type: Array
-    },
-    marginBottom: {
-      type: String
     }
   },
 
@@ -102,23 +101,10 @@ export default {
   font-style: normal;
   font-weight: 500;
   justify-content: flex-start;
-  line-height: 15px;
-  max-height: 25px;
+  max-height: fit-content;
+  width: 100%;
   padding-left: 10px;
-}
-
-.clicker {
-  background-color: #f0f0f0;
-  box-sizing: border-box;
-  color: #252525 !important;
-  display: flex;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  justify-content: flex-start;
-  line-height: 15px;
-  max-height: 25px;
-  padding-left: 10px;
+  padding-bottom: 0;
 }
 
 li {
@@ -137,7 +123,6 @@ li {
   display: flex;
   flex-direction: row;
   max-height: 25px;
-  margin-bottom: 5px;
   padding: 0;
   width: max-content;
 }
@@ -168,17 +153,6 @@ li {
 }
 
 .subitem.active {
-  background-color: #4b68d2;
-  box-sizing: border-box;
-  color: #ffffff !important;
-  display: flex;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 700;
-  height: 25px;
-  justify-content: flex-start;
-  line-height: 15px;
-  padding-left: 10px;
-  width: 116px;
+  padding-left: 20px;
 }
 </style>

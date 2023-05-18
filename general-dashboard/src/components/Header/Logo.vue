@@ -1,6 +1,6 @@
 <template>
   <div type="span" class="logo-outer-box" :class="classes" @click="onClick" :style="style">
-    <div class="inner-logo-box" :style="this.innerBackgroundColor">
+    <div class="inner-logo-box">
       <VonixLogo />
     </div>
   </div>
@@ -59,11 +59,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.logo-outer-box.active {
+  background-color: #fd9802;
+  
+}
 .logo-outer-box {
   box-sizing: border-box;
   border-bottom: 1px solid #c5c5c5;
   width: 60px;
-  height: 61px;
+  height: 60px;
+  background-color: #3d55ae;
+
   .inner-logo-box {
     display: flex;
     justify-content: center;
@@ -74,5 +81,6 @@ export default {
     width: 60px;
     height: 60px;
   }
+
 }
 </style>

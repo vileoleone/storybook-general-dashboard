@@ -1,5 +1,9 @@
 <template>
-  <table class="table">
+  <div class="q-pa-sm">
+    <q-table   card-container-class="text-blue-7" table-class="" table-header-class="text-blue-7;" flat bordered :rows-arrow="false" separator="cell" :title="queueName" :rows="rows" :columns="keys" />
+  </div>
+
+  <!-- <table class="table">
     <thead class="queue-header">
       {{
         queueDate
@@ -34,12 +38,13 @@
         }}
       </tr>
     </span>
-  </table>
+  </table> -->
 </template>
 
 <script>
 import ChevronLeftIcon from '@/assets/icons/ChevronLeftIcon.svg'
 import ChevronRightIcon from '@/assets/icons/ChevronRightIcon.svg'
+
 export default {
   name: 'TableQueue',
 
@@ -49,18 +54,6 @@ export default {
     return {
       ChevronLeftIcon,
       ChevronRightIcon,
-      queueName: 'nomedoaquivoimportado.csv',
-      queueDate: '08/03/2023',
-      queueColumns: {
-          nomedacoluna: 'itemdacoluna',
-          nomedacoluna2: 'itemdacoluna',
-          nomedacoluna3: 'itemdacoluna'
-        },
-      queueRows: {
-          nomedacoluna: 'itemdacoluna',
-          nomedacoluna2: 'itemdacoluna',
-          nomedacoluna3: 'itemdacoluna'
-        }
     }
   },
 
@@ -81,6 +74,12 @@ export default {
     },
     backgroundColor: {
       type: String
+    },
+    queueName: {
+      type: String
+    },
+    queueData: {
+      type: Object
     }
   },
 
@@ -97,6 +96,12 @@ export default {
       return {
         backgroundColor: this.backgroundColor
       }
+    },
+    rows() {
+      return Object.values(this.queueData.data)
+    },
+    columns() {
+      return Object.keys(this.queueData.data[0])
     }
   },
 
@@ -109,85 +114,77 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .column-names {
-    
-    border-left: 1px solid #e3e3e3;
-    box-sizing: border-box;
-    color: #626262;
-    display: flex;
-    flex-direction: row;
-    font-family: 'Work Sans';
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 12px;
-  }
+.column-names {
+  color: red;
+  flex-direction: row;
+  font-family: 'Work Sans';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+}
 
-  .column-items {
+.column-items {
+  border-left: 1px solid #e3e3e3;
+  box-sizing: border-box;
+  color: #616161;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Work Sans';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+}
 
-    border-left: 1px solid #e3e3e3;
-    box-sizing: border-box;
-    color: #616161;
-    display: flex;
-    flex-direction: row;
-    font-family: 'Work Sans';
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 12px;
-  }
+.paginator {
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+  justify-content: space-between;
+  width: 48px;
+}
 
-  .paginator {
+.paginator-button {
+  align-items: center;
+  border-radius: 3px;
+  border: 1px solid #c5c5c5;
+  display: flex;
+  justify-content: center;
+  width: 21px;
+}
+.queue-header {
+  align-items: center;
+  border: 1px solid #e3e3e3;
+  box-sizing: border-box;
+  color: #616161;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Work Sans';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  height: 44px;
+  justify-content: space-between;
+  line-height: 12px;
+  padding: 10px;
+}
 
-    display: flex;
-    flex-direction: row;
-    height: 20px;
-    justify-content: space-between;
-    width: 48px;
-  }
+.table-outer-box {
+  display: flex;
+  direction: column;
+}
 
-  .paginator-button {
-
-    align-items: center;
-    border-radius: 3px;
-    border: 1px solid #c5c5c5;
-    display: flex;
-    justify-content: center;
-    width: 21px;
-  }
-  .queue-header {
-
-    align-items: center;
-    border: 1px solid #e3e3e3;
-    box-sizing: border-box;
-    color: #616161;
-    display: flex;
-    flex-direction: row;
-    font-family: 'Work Sans';
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    height: 44px;
-    justify-content: space-between;
-    line-height: 12px;
-    padding: 10px;
-  }
-   .table {
-    margin-bottom: 30px;
-    width: fit-content;
-  }
-
-  tr {
-
-    align-items: center;
-    background: #ffffff;
-    border-bottom: 1px solid #e3e3e3;
-    border-right: 0.5px solid #e3e3e3;
-    box-sizing: border-box;
-    display: flex;
-    height: 32px;
-    justify-content: flex-start;
-    padding: 10px;
-    width: 150px;
-  }
+tr {
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #e3e3e3;
+  border-right: 0.5px solid #e3e3e3;
+  box-sizing: border-box;
+  display: flex;
+  height: 32px;
+  justify-content: flex-start;
+  padding: 10px;
+  width: 150px;
+}
 </style>

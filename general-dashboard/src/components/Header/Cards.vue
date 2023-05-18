@@ -1,36 +1,36 @@
 <template>
-    <div class="card-outer-box" @click="ToogleMenu" >
-      <span type="span" class="cards" :class="classes" :style="style">
-        <div
-          class="icon-left"
-          :style="{
-            marginTop: marginTop + 'px',
-            marginBottom: marginBottom + 'px',
-            marginRight: iconRightMargin + 'px'
-          }"
-        >
+  <div class="card-outer-box">
+    <q-btn :id="label" type="span" :class="classes" :style="style" @click="showList = true">
+      <span class="inner-style">
+        <div class="icon-left" :style="styles">
           <img :src="icon" :alt="label" />
         </div>
-        <p>{{ label }}</p>
-        <div class="icon-right">
-          <ArrowDown />
-        </div>
+        <p> {{ label }}</p>
+        <img :src="ArrowDown" v-if="showList == false" class="icon-right" alt="close Icon" />
+        <img :src="ArrowUpIcon" v-if="showList == true" class="icon-right" alt="open Icon" />
       </span>
-      <MenuList v-show="showList" :list="list" />
-    </div>
+      <q-menu  class="q-menu" @before-hide="showList = false">
+        <MenuList :list="list" />
+      </q-menu>
+    </q-btn>
+  </div>
 </template>
 
 <script>
-import ArrowDown from '%/icons/ArrowDown.vue'
+import ArrowDown from '%/icons/ArrowDown.svg'
 import MenuList from '#/Header/MenuList.vue'
+import ArrowUpIcon from '@/assets/icons/ArrowUpIcon.svg'
 export default {
   name: 'CardLayout',
 
-  components: { ArrowDown, MenuList },
+  components: { MenuList},
 
   data() {
     return {
-      showList: false
+      showList: false,
+      ArrowUpIcon,
+      ArrowDown, 
+      anchor: null
     }
   },
 
@@ -55,21 +55,13 @@ export default {
     icon: {
       type: String
     },
-    marginTop: {
-      type: Number
-    },
-    marginBottom: {
-      type: Number
-    },
-    iconRightMargin: {
-      type: Number
-    },
     list: {
       type: Array
-    },
-    cardSelected:{
-      type:String
     }
+  },
+
+  mounted() {
+    this.anchor = this.$refs.anchor
   },
 
   computed: {
@@ -78,7 +70,8 @@ export default {
         'storybook-button': true,
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
-        [`storybook-button--${this.size || 'medium'}`]: true, 
+        [`storybook-button--${this.size || 'medium'}`]: true,
+        cards: true,
         onHover: this.showList
       }
     },
@@ -97,10 +90,31 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+
 .card-outer-box {
   display: flex;
-  flex-direction: column;
+  max-width: fit-content;
+}
+
+.cards {
+  align-items: center;
+  align-self: flex-start;
+  background-color: #3d55ae;
+  border: none;
+  border-bottom: 1px solid #c5c5c5;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 61px;
+  max-width: 159px;
+  position: relative;
+}
+
+.cards.onHover {
+  background-color: #fd9802;
 }
 
 .icon-left {
@@ -117,25 +131,10 @@ export default {
   margin-left: 11.29px;
   width: 11.41px;
 }
-
-.cards {
-  align-items: center;
-  align-self: flex-start;
-  background-color: #3D55AE;
-  border-bottom: 1px solid #c5c5c5;
-  color: #ffffff;
-  cursor: pointer;
+.inner-style {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  min-height: 60px;
-  width: 159px;
-
-}
-
-.cards.onHover {
-  background-color: #FD9802;
-  
+  align-items: center;
+  align-self: center;
 }
 
 p {
@@ -148,5 +147,9 @@ p {
   font-weight: 700;
   height: 15px;
   line-height: 15px;
+}
+.q-menu {
+  max-width: fit-content;
+  position: absolute;
 }
 </style>

@@ -1,37 +1,41 @@
 <template>
-  <div class="card-outer-box" @click="ToogleMenu">
-    <q-btn type="span" :class="classes" :style="style">
+  <div class="card-outer-box">
+    <Logo :class="{active: showList}"/>
+    <q-btn class="anchor" type="span" :class="classes" :style="style" @click="showList = true">
       <span class="inner-style">
         <div class="icon-left" :style="styles">
           <img :src="icon" :alt="label" />
         </div>
-        <p>{{ label }}</p>
-        <div class="icon-right">
-          <ArrowDown />
-        </div>
+        <p> {{ label }}</p>
+        <img :src="ArrowDown" v-if="showList == false" class="icon-right" alt="close Icon" />
+        <img :src="ArrowUpIcon" v-if="showList == true" class="icon-right" alt="open Icon" />
       </span>
-      <q-menu>
-         <MenuList  v-show="showList" :list="list" />
+      <q-menu class="q-menu-dashboard" @before-hide="showList = false">
+        <MenuList anchor="bottom middle" self="top middle" :list="list" />
       </q-menu>
     </q-btn>
   </div>
 </template>
 
 <script>
-import ArrowDown from '%/icons/ArrowDown.vue'
+import ArrowDown from '%/icons/ArrowDown.svg'
 import MenuList from '#/Header/MenuList.vue'
-import ChevronUpIcon from '@/assets/icons/ChevronUpIcon.vue'
-
+import ArrowUpIcon from '@/assets/icons/ArrowUpIcon.svg'
+import Logo from './Logo.vue'
 export default {
   name: 'CardLayout',
 
-  components: { ArrowDown, MenuList },
+  components: { MenuList, Logo },
 
   data() {
     return {
-      showList: false
+      showList: false,
+      ArrowUpIcon,
+      ArrowDown, 
+      anchor: null
     }
   },
+
   props: {
     label: {
       type: String,
@@ -53,21 +57,13 @@ export default {
     icon: {
       type: String
     },
-    marginTop: {
-      type: Number
-    },
-    marginBottom: {
-      type: Number
-    },
-    iconRightMargin: {
-      type: Number
-    },
     list: {
       type: Array
-    },
-    cardSelected: {
-      type: String
     }
+  },
+
+  mounted() {
+    this.anchor = this.$refs.anchor
   },
 
   computed: {
@@ -77,7 +73,8 @@ export default {
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
         [`storybook-button--${this.size || 'medium'}`]: true,
-        cards: true
+        cards: true,
+        onHover: this.showList
       }
     },
     style() {
@@ -90,15 +87,38 @@ export default {
   methods: {
     ToogleMenu() {
       this.showList = !this.showList
+    },
+    print() {
+      console.log('sdad')
     }
   }
 }
 </script>
 
 <style lang="scss">
+
 .card-outer-box {
   display: flex;
-  flex-direction: column;
+  max-width: fit-content;
+}
+
+.cards {
+  align-items: center;
+  align-self: flex-start;
+  background-color: #3d55ae;
+  border: none;
+  border-bottom: 1px solid #c5c5c5;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 60px;
+  width: 159px;
+}
+
+.cards.onHover {
+  background-color: #fd9802;
 }
 
 .icon-left {
@@ -121,24 +141,6 @@ export default {
   align-self: center;
 }
 
-.cards {
-  align-items: center;
-  align-self: flex-start;
-  background-color: #3d55ae;
-  border-bottom: 1px solid #c5c5c5;
-  color: #ffffff;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  min-height: 60px;
-  width: 159px;
-}
-
-.cards.onHover {
-  background-color: #fd9802;
-}
-
 p {
   align-items: center;
   color: #ffffff;
@@ -149,5 +151,9 @@ p {
   font-weight: 700;
   height: 15px;
   line-height: 15px;
+}
+.q-menu-dashboard {
+  max-width: fit-content;
+  position: absolute;
 }
 </style>
