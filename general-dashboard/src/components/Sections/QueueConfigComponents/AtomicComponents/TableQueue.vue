@@ -1,6 +1,16 @@
 <template>
   <div class="q-pa-sm">
-    <q-table   card-container-class="text-blue-7" table-class="" table-header-class="text-blue-7;" flat bordered :rows-arrow="false" separator="cell" :title="queueName" :rows="rows" :columns="keys" />
+    <q-table
+      card-container-class="text-blue-7"
+      table-header-class="my-table-header-class"
+      flat
+      bordered
+      :rows-arrow="false"
+      separator="cell"
+      :title="queueName"
+      :rows="rows"
+      :columns="keys"
+    />
   </div>
 
   <!-- <table class="table">
@@ -53,7 +63,7 @@ export default {
   data() {
     return {
       ChevronLeftIcon,
-      ChevronRightIcon,
+      ChevronRightIcon
     }
   },
 
@@ -113,8 +123,9 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .column-names {
+  border: 3px solid green;
   color: red;
   flex-direction: row;
   font-family: 'Work Sans';
@@ -137,6 +148,15 @@ export default {
   line-height: 12px;
 }
 
+.my-table-header-class {
+  border: 1px solid #e3e3e3;
+  color: #616161;
+  font-family: 'Work Sans';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+}
 .paginator {
   display: flex;
   flex-direction: row;
