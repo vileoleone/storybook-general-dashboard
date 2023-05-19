@@ -23,7 +23,7 @@ import dropZoneIcon from '@/assets/icons/DropZoneIcon.svg'
 import CsvIcon from '@/assets/icons/IconCsv.svg'
 import trashIcon from '@/assets/icons/trashIcon.svg'
 import DropZone from 'dropzone'
-import superbytes from '/Users/victoroliveira/Desktop/front-end/general-dashboard/node_modules/superbytes/index.js'
+
 import { mapWritableState } from 'pinia'
 import { useMailingStore } from '@/stores/store'
 export default {
@@ -39,6 +39,7 @@ export default {
       dropZoneIcon,
       CsvIcon,
       trashIcon,
+     
 
       /*  delimiter: value.delimiter ?? ';',
       delimiters,
@@ -98,7 +99,7 @@ export default {
     fileSize() {
       const vue = this
       if (!vue.file) return ''
-      return superbytes(vue.file.size)
+      return vue.file.size
     }
   },
 
@@ -194,7 +195,8 @@ export default {
         delimiter: vue.delimiter,
         quoteChar: vue.quoteChar
       })
-    }
+    }, 
+
   },
   watch: {
     file() {

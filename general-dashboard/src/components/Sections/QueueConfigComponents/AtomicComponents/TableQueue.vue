@@ -1,17 +1,17 @@
 <template>
-  <div class="q-pa-sm">
     <q-table
-      card-container-class="text-blue-7"
-      table-header-class="my-table-header-class"
+      id="table-queue"
+      table-class="table-queue-style"
+      title-class = "table-title-class"
+      table-header-class="table-header-class"
       flat
       bordered
-      :rows-arrow="false"
+     
       separator="cell"
       :title="queueName"
       :rows="rows"
       :columns="keys"
     />
-  </div>
 
   <!-- <table class="table">
     <thead class="queue-header">
@@ -124,87 +124,47 @@ export default {
 </script>
 
 <style lang="scss">
-.column-names {
-  border: 3px solid green;
-  color: red;
-  flex-direction: row;
+.table-queue-style {
   font-family: 'Work Sans';
   font-size: 12px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 12px;
+  padding: 0 0 0 0 !important;
 }
 
-.column-items {
-  border-left: 1px solid #e3e3e3;
+.table-title-class {
   box-sizing: border-box;
-  color: #616161;
   display: flex;
-  flex-direction: row;
-  font-family: 'Work Sans';
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 12px;
-}
-
-.my-table-header-class {
-  border: 1px solid #e3e3e3;
-  color: #616161;
-  font-family: 'Work Sans';
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 12px;
-}
-.paginator {
-  display: flex;
-  flex-direction: row;
-  height: 20px;
-  justify-content: space-between;
-  width: 48px;
-}
-
-.paginator-button {
   align-items: center;
-  border-radius: 3px;
-  border: 1px solid #c5c5c5;
-  display: flex;
-  justify-content: center;
-  width: 21px;
-}
-.queue-header {
-  align-items: center;
-  border: 1px solid #e3e3e3;
-  box-sizing: border-box;
-  color: #616161;
-  display: flex;
-  flex-direction: row;
-  font-family: 'Work Sans';
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
   height: 44px;
-  justify-content: space-between;
-  line-height: 12px;
-  padding: 10px;
+  color: #616161;
+  font-weight: 600;
+  padding: 0 0 0 0;
 }
 
-.table-outer-box {
-  display: flex;
-  direction: column;
+.table-header-class {
+  color: #616161;
+  font-weight: 600 !important;
+}
+.q-table__sort-icon {
+  display: none;
 }
 
-tr {
-  align-items: center;
-  background: #ffffff;
-  border-bottom: 1px solid #e3e3e3;
-  border-right: 0.5px solid #e3e3e3;
-  box-sizing: border-box;
-  display: flex;
-  height: 32px;
-  justify-content: flex-start;
-  padding: 10px;
-  width: 150px;
+#table-queue th {
+ 
+  padding: 0;
+  line-height: 0;
+  font-weight: 600 !important;
+  height: px;
+  text-align: center;
 }
+
+.q-table td {
+  padding: 0;
+}
+
+#table-queue  thead tr, #table-queue tbody td {
+  height:32px;
+}
+
+
 </style>
