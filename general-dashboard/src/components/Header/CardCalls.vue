@@ -1,16 +1,21 @@
 <template>
   <div class="card-outer-box">
-    <q-btn flat :square="true" :id="label" type="span" :class="classes" :style="style" @click="showList = true">
+    <q-btn type="span" :class="classes" :style="style" flat :square="true">
       <span class="inner-style">
         <div class="icon-left" :style="styles">
           <img :src="icon" :alt="label" />
         </div>
-        <p class="card-button-label"> {{ label }}</p>
+        <p class='callscard-label'>{{ label }}</p>
         <img :src="ArrowDown" v-if="showList == false" class="icon-right" alt="close Icon" />
         <img :src="ArrowUpIcon" v-if="showList == true" class="icon-right" alt="open Icon" />
       </span>
-      <q-menu  class="q-menu" @before-hide="showList = false">
-        <MenuList :list="list" />
+      <q-menu
+        anchor="bottom middle"
+        self="top middle"
+        @before-show="showList = true"
+        @before-hide="showList = false"
+      >
+        <MenuListCalls :list="list" />
       </q-menu>
     </q-btn>
   </div>
@@ -18,19 +23,18 @@
 
 <script>
 import ArrowDown from '%/icons/ArrowDown.svg'
-import MenuList from '#/Header/MenuList.vue'
 import ArrowUpIcon from '@/assets/icons/ArrowUpIcon.svg'
+import MenuListCalls from '#/Header/MenuListCalls.vue'
 export default {
   name: 'CardLayout',
 
-  components: { MenuList},
+  components: { MenuListCalls },
 
   data() {
     return {
       showList: false,
-      ArrowUpIcon,
-      ArrowDown, 
-      anchor: null
+      ArrowDown,
+      ArrowUpIcon
     }
   },
 
@@ -55,13 +59,21 @@ export default {
     icon: {
       type: String
     },
+    marginTop: {
+      type: Number
+    },
+    marginBottom: {
+      type: Number
+    },
+    iconRightMargin: {
+      type: Number
+    },
     list: {
       type: Array
+    },
+    cardSelected: {
+      type: String
     }
-  },
-
-  mounted() {
-    this.anchor = this.$refs.anchor
   },
 
   computed: {
@@ -84,17 +96,40 @@ export default {
 
   methods: {
     ToogleMenu() {
+      this.$emit('click')
       this.showList = !this.showList
     },
+    onClick() {
+      this.$emit('click')
+      this.showList = !this.showList
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
-
 .card-outer-box {
   display: flex;
-  min-width: fit-content;
+  flex-direction: column;
+  max-width: fit-content;
+  max-height: fit-content;
+}
+.card-call.onHover {
+  background-color: #fd9802;
+}
+.icon-left {
+  height: 18px;
+  margin-right: 5px;
+  width: 18px;
+}
+
+.icon-right {
+  border-radius: 0px;
+  display: flex;
+  height: 7.12px;
+  justify-content: center;
+  margin-left: 11.29px;
+  width: 11.41px;
 }
 
 .cards {
@@ -105,48 +140,23 @@ export default {
   color: #ffffff;
   cursor: pointer;
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  position: relative;
+  min-height: 60px;
+  width: 159px;
 }
 
 .cards.onHover {
   background-color: #fd9802;
 }
 
-.icon-left {
-  height: 18px;
-  width: 18px;
-}
-
-.icon-right {
-  border-radius: 0px;
-  display: flex;
-  height: 7.12px;
-  justify-content: center;
-  width: 11.41px;
-}
-.inner-style {
-  display: flex;
-  align-items: center;
-  align-self: center;
-}
-
-.card-button-label {
+.callscard-label{
   color: #ffffff;
+  display: flex;
   font-family: 'Work Sans';
   font-size: 13px;
   font-style: normal;
   font-weight: 700;
   margin-bottom: 0;
-}
-.q-btn {
-  box-sizing: border-box;
-  padding: 0 10px 0 10px;
-  min-width: max-content;
-}
-
-.q-menu {
-  max-width: fit-content;
-  position: absolute;
 }
 </style>

@@ -1,60 +1,43 @@
 <template>
+  <div class="outer-container">
     <q-table
       id="table-queue"
       table-class="table-queue-style"
-      title-class = "table-title-class"
+      title-class="table-title-class"
       table-header-class="table-header-class"
       flat
       bordered
-     
       separator="cell"
-      :title="queueName"
+      :title="`${queueName} - ${createdAt} `"
       :rows="rows"
       :columns="keys"
-    />
+      v-if="queueName && queueData"
+      :hide-pagination="true"
+      :pagination="pagination"
+    >
+      <template v-slot:top>
+        {{ `${queueName} - ${createdAt} ` }}
+      </template>
+    </q-table>
 
-  <!-- <table class="table">
-    <thead class="queue-header">
-      {{
-        queueDate
-      }}
-      -
-      {{
-        queueName
-      }}
-      <span class="paginator">
-        <button class="paginator-button">
-          <img :src="ChevronLeftIcon" alt="" class="chevron-left" />
-        </button>
-
-        <button class="paginator-button">
-          <img :src="ChevronRightIcon" alt="" class="chevron-left" />
-        </button>
-      </span>
-    </thead>
-
-    <span class="column-names">
-      <tr v-for="(itens, index) in queueColumns" :key="index">
-        {{
-          itens
-        }}
-      </tr>
-    </span>
-
-    <span class="column-items">
-      <tr v-for="(values, index) in queueRows" :key="index">
-        {{
-          values
-        }}
-      </tr>
-    </span>
-  </table> -->
+    <div class="term-not-found" v-else>
+      <div class="central-icon">
+        <img class="icon-not-found" :src="NotFoundIcon" alt="No term Found" />
+        <img :src="ExclamationIcon" class="icon-exclamation" alt="exclamation" />
+      </div>
+      <span class="h1-text-table-queue">Termo Não Encontrado</span>
+      <span class="h2-text-table-queue"
+        >Não encontramos nenhum arquivo com este nome, verifique e tente novamente</span
+      >
+    </div>
+  </div>
 </template>
 
 <script>
 import ChevronLeftIcon from '@/assets/icons/ChevronLeftIcon.svg'
 import ChevronRightIcon from '@/assets/icons/ChevronRightIcon.svg'
-
+import NotFoundIcon from '%/icons/NotFoundIcon.svg'
+import ExclamationIcon from '%/icons/ExclamationIcon.svg'
 export default {
   name: 'TableQueue',
 
@@ -63,7 +46,9 @@ export default {
   data() {
     return {
       ChevronLeftIcon,
-      ChevronRightIcon
+      ChevronRightIcon,
+      NotFoundIcon,
+      ExclamationIcon
     }
   },
 
@@ -112,6 +97,9 @@ export default {
     },
     columns() {
       return Object.keys(this.queueData.data[0])
+    },
+    createdAt() {
+      return this.queueData.createdAt
     }
   },
 
@@ -124,47 +112,100 @@ export default {
 </script>
 
 <style lang="scss">
+.central-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1-text-table-queue {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #444444;
+}
+
+.h2-text-table-queue {
+  width: 210px;
+  text-align: center;
+  height: 28px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #444444;
+}
+
+.icon-not-found {
+  z-index: 1;
+}
+
+.icon-exclamation {
+  position: absolute;
+  z-index: 0;
+}
+
 .table-queue-style {
   font-family: 'Work Sans';
   font-size: 12px;
-  font-style: normal;
-  padding: 0 0 0 0 !important;
+  font-style: normal;  
+  overflow-x: scroll;  
 }
 
 .table-title-class {
-  box-sizing: border-box;
-  display: flex;
   align-items: center;
-  height: 44px;
   color: #616161;
+  display: flex;
+  font-family: 'Work Sans';
+  font-size: 12px;
+  font-style: normal;
   font-weight: 600;
-  padding: 0 0 0 0;
+  height: 44px;
 }
 
-.table-header-class {
-  color: #616161;
-  font-weight: 600 !important;
-}
 .q-table__sort-icon {
   display: none;
 }
 
+.outer-container{
+  max-width: 900px;
+}
+
 #table-queue th {
- 
-  padding: 0;
   line-height: 0;
   font-weight: 600 !important;
-  height: px;
-  text-align: center;
+  text-align: left;
+  padding: 0 0 0 10px;
+  min-width: 120px;
 }
 
-.q-table td {
+#table-queue thead tr,
+#table-queue tbody td {
+  height: 32px;
+  width: fit-content;
+  font-size: 12px;
+  font-weight: 400;
+  color: #616161;
+  text-align: left;
+  padding: 0 0 0 10px;
+}
+
+.q-table__top {
   padding: 0;
+  height: 40px;
+  padding: 0 0 0 10px;
 }
 
-#table-queue  thead tr, #table-queue tbody td {
-  height:32px;
+.term-not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 180px;
+  padding-top: 50px;
 }
-
-
 </style>

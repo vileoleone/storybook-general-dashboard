@@ -1,6 +1,6 @@
 <template>
   <div type="span" class="main-outer-box" :class="classes" @click="onClick" :style="style">
-   <h1 class="mailing-main-header">{{ label }}</h1>
+   <span class="mailing-main-header">{{ label }}</span>
     <div  class="step-container" >
       <component :list="queues" :is="vueComponent"/>
     </div>
@@ -62,7 +62,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   .mailing-main-header {  
     
     color: #444444;

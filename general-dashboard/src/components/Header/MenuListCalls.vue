@@ -112,7 +112,7 @@ export default {
   justify-content: flex-start;
   max-height: fit-content;
   width: 100%;
-  padding-left: 10px;
+  padding-left: 5px;
   padding-bottom:0;
 }
 .calls-h1 {
@@ -141,19 +141,11 @@ export default {
   font-size: 10px;
   font-style: normal;
   font-weight: 500;
+  height: 20px;
   margin-top: 0;
   width: 100%;
 }
 
-li {
-  align-items: center;
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 14.5px;
-  margin-right: 10px;
-  max-height: 25px;
-  width: fit-content;
-}
 
 .menu-list-object {
   align-items: flex-start;
@@ -182,7 +174,7 @@ li {
   font-style: normal;
   font-weight: 500;
   list-style-type: none;
-  padding: 20px 2px 0 20px;
+  padding: 20px 2px 0 10px;
   width: 159px;
 }
 

@@ -83,7 +83,7 @@ export default {
     font-size: 13px;
     font-style: normal;
     font-weight: 700;
-    height: 100%;
+    height: 100vh;
     padding: 50px 50px 0 60px;
     width: fit-content;
   }

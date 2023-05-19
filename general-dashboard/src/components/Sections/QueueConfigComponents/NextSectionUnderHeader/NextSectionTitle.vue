@@ -80,10 +80,10 @@ export default {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
+    justify-content: baseline;
   }
   .routes-outer-box {
     align-items: flex-start;
-    box-sizing: border-box;
     display: flex;
     flex-direction: row;
   }
@@ -102,12 +102,15 @@ export default {
   }
 
   h2 {
+    align-items: center;
     color: #afafaf;
+    display: flex;
     font-family: 'Work Sans';
     font-size: 11px;
     font-style: normal;
     font-weight: 600;
     height: 13px;
+    width: 100px;
   }
   .title-outer-box {
     box-sizing: border-box;

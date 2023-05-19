@@ -4,8 +4,16 @@
       <DropZone />
       <div class="queue-tables">
         <SearchSubHeader />
-        <div v-for="(queueItens, queueName,  index) in queues" :key="index">
-          <TableQueue :queueName="queueName" :queueData="queueItens" />
+        <div class="tables">
+          <template v-if="Object.keys(queues).length > 0">
+            <div v-for="(queueItens, queueName, index) in queues" :key="index">
+              <TableQueue :queueName="queueName" :queueData="queueItens" />
+            </div>
+          </template>
+
+          <template v-if="Object.keys(queues).length == 0">
+            <TableQueue />
+          </template>
         </div>
       </div>
     </main>
@@ -32,6 +40,7 @@ export default {
       TriangleDown,
       TriangleUp,
       active: false,
+      isLoading: true
     }
   },
 
@@ -52,7 +61,7 @@ export default {
     },
     backgroundColor: {
       type: String
-    },
+    }
   },
 
   computed: {
@@ -76,9 +85,12 @@ export default {
   methods: {
     onClick() {
       this.active = !this.active
+    },
+    changeBodyOpacity() {
+      document.body.style.opacity = '0.4'
+      document.body.style.backgroundColor = 'black'
     }
-  }, 
-
+  }
 }
 </script>
 
@@ -97,10 +109,19 @@ export default {
   padding: 0;
   width: 100%;
 }
+
 .queue-tables {
   display: flex;
   flex-direction: column;
   padding-left: 20px;
   width: 100%;
+
+}
+
+.tables {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 </style>

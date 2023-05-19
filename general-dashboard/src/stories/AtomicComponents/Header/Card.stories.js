@@ -1,6 +1,6 @@
 import Card from '@/components/Header/Cards.vue'
 import DashboardCard from '@/components/Header/DashboardCard.vue'
-import CallsCard from '@/components/Header/CallsCard.vue'
+import CardCalls from '@/components/Header/CardCalls.vue'
 import DashboardsLogo from '%/icons/DashboardsLogo.svg'
 import iconPhone from '%/icons/IconPhone.svg'
 import ChatsLogo from '%/icons/ChatsLogo.svg'
@@ -63,9 +63,9 @@ export const DashboardCardStory = {
   }
 }
 
-export const CallsCardStory = {
+export const CardCallsStory = {
   render: (args) => ({
-    components: { CallsCard },
+    components: { CardCalls },
     setup() {
       return { args }
     },

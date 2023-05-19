@@ -1,23 +1,23 @@
 <template>
   <span type="span" class="header-outer-box" :class="classes" @click="onClick" :style="style">
     <span class="left-section-cards">
-      <DashboardCard label="Dashboards" :icon="DashboardsLogo" :list="dashboardList" />
-      <CallsCard label="Chamadas" :icon="iconPhone" :list="ChamadasList" />
+      <CardDashboard label="Dashboards" :icon="DashboardsLogo" :list="dashboardList" />
+      <CardCalls label="Chamadas" :icon="iconPhone" :list="ChamadasList" />
       <Cards label="Conversas" :icon="ChatsLogo" :list="ConversasList" />
       <Cards label="Agentes" :icon="AgentsLogo" :list="AgentesList" />
-      <Cards label="Configurações" :icon="SettingsIcon" :list="ConfiguraçõesList" />
+      <CardConfig label="Configurações" :icon="SettingsIcon" :list="ConfiguraçõesList" />
     </span>
     <span class="right-section-cards">
       <img class="api-button-icon" :src="ApiButton" alt="ApiButton" />
       <img class="changeLog-button-icon" :src="ChangeLogButton" />
-      <Cards label="Olá Rodrigo Santos" :icon="UserLogo" />
+      <CardUser label="Olá Rodrigo Santos" :icon="UserLogo" />
     </span>
   </span>
 </template>
 
 <script>
 import Cards from './Cards.vue'
-import DashboardCard from './DashboardCard.vue'
+import CardDashboard from './CardDashboard.vue'
 import DashboardsLogo from '%/icons/DashboardsLogo.svg'
 import iconPhone from '%/icons/IconPhone.svg'
 import ChatsLogo from '%/icons/ChatsLogo.svg'
@@ -26,12 +26,13 @@ import SettingsIcon from '%/icons/SettingsIcon.svg'
 import UserLogo from '%/icons/UserLogo.svg'
 import ApiButton from '%/icons/ApiButton.svg'
 import ChangeLogButton from '%/icons/ChangeLogButton.svg'
-import CallsCard from './CallsCard.vue'
-
+import CardCalls from './CardCalls.vue'
+import CardUser from './CardUser.vue'
+import CardConfig from './CardConfig.vue'
 export default {
   name: 'HeaderLayout',
 
-  components: { Cards, CallsCard, DashboardCard },
+  components: { Cards, CardUser, CardCalls, CardDashboard, CardConfig },
 
   data() {
     return {
@@ -151,11 +152,12 @@ export default {
   display: flex;
   height: 59px;
   justify-content: space-between;
-
   width: 100%;
   margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
-
 .left-button {
   display: flex;
 }
@@ -169,13 +171,12 @@ export default {
   flex-direction: row;
   max-height: 60px;
 }
-
 .right-section-cards {
   display: flex;
   flex-direction: row;
-  max-height: 60px;
   img {
     margin-right: 43px;
   }
 }
+
 </style>

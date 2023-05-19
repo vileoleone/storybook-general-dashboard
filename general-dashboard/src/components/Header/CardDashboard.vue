@@ -1,16 +1,25 @@
 <template>
   <div class="card-outer-box">
-    <q-btn flat :square="true" :id="label" type="span" :class="classes" :style="style" @click="showList = true">
+    <Logo :class="{ active: showList }" />
+    <q-btn
+      flat
+      :square="true"
+      class="anchor"
+      type="span"
+      :class="classes"
+      :style="style"
+      @click="showList = true"
+    >
       <span class="inner-style">
         <div class="icon-left" :style="styles">
           <img :src="icon" :alt="label" />
         </div>
-        <p class="card-button-label"> {{ label }}</p>
+        <p class="dashboard-label">{{ label }}</p>
         <img :src="ArrowDown" v-if="showList == false" class="icon-right" alt="close Icon" />
         <img :src="ArrowUpIcon" v-if="showList == true" class="icon-right" alt="open Icon" />
       </span>
-      <q-menu  class="q-menu" @before-hide="showList = false">
-        <MenuList :list="list" />
+      <q-menu class="q-menu-dashboard" @before-hide="showList = false">
+        <MenuList anchor="bottom middle" self="top middle" :list="list" />
       </q-menu>
     </q-btn>
   </div>
@@ -20,16 +29,17 @@
 import ArrowDown from '%/icons/ArrowDown.svg'
 import MenuList from '#/Header/MenuList.vue'
 import ArrowUpIcon from '@/assets/icons/ArrowUpIcon.svg'
+import Logo from './Logo.vue'
 export default {
   name: 'CardLayout',
 
-  components: { MenuList},
+  components: { MenuList, Logo },
 
   data() {
     return {
       showList: false,
       ArrowUpIcon,
-      ArrowDown, 
+      ArrowDown,
       anchor: null
     }
   },
@@ -86,27 +96,32 @@ export default {
     ToogleMenu() {
       this.showList = !this.showList
     },
+    print() {
+      console.log('sdad')
+    }
   }
 }
 </script>
 
-<style scoped lang="scss">
-
+<style lang="scss">
 .card-outer-box {
   display: flex;
-  min-width: fit-content;
+  max-width: fit-content;
 }
 
 .cards {
   align-items: center;
   align-self: flex-start;
   background-color: #3d55ae;
+  border: none;
   border-bottom: 1px solid #c5c5c5;
   color: #ffffff;
   cursor: pointer;
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  position: relative;
+  min-height: 60px;
+  width: 159px;
 }
 
 .cards.onHover {
@@ -115,6 +130,7 @@ export default {
 
 .icon-left {
   height: 18px;
+  margin-right: 5px;
   width: 18px;
 }
 
@@ -123,6 +139,7 @@ export default {
   display: flex;
   height: 7.12px;
   justify-content: center;
+  margin-left: 11.29px;
   width: 11.41px;
 }
 .inner-style {
@@ -131,21 +148,19 @@ export default {
   align-self: center;
 }
 
-.card-button-label {
+.dashboard-label {
+  align-items: center;
   color: #ffffff;
+  display: flex;
   font-family: 'Work Sans';
   font-size: 13px;
   font-style: normal;
   font-weight: 700;
-  margin-bottom: 0;
+  height: 15px;
+  line-height: 15px;
+   margin-bottom: 0;
 }
-.q-btn {
-  box-sizing: border-box;
-  padding: 0 10px 0 10px;
-  min-width: max-content;
-}
-
-.q-menu {
+.q-menu-dashboard {
   max-width: fit-content;
   position: absolute;
 }

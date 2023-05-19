@@ -1,18 +1,17 @@
-
 <template>
   <div type="span" :class="classes" @click="onClick" :style="style" v-if="this.fileIsLoaded">
-  <button
-    type="button"
-    class="button-bottom"
-    :class="classes"
-    @click="nextStep"
-    :style="style"
-    v-if="isReady"
-  >
-    {{ label }}
-    <img :src="ArrowRightIcon" alt=" Arrow right">
-  </button>
-</div>
+    <button
+      type="button"
+      class="button-bottom"
+      :class="classes"
+      @click="nextStep"
+      :style="style"
+      v-if="isReady"
+    >
+      {{ label }}
+      <img :src="ArrowRightIcon" alt=" Arrow right" />
+    </button>
+  </div>
 </template>
 
 <script>
@@ -27,7 +26,7 @@ export default {
 
   data() {
     return {
-      ChevronRight, 
+      ChevronRight,
       ArrowRightIcon
     }
   },
@@ -61,27 +60,33 @@ export default {
         'storybook-button': true,
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
-        [`storybook-button--${this.size || 'medium'}`]: true,
+        [`storybook-button--${this.size || 'medium'}`]: true
       }
     },
     style() {
       return {
         backgroundColor: this.backgroundColor
       }
-    }, 
-     ...mapWritableState(useMailingStore, {
+    },
+    ...mapWritableState(useMailingStore, {
       step: 'globalStep',
-      fileIsLoaded: 'mailingCsvFile'
-      }),
+      fileIsLoaded: 'mailingCsvFile',
+      isLoading: 'isLoading'
+    })
   },
 
   methods: {
     onClick() {
-      this.$emit('click')
-    }, 
-    nextStep() {
-      this.step++
+      this.isLoading = true
     },
+    nextStep() {
+      this.isLoading = true
+      this.step++
+
+      setTimeout(() => {
+        this.isLoading = false
+      }, 2000);
+    }
   }
 }
 </script>
@@ -89,10 +94,10 @@ export default {
 <style scoped lang="scss">
 .button-bottom {
   align-items: center;
-  background: #4B68D2;
+  background: #4b68d2;
   border-radius: 5px;
-  border: 2px solid #4B68D2;
-  color:#FFFFFF;
+  border: 2px solid #4b68d2;
+  color: #ffffff;
   display: flex;
   font-family: 'Work Sans';
   font-size: 12px;
@@ -107,6 +112,5 @@ export default {
   img {
     margin-left: 7px;
   }
-
 }
 </style>

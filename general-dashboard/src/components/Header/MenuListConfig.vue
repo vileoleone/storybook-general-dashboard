@@ -135,7 +135,7 @@ export default {
   height: max-content;
   font-weight: 500;
   padding: 20px 2px 0 20px;
-  width: 159px;
+  width: 182px;
   li {
     align-items: center;
     display: flex;

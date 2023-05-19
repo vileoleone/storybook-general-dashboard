@@ -1,7 +1,8 @@
 <template>
   <div type="span" class="mailing-page" :class="classes" @click="onClick" :style="style">
-    <HeaderComponent />
-    <NextSection :routes="nextSectionList" />
+    <HeaderComponent id="header-in-page" />
+
+    <NextSection class="next-section-in-page" :routes="nextSectionList" />
 
     <div v-if="this.step == 0" class="import-sections">
       <StepSection label="Etapas de Importação" :dict="stepSectionDict" :step="0" />
@@ -14,6 +15,8 @@
 
       <MailingMainSection label="Arquivo" :queues="queueList" :vueComponent="FileStep" />
     </div>
+
+    <SpinnerLoader v-if="this.isLoading" class="loading-box" />
   </div>
 </template>
 
@@ -26,10 +29,18 @@ import QueueStep from '#/Sections/QueueConfigComponents/RightSectionSteps/QueueS
 import { default as FileStep } from '#/Sections/QueueConfigComponents/RightSectionSteps/FileStep.vue'
 import { mapState } from 'pinia'
 import { useMailingStore } from '@/stores/store'
+import SpinnerLoader from '@/components/Sections/QueueConfigComponents/AtomicComponents/SpinnerLoader.vue'
 export default {
   name: 'ImportMailingPage',
 
-  components: { HeaderComponent, NextSection, StepSection, MailingMainSection, FileStep },
+  components: {
+    HeaderComponent,
+    NextSection,
+    StepSection,
+    MailingMainSection,
+    FileStep,
+    SpinnerLoader
+  },
 
   data() {
     return {
@@ -83,10 +94,11 @@ export default {
       return {
         backgroundColor: this.backgroundColor
       }
-    }, 
-     ...mapState(useMailingStore, {
+    },
+    ...mapState(useMailingStore, {
       step: 'globalStep',
-      }),
+      isLoading:'isLoading'
+    })
   },
 
   methods: {
@@ -97,6 +109,12 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+.loading-box {
+  display: flex;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+}
 .mailing-page {
   position: relative;
   display: flex;
@@ -105,8 +123,15 @@ export default {
   align-items: flex-start;
   padding: 0;
   margin: 0;
+  width: 100%;
+  height: 100%;
 }
-
+#header-in-page {
+  z-index: 1;
+}
+.next-section-in-page {
+  margin-top: 60px;
+}
 .import-sections {
   display: flex;
   width: 100%;

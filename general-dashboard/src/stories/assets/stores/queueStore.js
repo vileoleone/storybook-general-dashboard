@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 export const useQueueStore = defineStore('queue', {
-  state: () => ({ queueExample: queue })
+  state: () => ({ queueExample: queue, queueExample2: {} })
 })
 
 const queue = {
@@ -15,25 +15,11 @@ const queue = {
         cidade: 'campo grande',
         cep: '47238472',
         rua: 'loiaola,',
-        bairro: 'tiradentes'
+        bairro: 'tiradentes', 
+        complemento: '3345',
+        telefone: '334545544',
+        situacao:'pago', 
       },
-      {
-        id: 1,
-        nome: 'Carlos',
-        numero: 9423984732,
-        cep: '47238472',
-        rua: '',
-        bairro: 'tiradentes'
-      },
-      {
-        id: 1,
-        nome: 'Pedro',
-        numero: 9423984732,
-        cidade: 'campo grande',
-        cep: '47238472',
-        rua: 'loiaolaa,',
-        
-      }
     ]
   },
   'nomedoarquivo2.csv': {
@@ -48,6 +34,11 @@ const queue = {
         rua: 'loiaola,',
         bairro: 'tiradentes'
       },
+    ]
+  },
+  'nomedoarquivo3.csv': {
+    createdAt: '03/03/2022',
+    data: [
       {
         id: 1,
         nome: 'Carlos',
@@ -56,15 +47,6 @@ const queue = {
         cep: '47238472',
         rua: '',
         bairro: 'tiradentes'
-      },
-      {
-        id: 1,
-        nome: 'Pedro',
-        numero: 9423984732,
-        cidade: 'campo grande',
-        cep: '47238472',
-        rua: 'loiaolaa,',
-        bairro: ''
       }
     ]
   }

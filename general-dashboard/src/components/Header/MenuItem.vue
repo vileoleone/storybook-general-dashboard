@@ -1,5 +1,12 @@
 <template>
-  <q-item  class="li" type="li" :class="classes" :style="style" @mouseover="onMouse" @mouseleave="onMouse">
+  <q-item
+    id="li"
+    type="li"
+    :class="classes"
+    :style="style"
+    @mouseover="onMouse"
+    @mouseleave="onMouse"
+  >
     {{ label }}
   </q-item>
 </template>
@@ -36,7 +43,7 @@ export default {
     },
     list: {
       type: Array
-    },
+    }
   },
 
   computed: {
@@ -46,7 +53,7 @@ export default {
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
         [`storybook-button--${this.size || 'medium'}`]: true,
-        'active':this.isActive
+        active: this.isActive
       }
     },
     style() {
@@ -66,10 +73,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-.li {
- margin-bottom: 10px;
-}
- 
-
+.q-item {
+    padding: 0;
+    min-height: fit-content;
+  }
+ #li {
+  margin-bottom: 10px;
+ } 
 </style>
