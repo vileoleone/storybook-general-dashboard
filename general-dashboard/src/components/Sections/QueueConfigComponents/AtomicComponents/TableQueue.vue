@@ -15,8 +15,19 @@
       :hide-pagination="true"
       :pagination="pagination"
     >
-      <template v-slot:top>
+      <template v-slot:top-left>
         {{ `${queueName} - ${createdAt} ` }}
+      </template>
+
+      <template v-slot:top-right>
+        <div class="button-container">
+          <div @click="scrollLeft" class="queue-table-scroll-button">
+            <img :src="ChevronLeftIcon" alt="scroll left" />
+          </div>
+          <div @click="scrollRight" class="queue-table-scroll-button">
+            <img :src="ChevronRightIcon" alt="scroll Right" />
+          </div>
+        </div>
       </template>
     </q-table>
 
@@ -106,12 +117,28 @@ export default {
   methods: {
     onClick() {
       this.$emit('click')
+    },
+    scrollLeft() {
+      console.log('left')
+      document.getElementById('table-queue').getElementsByClassName('table-queue-style').scrollLeft += 20
+    },
+    scrollRight() {
+      console.log('right')
+      document.getElementById('table-queue').getElementsByClassName('table-queue-style').scrollLeft -= 20
     }
+
   }
 }
 </script>
 
 <style lang="scss">
+.button-container {
+  display: flex;
+  flex-direction: row;
+  width: 55px;
+  justify-content: space-between;
+  margin-right: 10px;
+}
 .central-icon {
   display: flex;
   justify-content: center;
@@ -148,11 +175,21 @@ export default {
   z-index: 0;
 }
 
+.queue-table-scroll-button {
+  height: 24px;
+  width: 24px;
+  border-radius: 3px;
+  border: 1px solid #c5c5c5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .table-queue-style {
   font-family: 'Work Sans';
   font-size: 12px;
-  font-style: normal;  
-  overflow-x: scroll;  
+  font-style: normal;
+  overflow-x: scroll;
 }
 
 .table-title-class {
@@ -170,7 +207,7 @@ export default {
   display: none;
 }
 
-.outer-container{
+.outer-container {
   max-width: 900px;
 }
 
