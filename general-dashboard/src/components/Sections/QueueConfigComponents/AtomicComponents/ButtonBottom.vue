@@ -1,13 +1,6 @@
 <template>
   <div type="span" :class="classes" @click="onClick" :style="style" v-if="this.fileIsLoaded">
-    <button
-      type="button"
-      class="button-bottom"
-      :class="classes"
-      @click="nextStep"
-      :style="style"
-      v-if="isReady"
-    >
+    <button type="button" class="button-bottom" :class="classes" @click="onClick" :style="style">
       {{ label }}
       <img :src="ArrowRightIcon" alt=" Arrow right" />
     </button>
@@ -18,7 +11,7 @@
 import ChevronRight from '@/assets/icons/ChevronRight.svg'
 import ArrowRightIcon from '@/assets/icons/ArrowRightIcon.svg'
 import { mapWritableState } from 'pinia'
-import { useMailingStore } from '@/stores/store'
+import { useMailingStore } from '@/stores/useMailingStore'
 export default {
   name: 'buttonBottom',
 
@@ -49,8 +42,8 @@ export default {
     backgroundColor: {
       type: String
     },
-    isReady: {
-      type: Boolean
+    onClick: {
+      type: Function
     }
   },
 
@@ -71,22 +64,9 @@ export default {
     ...mapWritableState(useMailingStore, {
       step: 'globalStep',
       fileIsLoaded: 'mailingCsvFile',
-      isLoading: 'isLoading'
+      isLoading: 'isLoading',
+      readyToProceed: 'readyToProceed:'
     })
-  },
-
-  methods: {
-    onClick() {
-      this.isLoading = true
-    },
-    nextStep() {
-      this.isLoading = true
-      this.step++
-
-      setTimeout(() => {
-        this.isLoading = false
-      }, 2000);
-    }
   }
 }
 </script>

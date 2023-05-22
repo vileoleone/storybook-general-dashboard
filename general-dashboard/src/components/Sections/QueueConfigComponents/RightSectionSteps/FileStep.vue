@@ -17,33 +17,36 @@
         </div>
       </div>
     </main>
-    <ButtonBottom label="Ir para a próxima etapa" :isReady="true" />
+    <ButtonBottom @click="loadAndParse" label="Continuar para a próxima etapa" />
   </div>
+  <SpinnerLoader v-if="this.isLoading" class="loading-box" />
 </template>
 
 <script>
+import { mapWritableState } from 'pinia'
+import SpinnerLoader from '../AtomicComponents/SpinnerLoader.vue'
+import { useMailingStore } from '@/stores/useMailingStore'
+import { useQueueStore } from '@/stories/assets/stores/queueStore'
+import ButtonBottom from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonBottom.vue'
+import DropZone from '#/Sections/QueueConfigComponents/AtomicComponents/DropZone.vue'
+import Papa from 'papaparse'
+import SearchSubHeader from '#/Sections/QueueConfigComponents/AtomicComponents/SearchSubHeader.vue'
+import TableQueue from '#/Sections/QueueConfigComponents/AtomicComponents/TableQueue.vue'
 import TriangleDown from '@/assets/icons/TriangleDown.svg'
 import TriangleUp from '@/assets/icons/TriangleUp.svg'
-import DropZone from '#/Sections/QueueConfigComponents/AtomicComponents/DropZone.vue'
-import TableQueue from '#/Sections/QueueConfigComponents/AtomicComponents/TableQueue.vue'
-import SearchSubHeader from '#/Sections/QueueConfigComponents/AtomicComponents/SearchSubHeader.vue'
-import ButtonBottom from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonBottom.vue'
-import { useQueueStore } from '@/stories/assets/stores/queueStore'
-import { mapWritableState } from 'pinia'
+
 export default {
   name: 'FileStep',
 
-  components: { DropZone, TableQueue, SearchSubHeader, ButtonBottom },
+  components: { DropZone, TableQueue, SearchSubHeader, ButtonBottom, SpinnerLoader },
 
   data() {
     return {
       TriangleDown,
       TriangleUp,
-      active: false,
-      isLoading: true
+      active: false
     }
   },
-
   props: {
     label: {
       type: String,
@@ -80,6 +83,12 @@ export default {
     },
     ...mapWritableState(useQueueStore, {
       queues: 'queueExample'
+    }),
+    ...mapWritableState(useMailingStore, {
+      readyToProceed: 'readyToProceed',
+      file: 'mailingCsvFile',
+      isLoading: 'isLoading',
+      step: 'globalStep'
     })
   },
   methods: {
@@ -89,6 +98,29 @@ export default {
     changeBodyOpacity() {
       document.body.style.opacity = '0.4'
       document.body.style.backgroundColor = 'black'
+    },
+    async loadAndParse() {
+      this.isLoading = true
+      this.readyToProceed = false
+      return this.parseMailingCsv(this.file).then(() => {
+        this.isLoading = false
+        this.readyToProceed = true
+        this.step++
+      })
+    },
+    parseMailingCsv(file) {
+      return new Promise((resolve) =>
+        Papa.parse(file, {
+          worker: true,
+          header: false,
+          skipEmptyLines: true,
+
+          complete: (results) => {
+            this.file.data = results.data
+            resolve()
+          }
+        })
+      )
     }
   }
 }
@@ -113,9 +145,9 @@ export default {
 .queue-tables {
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
+  margin-left: 2%;
   width: 100%;
-
+  align-items: flex-end;
 }
 
 .tables {

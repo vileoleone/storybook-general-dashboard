@@ -19,13 +19,13 @@
 </template>
 
 <script>
-import dropZoneIcon from '@/assets/icons/DropZoneIcon.svg'
-import CsvIcon from '@/assets/icons/IconCsv.svg'
-import trashIcon from '@/assets/icons/trashIcon.svg'
-import DropZone from 'dropzone'
-
 import { mapWritableState } from 'pinia'
-import { useMailingStore } from '@/stores/store'
+import { useMailingStore } from '@/stores/useMailingStore'
+import CsvIcon from '@/assets/icons/IconCsv.svg'
+import DropZone from 'dropzone'
+import dropZoneIcon from '@/assets/icons/DropZoneIcon.svg'
+import superbytes from 'superbytes'
+import trashIcon from '@/assets/icons/trashIcon.svg'
 export default {
   name: 'DropZone',
 
@@ -38,8 +38,7 @@ export default {
       DropZone,
       dropZoneIcon,
       CsvIcon,
-      trashIcon,
-     
+      trashIcon
 
       /*  delimiter: value.delimiter ?? ';',
       delimiters,
@@ -73,12 +72,9 @@ export default {
     },
 
     ...mapWritableState(useMailingStore, {
-      file: 'mailingCsvFile'
+      file: 'mailingCsvFile',
+      readyToProceed: 'readyToProceed'
     }),
-
-    /* ...mapState({
-      queueId: ({ attendanceStore }) => attendanceStore.queueId
-    }), */
 
     fileName() {
       const vue = this
@@ -99,7 +95,7 @@ export default {
     fileSize() {
       const vue = this
       if (!vue.file) return ''
-      return vue.file.size
+      return superbytes(vue.file.size)
     }
   },
 
@@ -148,7 +144,7 @@ export default {
 
     async onFileAdded(fileCsv) {
       this.file = fileCsv
-      console.log(fileCsv)
+      this.readyToProceed = true
       //const dismiss = this.$q.notify({ spinner: true, message: 'Aguarde enquanto validamos o arquivo...', position: 'center' })
       //const { count } = await etlLoadData(this.mountParams(file), false)
       //dismiss()
@@ -183,40 +179,6 @@ export default {
       const vue = this
       vue.dropZone.removeAllFiles(true)
       vue.file = file
-    },
-
-    onChange() {
-      const vue = this
-
-      vue.$emit('input', {
-        file: vue.file,
-        encoding: vue.encoding,
-        hasHeader: vue.hasHeader,
-        delimiter: vue.delimiter,
-        quoteChar: vue.quoteChar
-      })
-    }, 
-
-  },
-  watch: {
-    file() {
-      this.onChange()
-    },
-
-    hasHeader() {
-      this.onChange()
-    },
-
-    encoding() {
-      this.onChange()
-    },
-
-    delimiter() {
-      this.onChange()
-    },
-
-    quoteChar() {
-      this.onChange()
     }
   }
 }

@@ -110,7 +110,7 @@ export default {
     font-style: normal;
     font-weight: 600;
     height: 13px;
-    width: 100px;
+   
   }
   .title-outer-box {
     box-sizing: border-box;

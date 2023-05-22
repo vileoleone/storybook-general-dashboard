@@ -16,6 +16,7 @@
       @click="nextStep"
       :class="classes"
       :style="style"
+      :disabled="!this.readyToProceed"
     >
       {{ label }}
     </button>
@@ -25,7 +26,7 @@
 <script>
 import ChevronRight from '%/icons/ChevronRight.svg'
 import { mapWritableState } from 'pinia'
-import { useMailingStore } from '@/stores/store'
+import { useMailingStore } from '@/stores/useMailingStore'
 export default {
   name: 'ButtonTopRight',
 
@@ -33,7 +34,7 @@ export default {
 
   data() {
     return {
-      ChevronRight,
+      ChevronRight
     }
   },
 
@@ -54,7 +55,7 @@ export default {
     },
     backgroundColor: {
       type: String
-    },
+    }
   },
 
   computed: {
@@ -71,11 +72,12 @@ export default {
       return {
         backgroundColor: this.backgroundColor
       }
-    }, 
-  
+    },
+
     ...mapWritableState(useMailingStore, {
-      step: 'globalStep',
-      }),
+      step: 'globalStep', 
+      readyToProceed:'readyToProceed'
+    })
   },
 
   methods: {

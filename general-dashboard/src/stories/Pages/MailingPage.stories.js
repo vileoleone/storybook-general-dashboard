@@ -20,7 +20,7 @@ export default {
   },
 };
 
-export const QueueStepPageStory = {
+export const MailingPageStory = {
   render: (args) => ({
     components: { ImportMailingPage },
     setup() {
@@ -32,22 +32,5 @@ export const QueueStepPageStory = {
     primary: true,
     label: 'Fila',
     backgroundColor: '#FFFFFF',
-    step: 0
   },
 };
-
-export const FileStepPageStory = {
-  render: (args) => ({
-    components: { ImportMailingPage },
-    setup() {
-      return { args }
-    },
-    template: '<ImportMailingPage v-bind="args" />'
-  }),
-  args: {
-    primary: true,
-    label: 'File',
-    backgroundColor: '#FFFFFF',
-    step: 1,
-  }
-}

@@ -100,7 +100,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     height: 40px;
-    width: 100%;
+    min-width: 750px;
     margin-bottom: 15px;
   }
 

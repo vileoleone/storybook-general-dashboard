@@ -16,48 +16,43 @@
       <MailingMainSection label="Arquivo" :queues="queueList" :vueComponent="FileStep" />
     </div>
 
-    <SpinnerLoader v-if="this.isLoading" class="loading-box" />
+    <div v-if="this.step == 2" class="import-sections">
+      <StepSection label="Etapas de Importação" :dict="stepSectionDict" :step="2" />
+
+      <MailingMainSection label="Mapeamento" :queues="queueList" :vueComponent="MappingFileStep" />
+    </div>
   </div>
 </template>
 
 <script>
-import { default as HeaderComponent } from '#/Header/Header.vue'
-import NextSection from '#/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSection.vue'
-import StepSection from '#/Sections/QueueConfigComponents/LeftSectionSteps/LeftSectionSteps.vue'
-import { default as MailingMainSection } from '#/Sections/QueueConfigComponents/Main.vue'
-import QueueStep from '#/Sections/QueueConfigComponents/RightSectionSteps/QueueStep.vue'
 import { default as FileStep } from '#/Sections/QueueConfigComponents/RightSectionSteps/FileStep.vue'
-import { mapState } from 'pinia'
-import { useMailingStore } from '@/stores/store'
-import SpinnerLoader from '@/components/Sections/QueueConfigComponents/AtomicComponents/SpinnerLoader.vue'
+import { default as HeaderComponent } from '#/Header/Header.vue'
+import { default as MailingMainSection } from '#/Sections/QueueConfigComponents/Main.vue'
+import { mapWritableState } from 'pinia'
+import { useMailingStore } from '@/stores/useMailingStore'
+import NextSection from '#/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSection.vue'
+import QueueStep from '#/Sections/QueueConfigComponents/RightSectionSteps/QueueStep.vue'
+import StepSection from '#/Sections/QueueConfigComponents/LeftSectionSteps/LeftSectionSteps.vue'
+import MappingFileStep from '@/components/Sections/QueueConfigComponents/RightSectionSteps/MappingFileStep.vue'
 export default {
   name: 'ImportMailingPage',
-
   components: {
     HeaderComponent,
     NextSection,
     StepSection,
     MailingMainSection,
-    FileStep,
-    SpinnerLoader
   },
 
   data() {
     return {
       QueueStep,
       FileStep,
+      MappingFileStep,
       nextSectionList: ['Dashboards', 'Campanhas', 'Importação'],
-      stepSectionDict: {
-        Fila: 'Nome da fila escolhida',
-        Arquivo: 'nome_do_arquivo.csv',
-        'Mapeamento do Arquivo': '1234 registros - 6 colunas',
-        'Mapeamento do perfilador': '6 colunas em campo',
-        'Análise dos campos do arquivo': '3 colunas ignoradas',
-        Importação: ''
-      },
       queueList: ['filafonacao', 'filaatendimento']
     }
   },
+
   props: {
     label: {
       type: String,
@@ -95,17 +90,17 @@ export default {
         backgroundColor: this.backgroundColor
       }
     },
-    ...mapState(useMailingStore, {
+    ...mapWritableState(useMailingStore, {
+      isLoading: 'isLoading',
+      queueToConfig: 'queueToConfig',
       step: 'globalStep',
-      isLoading:'isLoading'
+      csvFile: 'mailingCsvFile',
+      readyToProceed: 'readyToProceed',
+      stepSectionDict: 'stepSectionDict'
     })
-  },
+  }, 
 
-  methods: {
-    onClick() {
-      this.$emit('click')
-    }
-  }
+  methods: {}
 }
 </script>
 <style scoped lang="scss">
@@ -113,7 +108,6 @@ export default {
   display: flex;
   z-index: 2;
   position: fixed;
-  top: 0;
 }
 .mailing-page {
   position: relative;
@@ -131,9 +125,15 @@ export default {
 }
 .next-section-in-page {
   margin-top: 60px;
+  position: fixed;
+  left: 0;
 }
 .import-sections {
   display: flex;
   width: 100%;
+  position: fixed;
+  left: 0;
+  top: 170px;
+  z-index: 1;
 }
 </style>

@@ -1,12 +1,6 @@
 <template>
-  <div
-    type="span"
-    class="next-section-outer-box"
-    :class="classes"
-    @click="onClick"
-    :style="styles"
-  >
-    <NextSectionTitle label="Importação de Contatos" :list="routes" />
+  <div type="span" class="next-section-outer-box" :class="classes" @click="onClick" :style="styles">
+    <NextSectionTitle class="next-section-title" label="Importação de Contatos" :list="routes" />
     <ButtonTopRight label="Próximo" />
   </div>
 </template>
@@ -14,7 +8,8 @@
 <script>
 import ButtonTopRight from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonTopRight.vue'
 import NextSectionTitle from '#/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSectionTitle.vue'
-
+import { useMailingStore } from '@/stores/useMailingStore'
+import { mapWritableState } from 'pinia'
 export default {
   name: 'NextSection',
 
@@ -57,7 +52,11 @@ export default {
         backgroundColor: this.backgroundColor
       }
     },
-
+    ...mapWritableState(useMailingStore, {
+      step: 'globalStep',
+      fileIsLoaded: 'mailingCsvFile',
+      isLoading: 'isLoading'
+    })
   },
 
   methods: {
@@ -78,5 +77,9 @@ export default {
   justify-content: space-between;
   padding: 25px 25px 0 25px;
   width: 100%;
+}
+
+.next-section-title {
+  margin-right: 20px;
 }
 </style>

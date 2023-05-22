@@ -1,6 +1,5 @@
 <template>
   <div class="outer-container">
-    {{ this.index }}
     <q-table
       id="table-queue"
       table-class="table-queue-style"
@@ -21,7 +20,7 @@
 
       <template v-slot:top-right>
         <div class="button-container">
-          <div @mousedown="scrollLeft" @mouseup="released" class="queue-table-scroll-button">
+          <div @mousedown="scrollLeft" class="queue-table-scroll-button">
             <img :src="ChevronLeftIcon" alt="scroll left" />
           </div>
           <div @mousedown="scrollRight" class="queue-table-scroll-button">
@@ -125,16 +124,18 @@ export default {
       this.$emit('click')
     },
     scrollLeft() {
-      document.querySelectorAll('#table-queue')[this.index].querySelector('.q-table__middle.scroll.table-queue-style').scrollLeft -= 100
-      console.log(document.querySelectorAll('#table-queue')[this.index])
+      document
+        .querySelectorAll('#table-queue')
+        [this.index]
+        .querySelector('.q-table__middle.scroll.table-queue-style')
+        .scrollLeft -= 150
     },
     scrollRight() {
-       document.querySelectorAll('#table-queue')[this.index].querySelector('.q-table__middle.scroll.table-queue-style').scrollLeft +=m  100
-      console.log(document.querySelectorAll('#table-queue')[this.index])
-    },
-    released() {
-      this.buttonPressed = false
-      console.log(this.buttonPressed)
+      document
+        .querySelectorAll('#table-queue')
+        [this.index]
+        .querySelector('.q-table__middle.scroll.table-queue-style')
+        .scrollLeft += 150
     }
   }
 }
@@ -195,10 +196,17 @@ export default {
 }
 
 .table-queue-style {
+  box-sizing: border-box;
   font-family: 'Work Sans';
   font-size: 12px;
   font-style: normal;
   overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.table-queue-style::-webkit-scrollbar {
+  display: none;
 }
 
 .table-title-class {
@@ -209,7 +217,6 @@ export default {
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
-  height: 44px;
 }
 
 .q-table__sort-icon {
@@ -229,6 +236,7 @@ export default {
 
 #table-queue thead tr,
 #table-queue tbody td {
+  box-sizing: border-box;
   height: 30px;
   width: fit-content;
   font-size: 12px;
@@ -236,7 +244,7 @@ export default {
   color: #616161;
   text-align: left;
   padding: 0 10px 0 10px;
-  min-width: 100px;
+  min-width: 150px;
   max-width: 150px;
 }
 
