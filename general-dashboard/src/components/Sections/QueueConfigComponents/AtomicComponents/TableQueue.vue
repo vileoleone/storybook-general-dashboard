@@ -129,7 +129,7 @@ export default {
       console.log(document.querySelectorAll('#table-queue')[this.index])
     },
     scrollRight() {
-       document.querySelectorAll('#table-queue')[this.index].querySelector('.q-table__middle.scroll.table-queue-style').scrollLeft += 100
+       document.querySelectorAll('#table-queue')[this.index].querySelector('.q-table__middle.scroll.table-queue-style').scrollLeft +=m  100
       console.log(document.querySelectorAll('#table-queue')[this.index])
     },
     released() {
