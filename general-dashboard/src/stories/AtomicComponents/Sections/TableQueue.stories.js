@@ -44,7 +44,10 @@ export const TableQueueStory = {
           cidade: 'campo grande',
           cep: '47238472',
           rua: 'loiaola,',
-          bairro: 'tiradentes'
+          bairro: 'tiradentes', 
+          telefone: 3242342,
+          celular: 13231312,
+          complemento:"perto da esquina"
         },
         {
           id: 1,

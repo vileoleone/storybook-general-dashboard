@@ -7,7 +7,7 @@
         <div class="tables">
           <template v-if="Object.keys(queues).length > 0">
             <div v-for="(queueItens, queueName, index) in queues" :key="index">
-              <TableQueue :queueName="queueName" :queueData="queueItens" />
+              <TableQueue :index="index" :queueName="queueName" :queueData="queueItens" />
             </div>
           </template>
 

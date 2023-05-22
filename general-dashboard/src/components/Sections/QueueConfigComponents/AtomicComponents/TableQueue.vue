@@ -1,9 +1,9 @@
 <template>
   <div class="outer-container">
+    {{ this.index }}
     <q-table
       id="table-queue"
       table-class="table-queue-style"
-      title-class="table-title-class"
       table-header-class="table-header-class"
       flat
       bordered
@@ -16,15 +16,15 @@
       :pagination="pagination"
     >
       <template v-slot:top-left>
-        {{ `${queueName} - ${createdAt} ` }}
+        <span class="table-title-class">{{ `${queueName} - ${createdAt} ` }}</span>
       </template>
 
       <template v-slot:top-right>
         <div class="button-container">
-          <div @click="scrollLeft" class="queue-table-scroll-button">
+          <div @mousedown="scrollLeft" @mouseup="released" class="queue-table-scroll-button">
             <img :src="ChevronLeftIcon" alt="scroll left" />
           </div>
-          <div @click="scrollRight" class="queue-table-scroll-button">
+          <div @mousedown="scrollRight" class="queue-table-scroll-button">
             <img :src="ChevronRightIcon" alt="scroll Right" />
           </div>
         </div>
@@ -49,6 +49,7 @@ import ChevronLeftIcon from '@/assets/icons/ChevronLeftIcon.svg'
 import ChevronRightIcon from '@/assets/icons/ChevronRightIcon.svg'
 import NotFoundIcon from '%/icons/NotFoundIcon.svg'
 import ExclamationIcon from '%/icons/ExclamationIcon.svg'
+
 export default {
   name: 'TableQueue',
 
@@ -59,7 +60,9 @@ export default {
       ChevronLeftIcon,
       ChevronRightIcon,
       NotFoundIcon,
-      ExclamationIcon
+      ExclamationIcon,
+      buttonPressed: true,
+      singleClass: this.index
     }
   },
 
@@ -86,6 +89,9 @@ export default {
     },
     queueData: {
       type: Object
+    },
+    index: {
+      type: Number
     }
   },
 
@@ -119,14 +125,17 @@ export default {
       this.$emit('click')
     },
     scrollLeft() {
-      console.log('left')
-      document.getElementById('table-queue').getElementsByClassName('table-queue-style').scrollLeft += 20
+      document.querySelectorAll('#table-queue')[this.index].querySelector('.q-table__middle.scroll.table-queue-style').scrollLeft -= 100
+      console.log(document.querySelectorAll('#table-queue')[this.index])
     },
     scrollRight() {
-      console.log('right')
-      document.getElementById('table-queue').getElementsByClassName('table-queue-style').scrollLeft -= 20
+       document.querySelectorAll('#table-queue')[this.index].querySelector('.q-table__middle.scroll.table-queue-style').scrollLeft += 100
+      console.log(document.querySelectorAll('#table-queue')[this.index])
+    },
+    released() {
+      this.buttonPressed = false
+      console.log(this.buttonPressed)
     }
-
   }
 }
 </script>
@@ -208,7 +217,7 @@ export default {
 }
 
 .outer-container {
-  max-width: 900px;
+  max-width: 750px;
 }
 
 #table-queue th {
@@ -216,18 +225,19 @@ export default {
   font-weight: 600 !important;
   text-align: left;
   padding: 0 0 0 10px;
-  min-width: 120px;
 }
 
 #table-queue thead tr,
 #table-queue tbody td {
-  height: 32px;
+  height: 30px;
   width: fit-content;
   font-size: 12px;
   font-weight: 400;
   color: #616161;
   text-align: left;
-  padding: 0 0 0 10px;
+  padding: 0 10px 0 10px;
+  min-width: 100px;
+  max-width: 150px;
 }
 
 .q-table__top {
