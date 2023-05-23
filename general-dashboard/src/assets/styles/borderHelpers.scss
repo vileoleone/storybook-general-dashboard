@@ -1,7 +1,18 @@
 .bd {
-border: 1px solid red;
+  border: 1px solid red;
+}
+
+.br5 {
+  box-sizing: border-box;
+  border-radius: 5px;
 }
 /* Border Radius */
+.brt5 {
+  box-sizing: border-box;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
 .brt5 {
   box-sizing: border-box;
   border-top-left-radius: 5px;
@@ -116,4 +127,9 @@ border: 1px solid red;
 .borderTopNone {
   box-sizing: border-box;
   border-top: none;
+}
+
+.borderBottonNone {
+  box-sizing: border-box;
+  border-bottom: none;
 }

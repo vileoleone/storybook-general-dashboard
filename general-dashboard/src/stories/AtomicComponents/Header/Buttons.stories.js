@@ -1,8 +1,7 @@
 import ButtonTopRight from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonTopRight.vue'
 import ButtonBottom from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonBottom.vue'
 import ButtomTopTable from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonTopTable.vue'
-
-
+import ButtonTriangleDown from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonTriangleDown.vue'
 export default {
   title: 'Atom Stories/Buttons',
   component: ButtonTopRight,
@@ -73,6 +72,24 @@ export const ButtonTopTableStory = {
     template: ` 
         <div style="border: 1px #CED4DA solid; width: fit-content; padding: 10px;">
           <ButtomTopTable v-bind="args" />
+        </div>
+    `
+  }),
+  args: {
+    primary: true,
+    label: 'Nome da coluna'
+  }
+}
+
+export const ButtonTriangleDownStory = {
+  render: (args) => ({
+    components: { ButtonTriangleDown },
+    setup() {
+      return { args }
+    },
+    template: ` 
+        <div style="border: 1px #CED4DA solid; width: fit-content; padding: 10px;">
+          <ButtonTriangleDown v-bind="args" />
         </div>
     `
   }),

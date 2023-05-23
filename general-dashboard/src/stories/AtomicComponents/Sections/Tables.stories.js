@@ -1,5 +1,6 @@
 import TableCsvQueues from '@/components/Sections/QueueConfigComponents/AtomicComponents/TableCsvQueues.vue'
 import TableNotMappedColumns from '#/Sections/QueueConfigComponents/AtomicComponents/TableNotMappedColumns.vue'
+import TableMappedColumns from '#/Sections/QueueConfigComponents/AtomicComponents/TableMappedColumns.vue'
 export default {
   title: 'Molecule Stories/Tables',
   component: TableCsvQueues,
@@ -97,5 +98,19 @@ export const NotMappedColumnTable = {
   args: {
     primary: false,
     label: 'TableNotMappedColumns'
+  }
+}
+
+export const MappedColumnTable = {
+  render: (args) => ({
+    components: { TableMappedColumns },
+    setup() {
+      return { args }
+    },
+    template: '<TableMappedColumns v-bind="args" />'
+  }),
+  args: {
+    primary: false,
+    label: 'TableMappedColumns'
   }
 }

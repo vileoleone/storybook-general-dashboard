@@ -5,15 +5,7 @@
         <span class="fs12-fw600-cl61">Colunas a mapear</span>
         <span class="fl-jcsb-alcnt-fdrow">
           <span class="fs11-fw400-cl61 mr20">csvfilenameexample</span>
-          <div class="button-pagination-left-right">
-            <div class="button">
-              <img :src="ChevronLeftIcon" alt="scroll left" />
-            </div>
-            <span class="als-c mr10 ml10 fs12-fw500-cl61"> 2 - 3 </span>
-            <div class="button">
-              <img :src="ChevronRightIcon" alt="scroll Right" />
-            </div>
-          </div>
+          <ButtonTopTable />
         </span>
       </span>
     </div>
@@ -42,9 +34,9 @@
               </div>
             </div>
           </div>
-          <div class="not-mapped-column-itens fl-jcsb-alst-fdcolumn fs12-fw400-cl85 bclightbeige wd100 borderE3">
-            <div class="item p10 borderBottomE3 wd100">Item da coluna</div>
-            <div class="item p10 borderBottomE3 wd100">Item da coluna</div>
+          <div
+            class="not-mapped-column-itens fl-jcsb-alst-fdcolumn fs12-fw400-cl85 bclightbeige wd100 borderE3"
+          >
             <div class="item p10 borderBottomE3 wd100">Item da coluna</div>
           </div>
         </div>
@@ -68,23 +60,17 @@
               </div>
             </div>
           </div>
-          <div class="not-mapped-column-itens fl-jcsb-alst-fdcolumn  bclightpink fs12-fw400-cl85 wd100">
-            <div class="item p10 borderE3  wd100">Item da coluna</div>
-            <div class="item p10 borderE3  wd100">Item da coluna</div>
-            <div class="item p10 borderE3  wd100">Item da coluna</div>
+          <div
+            class="not-mapped-column-itens fl-jcsb-alst-fdcolumn bclightpink fs12-fw400-cl85 wd100"
+          >
+            <div class="item p10 borderE3 wd100">Item da coluna</div>
           </div>
         </div>
       </div>
     </div>
     <div class="legend-container fl-jcst-alcnt-fdrow">
-      <div class="legend-block fl-jcst-alcnt-fdrow mr15">
-        <div class="color wd10 ht10 bcbeige mr10"></div>
-        <div class="legend fs12-fw400-cl8B">Colunas Duplicadas no sistema</div>
-      </div>
-      <div class="legend-block fl-jcst-alcnt-fdrow">
-        <div class="color wd10 ht10 bcpink mr10"></div>
-        <div class="legend fs12-fw400-cl8B">Colunas não mapeadas no sistema</div>
-      </div>
+      <LegendBox boxColor="bcbeige" label="Colunas duplicadas" />
+      <LegendBox boxColor="bcbeige" label="Colunas duplicadas" />
     </div>
   </div>
 </template>
@@ -95,11 +81,13 @@ import ChevronRightIcon from '@/assets/icons/ChevronRightIcon.svg'
 import NotFoundIcon from '%/icons/NotFoundIcon.svg'
 import ExclamationIcon from '%/icons/ExclamationIcon.svg'
 import TrashIcon from '%/icons/TrashIcon.svg'
+import ButtonTopTable from './ButtonTopTable.vue'
+import LegendBox from './LegendBox.vue'
 
 export default {
   name: 'TableCsvQueues',
 
-  components: {},
+  components: { ButtonTopTable, LegendBox },
 
   data() {
     return {
@@ -176,6 +164,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
