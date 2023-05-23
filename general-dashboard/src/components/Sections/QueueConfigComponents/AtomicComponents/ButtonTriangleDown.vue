@@ -8,7 +8,7 @@
     <img class="mr5" :src="SuccessMark" alt="scroll Right" />
     {{ label }}
     <q-btn class="ml30" unelevated padding="5px 0 0 0">
-      <div class="pd10"><img :src="TriangleDownGrayIcon" alt="scroll Right" /></div>
+      <img :src="TriangleDownGrayIcon" alt="scroll Right" />
 
       <q-menu
         square

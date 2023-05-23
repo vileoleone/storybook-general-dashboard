@@ -2,6 +2,11 @@
   border: 1px solid red;
 }
 
+.br3 {
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
 .br5 {
   box-sizing: border-box;
   border-radius: 5px;
@@ -112,6 +117,9 @@
 .borderE3 {
   box-sizing: border-box;
   border: 1px solid #e3e3e3;
+}
+.borderA5 {
+  border: 1px solid #a5a5a5;
 }
 
 .borderRightE3 {

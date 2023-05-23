@@ -114,3 +114,17 @@ export const MappedColumnTable = {
     label: 'TableMappedColumns'
   }
 }
+
+export const MappedColumnTable = {
+  render: (args) => ({
+    components: { TableMappedColumns },
+    setup() {
+      return { args }
+    },
+    template: '<TableMappedColumns v-bind="args" />'
+  }),
+  args: {
+    primary: false,
+    label: 'TableMappedColumns'
+  }
+}
