@@ -9,23 +9,7 @@
         </span>
       </span>
     </span>
-    <div class="mapping-container">
-      <span class="header-mapping-container row-direction">
-        <span class="h2">Colunas a mapear</span>
-        <span class="right-header-span row-direction">
-          <span class="p">{{ this.file.name }}</span>
-          <div class="button-container">
-            <div @mousedown="scrollLeft" class="queue-table-scroll-button">
-              <img :src="ChevronLeftIcon" alt="scroll left" />
-            </div>
-            <span class="h3"> 2 - 3 </span>
-            <div @mousedown="scrollRight" class="queue-table-scroll-button">
-              <img :src="ChevronRightIcon" alt="scroll Right" />
-            </div>
-          </div>
-        </span>
-      </span>
-    </div>
+
     <!--  <ButtonBottom label="Ir para a próxima etapa" /> -->
   </div>
 </template>
@@ -38,6 +22,7 @@ import TriangleDown from '@/assets/icons/TriangleDown.svg'
 import TriangleUp from '@/assets/icons/TriangleUp.svg'
 import ChevronLeftIcon from '@/assets/icons/ChevronLeftIcon.svg'
 import ChevronRightIcon from '@/assets/icons/ChevronRightIcon.svg'
+import Papa from 'papaparse'
 export default {
   name: 'FileStep',
 
@@ -106,31 +91,35 @@ export default {
     changeBodyOpacity() {
       document.body.style.opacity = '0.4'
       document.body.style.backgroundColor = 'black'
+    },
+    async loadAndParse() {
+      this.isLoading = true
+      this.readyToProceed = false
+      return this.parseMailingCsv(this.file).then(() => {
+        this.isLoading = false
+        this.readyToProceed = true
+        this.step += 1
+      })
+    },
+    parseMailingCsv(file) {
+      return new Promise((resolve) =>
+        Papa.parse(file, {
+          worker: true,
+          header: false,
+          skipEmptyLines: true,
+
+          complete: (results) => {
+            this.file.data = results.data
+            resolve()
+          }
+        })
+      )
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.button-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100px;
-  margin-left: 20px;
-  margin-right: 0;
-}
-
-.queue-table-scroll-button {
-  height: 24px;
-  width: 24px;
-  border-radius: 3px;
-  border: 1px solid #c5c5c5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .h1 {
   font-weight: 700;
   font-size: 14px;
@@ -145,22 +134,10 @@ export default {
   color: #616161;
 }
 
-.h3 {
-  font-weight: 500;
-  font-size: 12px;
-  color: #616161;
-}
 .p {
   font-weight: 400;
   font-size: 12px;
   color: #8b8b8b;
-}
-
-.row-direction {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: space-between;
 }
 
 .mapping-file-header {
@@ -180,12 +157,6 @@ export default {
     justify-content: space-between;
     width: 100%;
   }
-}
-
-.header-mapping-container {
-  display: flex;
-  height: 35px;
-  padding: 0;
 }
 
 .mapping-file-step-outer-box {

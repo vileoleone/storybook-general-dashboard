@@ -1,6 +1,6 @@
 import SearchSubHeader from '@/components/Sections/QueueConfigComponents/AtomicComponents/SearchSubHeader.vue'
 export default {
-  title: 'Atom Stories/Sections',
+  title: 'Atom Stories/SearchFields',
   component: SearchSubHeader,
   tags: ['autodocs'],
   argTypes: {

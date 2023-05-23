@@ -1,6 +1,6 @@
 import NextSectionTitle from '#/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSectionTitle.vue'
 export default {
-  title: 'Atom Stories/Headers/UnderHeader',
+  title: 'Atom Stories/UnderHeader',
   component: NextSectionTitle,
   tags: ['autodocs'],
   decorators: [
@@ -31,14 +31,14 @@ export const NextSectionTitleStory = {
   render: (args) => ({
     components: { NextSectionTitle },
     setup() {
-      return { args };
+      return { args }
     },
-    template: '<NextSectionTitle v-bind="args" />',
+    template: '<NextSectionTitle v-bind="args" />'
   }),
   args: {
     primary: true,
     label: 'Importação de contatos',
     backgroundColor: '#FFFFFF',
     list: ['Dashboards', 'Campanhas', 'Importação']
-  },
-};
+  }
+}

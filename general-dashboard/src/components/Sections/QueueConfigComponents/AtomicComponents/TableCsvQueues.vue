@@ -50,7 +50,7 @@ import NotFoundIcon from '%/icons/NotFoundIcon.svg'
 import ExclamationIcon from '%/icons/ExclamationIcon.svg'
 
 export default {
-  name: 'TableQueue',
+  name: 'TableCsvQueues',
 
   components: {},
 
@@ -126,16 +126,12 @@ export default {
     scrollLeft() {
       document
         .querySelectorAll('#table-queue')
-        [this.index]
-        .querySelector('.q-table__middle.scroll.table-queue-style')
-        .scrollLeft -= 150
+        [this.index].querySelector('.q-table__middle.scroll.table-queue-style').scrollLeft -= 150
     },
     scrollRight() {
       document
         .querySelectorAll('#table-queue')
-        [this.index]
-        .querySelector('.q-table__middle.scroll.table-queue-style')
-        .scrollLeft += 150
+        [this.index].querySelector('.q-table__middle.scroll.table-queue-style').scrollLeft += 150
     }
   }
 }

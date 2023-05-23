@@ -1,0 +1,119 @@
+.bd {
+border: 1px solid red;
+}
+/* Border Radius */
+.brt5 {
+  box-sizing: border-box;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.brt10 {
+  box-sizing: border-box;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.brt20 {
+  box-sizing: border-box;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.brt50 {
+  box-sizing: border-box;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.brb5 {
+  box-sizing: border-box;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.brb10 {
+  box-sizing: border-box;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.brb20 {
+  box-sizing: border-box;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.brb50 {
+  box-sizing: border-box;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.brl5 {
+  box-sizing: border-box;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.brl10 {
+  box-sizing: border-box;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.brl20 {
+  box-sizing: border-box;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.brl50 {
+  box-sizing: border-box;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.brr5 {
+  box-sizing: border-box;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.brr10 {
+  box-sizing: border-box;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.brr20 {
+  box-sizing: border-box;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.brr50 {
+  box-sizing: border-box;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.borderE3 {
+  box-sizing: border-box;
+  border: 1px solid #e3e3e3;
+}
+
+.borderRightE3 {
+  box-sizing: border-box;
+  border-right: 1px solid #e3e3e3;
+}
+
+.borderBottomE3 {
+  box-sizing: border-box;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.borderTopNone {
+  box-sizing: border-box;
+  border-top: none;
+}

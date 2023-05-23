@@ -1,6 +1,6 @@
 import LeftSectionSteps from '@/components/Sections/QueueConfigComponents/LeftSectionSteps/LeftSectionSteps.vue'
 export default {
-  title: 'Molecule Stories/Sections/QueueConfiguration/Steps',
+  title: 'Molecule Stories/Mailing/LeftSectionSteps',
   component: LeftSectionSteps,
   tags: ['autodocs'],
   argTypes: {

@@ -1,6 +1,6 @@
 import Card from '@/components/Header/Cards.vue'
-import DashboardCard from '@/components/Header/DashboardCard.vue'
-import CardCalls from '@/components/Header/CardCalls.vue'
+import DashboardCard from '#/Header/CardDashboard.vue'
+import CardCalls from '#/Header/CardCalls.vue'
 import DashboardsLogo from '%/icons/DashboardsLogo.svg'
 import iconPhone from '%/icons/IconPhone.svg'
 import ChatsLogo from '%/icons/ChatsLogo.svg'
@@ -9,7 +9,7 @@ import SettingsIcon from '%/icons/SettingsIcon.svg'
 import UserLogo from '%/icons/UserLogo.svg'
 
 export default {
-  title: 'Atom Stories/Headers',
+  title: 'Atom Stories/Cards',
   component: Card,
   tags: ['autodocs'],
   argTypes: {
@@ -69,7 +69,7 @@ export const CardCallsStory = {
     setup() {
       return { args }
     },
-    template: '<CallsCard v-bind="args" />'
+    template: '<CardCalls v-bind="args" />'
   }),
   args: {
     primary: false,

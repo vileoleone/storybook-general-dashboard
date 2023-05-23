@@ -12,7 +12,7 @@
       <span class="h2-text">{{ fileSize }}</span>
       <button class="remove-file-button" @click="removeFile()">
         <img :src="trashIcon" alt="trash icon" />
-        <span>Remover</span>
+        <span style="background-color: #E3F3EB;">Remover</span>
       </button>
     </div>
   </div>
@@ -144,7 +144,7 @@ export default {
 
     async onFileAdded(fileCsv) {
       this.file = fileCsv
-      this.readyToProceed = true
+      this.readyToProceed = false
       //const dismiss = this.$q.notify({ spinner: true, message: 'Aguarde enquanto validamos o arquivo...', position: 'center' })
       //const { count } = await etlLoadData(this.mountParams(file), false)
       //dismiss()
@@ -260,6 +260,7 @@ img {
   background: #e7edff;
   border-radius: 5px;
   border: 1px solid #12b361;
+  background-color: #E3F3EB;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

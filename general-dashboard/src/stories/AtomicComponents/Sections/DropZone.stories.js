@@ -1,6 +1,6 @@
-import DropZone from "@/components/Sections/QueueConfigComponents/AtomicComponents/DropZone.vue"
+import DropZone from '@/components/Sections/QueueConfigComponents/AtomicComponents/DropZone.vue'
 export default {
-  title: 'Atom Stories/Sections',
+  title: 'Atom Stories/Dropzones',
   component: DropZone,
   tags: ['autodocs'],
   argTypes: {
@@ -20,7 +20,7 @@ export default {
   }
 }
 
-export const DropzoneStory= {
+export const DropzoneStory = {
   render: (args) => ({
     components: { DropZone },
     setup() {

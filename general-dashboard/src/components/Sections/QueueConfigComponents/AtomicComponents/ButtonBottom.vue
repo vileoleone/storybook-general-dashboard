@@ -1,6 +1,6 @@
 <template>
   <div type="span" :class="classes" @click="onClick" :style="style" v-if="this.fileIsLoaded">
-    <button type="button" class="button-bottom" :class="classes" @click="onClick" :style="style">
+    <button  class="button-bottom" :class="classes" @click="clickFunction" :style="style">
       {{ label }}
       <img :src="ArrowRightIcon" alt=" Arrow right" />
     </button>
@@ -42,7 +42,7 @@ export default {
     backgroundColor: {
       type: String
     },
-    onClick: {
+    clickFunction: {
       type: Function
     }
   },

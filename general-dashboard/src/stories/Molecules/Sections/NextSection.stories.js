@@ -1,6 +1,6 @@
 import NextSection from '@/components/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSection.vue'
 export default {
-  title: 'Molecule Stories/Sections/QueueConfiguration',
+  title: 'Molecule Stories/Mailing/NextSection',
   component: NextSection,
   tags: ['autodocs'],
   argTypes: {

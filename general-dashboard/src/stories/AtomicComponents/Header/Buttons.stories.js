@@ -1,47 +1,54 @@
 import ButtonTopRight from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonTopRight.vue'
 import ButtonBottom from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonBottom.vue'
+import ButtomTopTable from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonTopTable.vue'
+
 
 export default {
-  title: 'Atom Stories/Sections/Buttons',
-  component: ButtonTopRight, ButtonBottom,
+  title: 'Atom Stories/Buttons',
+  component: ButtonTopRight,
+  ButtonBottom,
   tags: ['autodocs'],
-  decorators: [
-    (story) => ({
-      components: { story },
-      template: '<div style="height: 93px; border: 1px #CED4DA solid; display: flex; align-items:center;justify-content: flex-end; padding-right: 31px;>"><story /></div>',
-    }),
-  ],
   argTypes: {
     backgroundColor: {
-      control: 'color',
+      control: 'color'
     },
     innerBackgroundColor: {
-      control: 'color',
+      control: 'color'
     },
-    onClick: {control: {actions: 'clicked'}},
+    onClick: { control: { actions: 'clicked' } },
     size: {
       control: {
-        type: 'select',
+        type: 'select'
       },
-      options: ['small', 'medium', 'large'],
-    },
-  },
-};
+      options: ['small', 'medium', 'large']
+    }
+  }
+}
 
 export const ButtonTopRightStory = {
   render: (args) => ({
-    components: { ButtonTopRight},
+    components: { ButtonTopRight },
     setup() {
-      return { args };
+      return { args }
     },
-    template: '<ButtonTopRight v-bind="args" />',
+
+    template: `<div 
+        style="
+        height: 93px;
+        border: 1px #CED4DA solid;
+        display: flex;
+        align-items:center;
+        justify-content:flex-end;
+        padding-right: 31px;">
+        <ButtonTopRight v-bind="args"/>
+        </div>`
   }),
   args: {
     primary: true,
     label: 'Próximo',
-    step : 0
-  },
-};
+    step: 0
+  }
+}
 
 export const ButtonBottomStory = {
   render: (args) => ({
@@ -53,7 +60,24 @@ export const ButtonBottomStory = {
   }),
   args: {
     primary: true,
-    label: 'Ir para a próxima Etapa',
-    isReady: true
+    label: 'Ir para a próxima Etapa'
+  }
+}
+
+export const ButtonTopTableStory = {
+  render: (args) => ({
+    components: { ButtomTopTable },
+    setup() {
+      return { args }
+    },
+    template: ` 
+        <div style="border: 1px #CED4DA solid; width: fit-content; padding: 10px;">
+          <ButtomTopTable v-bind="args" />
+        </div>
+    `
+  }),
+  args: {
+    primary: true,
+    label: 'Ir para a próxima Etapa'
   }
 }

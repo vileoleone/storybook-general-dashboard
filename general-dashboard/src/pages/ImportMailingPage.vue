@@ -27,7 +27,7 @@
 <script>
 import { default as FileStep } from '#/Sections/QueueConfigComponents/RightSectionSteps/FileStep.vue'
 import { default as HeaderComponent } from '#/Header/Header.vue'
-import { default as MailingMainSection } from '#/Sections/QueueConfigComponents/Main.vue'
+import { default as MailingMainSection } from '#/Sections/QueueConfigComponents/MailingMainSection.vue'
 import { mapWritableState } from 'pinia'
 import { useMailingStore } from '@/stores/useMailingStore'
 import NextSection from '#/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSection.vue'
@@ -40,7 +40,7 @@ export default {
     HeaderComponent,
     NextSection,
     StepSection,
-    MailingMainSection,
+    MailingMainSection
   },
 
   data() {
@@ -98,7 +98,7 @@ export default {
       readyToProceed: 'readyToProceed',
       stepSectionDict: 'stepSectionDict'
     })
-  }, 
+  },
 
   methods: {}
 }

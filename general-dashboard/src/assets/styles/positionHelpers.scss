@@ -1,0 +1,325 @@
+/* .fl - Applies display: flex;
+.fl-alst - Applies display: flex; align-items: flex-start;
+.fl-alend - Applies display: flex; align-items: flex-end;
+.fl-alcnt - Applies display: flex; align-items: center;
+.fl-jcst - Applies display: flex; justify-content: flex-start;
+.fl-jcend - Applies display: flex; justify-content: flex-end;
+.fl-jccnt - Applies display: flex; justify-content: center;
+.fl-fdrow - Applies display: flex; flex-direction: row;
+.fl-fdcolumn - Applies display: flex; flex-direction: column;
+.fl-alst-jccnt-fdrow - Applies display: flex; align-items: flex-start; justify-content: center; flex-direction: row; */
+
+.als-c{
+  align-self: center;
+}
+
+.als-ba{
+  align-self: baseline;
+}
+
+.fl-jcst-alba-fdrow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-direction: row;
+}
+
+.fl-jcst-alba-fdcolumn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.fl-jccnt-alba-fdrow {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: row;
+}
+
+.fl-jccnt-alba-fdcolumn {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.fl-jcend-alba-fdrow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  flex-direction: row;
+}
+
+.fl-jcend-alba-fdcolumn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.fl-jcsb-alba-fdrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-direction: row;
+}
+
+.fl-jcsb-alba-fdcolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.fl-jcst-alst-fdrow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.fl-jcst-alst-fdcolumn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.fl-jcst-alend-fdrow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+.fl-jcst-alend-fdcolumn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.fl-jcst-alcnt-fdrow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.fl-jcst-alcnt-fdcolumn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fl-jccnt-alst-fdrow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.fl-jccnt-alst-fdcolumn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.fl-jccnt-alend-fdrow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+.fl-jccnt-alend-fdcolumn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.fl-jccnt-alcnt-fdrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.fl-jccnt-alcnt-fdcolumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fl-jcend-alst-fdrow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.fl-jcend-alst-fdcolumn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.fl-jcend-alend-fdrow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+.fl-jcend-alend-fdcolumn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.fl-jcend-alcnt-fdrow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+}
+
+.fl-jcend-alcnt-fdcolumn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+}
+.fl-jcsb-alst-fdrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.fl-jcsb-alst-fdcolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.fl-jcsb-alend-fdrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+.fl-jcsb-alend-fdcolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.fl-jcsb-alcnt-fdrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.fl-jcsb-alcnt-fdcolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fl-jcsb-jcst-fdrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.fl-jcsb-jcst-fdcolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.fl-jcsb-jcend-fdrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+.fl-jcsb-jcend-fdcolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.fl-jcsb-jccnt-fdrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.fl-jcsb-jccnt-fdcolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fl-jcsb-jcend-alst-fdrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.fl-jcsb-jcend-alst-fdcolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.fl-jcsb-jcend-alend-fdrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+.fl-jcsb-jcend-alend-fdcolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.fl-jcsb-jcend-alcnt-fdrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.fl-jcsb-jcend-alcnt-fdcolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}

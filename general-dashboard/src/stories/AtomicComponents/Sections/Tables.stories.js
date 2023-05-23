@@ -1,8 +1,8 @@
-import TableQueue from '@/components/Sections/QueueConfigComponents/AtomicComponents/TableQueue.vue'
-
+import TableCsvQueues from '@/components/Sections/QueueConfigComponents/AtomicComponents/TableCsvQueues.vue'
+import TableNotMappedColumns from '#/Sections/QueueConfigComponents/AtomicComponents/TableNotMappedColumns.vue'
 export default {
-  title: 'Atom Stories/Sections',
-  component: TableQueue,
+  title: 'Molecule Stories/Tables',
+  component: TableCsvQueues,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -21,17 +21,17 @@ export default {
   }
 }
 
-export const TableQueueStory = {
+export const TableCsvQueuesStory = {
   render: (args) => ({
-    components: { TableQueue },
+    components: { TableCsvQueues },
     setup() {
       return { args }
     },
-    template: '<TableQueue v-bind="args" />'
+    template: '<TableCsvQueues v-bind="args" />'
   }),
   args: {
     primary: true,
-    label: 'TableQueue',
+    label: 'TableCsvQueues',
     backgroundColor: '#FFFFFF',
     queueName: 'arquivoexemplo',
     queueData: {
@@ -44,10 +44,10 @@ export const TableQueueStory = {
           cidade: 'campo grande',
           cep: '47238472',
           rua: 'loiaola,',
-          bairro: 'tiradentes', 
+          bairro: 'tiradentes',
           telefone: 3242342,
           celular: 13231312,
-          complemento:"perto da esquina"
+          complemento: 'perto da esquina'
         },
         {
           id: 1,
@@ -70,17 +70,32 @@ export const TableQueueStory = {
   }
 }
 
-export const TableQueueStoryNoData = {
+export const TableCsvQueuesStoryNoData = {
   render: (args) => ({
-    components: { TableQueue },
+    components: { TableCsvQueues },
     setup() {
       return { args }
     },
-    template: '<TableQueue v-bind="args" />'
+    template: '<TableCsvQueues v-bind="args" />'
   }),
+  decorators: [() => ({ template: '<div style="border: 1px solid blue;"><story /></div>' })],
   args: {
     primary: true,
-    label: 'TableQueue',
-    backgroundColor: '#FFFFFF',
+    label: 'TableCsvQueues',
+    backgroundColor: '#FFFFFF'
+  }
+}
+
+export const NotMappedColumnTable = {
+  render: (args) => ({
+    components: { TableNotMappedColumns },
+    setup() {
+      return { args }
+    },
+    template: '<TableNotMappedColumns v-bind="args" />'
+  }),
+  args: {
+    primary: false,
+    label: 'TableNotMappedColumns'
   }
 }

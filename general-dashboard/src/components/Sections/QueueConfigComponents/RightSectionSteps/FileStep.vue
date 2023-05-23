@@ -7,17 +7,17 @@
         <div class="tables">
           <template v-if="Object.keys(queues).length > 0">
             <div v-for="(queueItens, queueName, index) in queues" :key="index">
-              <TableQueue :index="index" :queueName="queueName" :queueData="queueItens" />
+              <TableCsvQueues :index="index" :queueName="queueName" :queueData="queueItens" />
             </div>
           </template>
 
           <template v-if="Object.keys(queues).length == 0">
-            <TableQueue />
+            <TableCsvQueues />
           </template>
         </div>
       </div>
     </main>
-    <ButtonBottom @click="loadAndParse" label="Continuar para a próxima etapa" />
+    <ButtonBottom :clickFunction="loadAndParse" label="Continuar para a próxima etapa" />
   </div>
   <SpinnerLoader v-if="this.isLoading" class="loading-box" />
 </template>
@@ -31,14 +31,14 @@ import ButtonBottom from '#/Sections/QueueConfigComponents/AtomicComponents/Butt
 import DropZone from '#/Sections/QueueConfigComponents/AtomicComponents/DropZone.vue'
 import Papa from 'papaparse'
 import SearchSubHeader from '#/Sections/QueueConfigComponents/AtomicComponents/SearchSubHeader.vue'
-import TableQueue from '#/Sections/QueueConfigComponents/AtomicComponents/TableQueue.vue'
+import TableCsvQueues from '#/Sections/QueueConfigComponents/AtomicComponents/TableCsvQueues.vue'
 import TriangleDown from '@/assets/icons/TriangleDown.svg'
 import TriangleUp from '@/assets/icons/TriangleUp.svg'
 
 export default {
   name: 'FileStep',
 
-  components: { DropZone, TableQueue, SearchSubHeader, ButtonBottom, SpinnerLoader },
+  components: { DropZone, TableCsvQueues, SearchSubHeader, ButtonBottom, SpinnerLoader },
 
   data() {
     return {
@@ -105,7 +105,7 @@ export default {
       return this.parseMailingCsv(this.file).then(() => {
         this.isLoading = false
         this.readyToProceed = true
-        this.step++
+        this.step += 1
       })
     },
     parseMailingCsv(file) {

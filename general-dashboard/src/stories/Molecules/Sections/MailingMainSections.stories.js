@@ -1,8 +1,9 @@
 import MappingFileStep from '@/components/Sections/QueueConfigComponents/RightSectionSteps/MappingFileStep.vue'
-import Main from '@/components/Sections/QueueConfigComponents/Main.vue'
+import Main from '@/components/Sections/QueueConfigComponents/MailingMainSection.vue'
 import FileStep from '@/components/Sections/QueueConfigComponents/RightSectionSteps/FileStep.vue'
+import QueueStep from '@/components/Sections/QueueConfigComponents/RightSectionSteps/QueueStep.vue'
 export default {
-  title: 'Molecule Stories/Sections/QueueConfiguration',
+  title: 'Molecule Stories/Mailing/Main',
   component: MappingFileStep,
   Main,
   tags: ['autodocs'],
@@ -20,6 +21,24 @@ export default {
       },
       options: ['small', 'medium', 'large']
     }
+  }
+}
+export const QueueStepStory = {
+  render: (args) => ({
+    components: { Main, QueueStep },
+    setup() {
+      return { args }
+    },
+    template: '<Main v-bind="args" />'
+  }),
+  args: {
+    primary: true,
+    label: 'Fila',
+    backgroundColor: '#FFFFFF',
+    step: 0,
+    queues: ['filafonacao', 'filaatendimento'],
+    Label: 'Mapeamento',
+    vueComponent: QueueStep
   }
 }
 

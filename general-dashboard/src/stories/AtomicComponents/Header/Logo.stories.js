@@ -1,6 +1,6 @@
 import Logo from '#/Header/Logo.vue'
 export default {
-  title: 'Atom Stories/Headers/Logos',
+  title: 'Atom Stories/Logos',
   component: Logo,
   tags: ['autodocs'],
   argTypes: {
@@ -24,13 +24,13 @@ export const LogoStory = {
   render: (args) => ({
     components: { Logo },
     setup() {
-      return { args };
+      return { args }
     },
-    template: '<Logo v-bind="args" />',
+    template: '<Logo v-bind="args" />'
   }),
   args: {
     primary: true,
     label: 'Logo',
-    backgroundColor: '#FD9802',
-  },
-};
+    backgroundColor: '#FD9802'
+  }
+}

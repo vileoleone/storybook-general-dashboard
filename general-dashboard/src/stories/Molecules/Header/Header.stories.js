@@ -1,7 +1,7 @@
 import Header from '@/components/Header/Header.vue'
 
 export default {
-  title: 'Molecule Stories/Header',
+  title: 'Molecule Stories/Headers',
   component: Header,
   tags: ['autodocs'],
   argTypes: {

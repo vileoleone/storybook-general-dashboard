@@ -1,6 +1,6 @@
 import SpinnerLoader from '@/components/Sections/QueueConfigComponents/AtomicComponents/SpinnerLoader.vue'
 export default {
-  title: 'Atom Stories/Sections',
+  title: 'Atom Stories/Spinners',
   component: SpinnerLoader,
   tags: ['autodocs'],
   argTypes: {
@@ -31,6 +31,6 @@ export const SpinnerLoaderStory = {
   args: {
     primary: true,
     label: 'SpinnerLoader',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF'
   }
 }
