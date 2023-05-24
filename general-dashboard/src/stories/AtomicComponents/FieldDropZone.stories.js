@@ -1,7 +1,9 @@
 import FieldDropzone from '#/Sections/QueueConfigComponents/AtomicComponents/FieldDropzone.vue'
+import FieldDraggable from '@/components/Sections/QueueConfigComponents/AtomicComponents/FieldDraggable.vue'
 export default {
-  title: 'Atom Stories/Dropzones',
+  title: 'Atom Stories/Fields',
   component: FieldDropzone,
+  FieldDraggable,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -20,7 +22,7 @@ export default {
   }
 }
 
-export const DropzoneStory = {
+export const DropzoneFieldStory = {
   render: (args) => ({
     components: { FieldDropzone },
     setup() {
@@ -33,5 +35,30 @@ export const DropzoneStory = {
     label: 'FieldDropzone',
     backgroundColor: '#FFFFFF',
     value: {}
+  }
+}
+
+export const FieldDraggableStory = {
+  render: (args) => ({
+    components: { FieldDraggable },
+    setup() {
+      return { args }
+    },
+    template: '<FieldDraggable v-bind="args" />'
+  }),
+  args: {
+    primary: true,
+    label: 'FieldDraggable',
+    backgroundColor: '#FFFFFF',
+    list: [
+      { fieldName: 'UF', fieldtype: 'texto' },
+      { fieldName: 'Cidade', fieldtype: 'texto' },
+      { fieldName: 'Email', fieldtype: 'Email' },
+      { fieldName: 'Data', fieldtype: 'Data' },
+      { fieldName: 'Timestamp', fieldtype: 'Timestamp' },
+      { fieldName: 'Data e HORA', fieldtype: 'Data e HORA' },
+      { fieldName: 'URL', fieldtype: 'URL' },
+      { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' }
+    ]
   }
 }

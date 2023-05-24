@@ -47,62 +47,75 @@ export const MenuDatatypeStory = {
     setup() {
       return { args }
     },
-    template: '<div style=" width:300px; overflow-y: scroll; border:1px solid blue; padding:20px;"><MenuDatatypes v-bind="args"/></div>'
+    template:
+      '<div style=" width:300px; overflow-y: scroll; border:1px solid blue;;"><MenuDatatypes v-bind="args"/></div>'
   }),
   args: {
     primary: true,
-    datatypeObject: {
-      'Perfilador': {
-        UF: 'texto',
-        Cidade: 'texto',
-        Email: 'Email',
-        Data: 'Data',
-        Timestamp: 'Timestamp',
-        'Data e HORA': 'Data e HORA',
-        URL: 'URL',
-        'Verdadeiro/Falso': 'Verdadeiro/Falso',
-        Telefone: 'Telefone',
-        Decimal: 'Decimal',
-        'Número inteiro': 'Número inteiro',
-        Texto: 'Texto',
-        'CPF/CNPJ': 'CPF/CNPJ',
-        DDD: 'DDD',
-        Selecionável: 'Selecionável'
+    data: [
+      {
+        fieldName: 'Perfilador',
+        data: [
+          { fieldName: 'UF', fieldtype: 'texto' },
+          { fieldName: 'Cidade', fieldtype: 'texto' },
+          { fieldName: 'Email', fieldtype: 'Email' },
+          { fieldName: 'Data', fieldtype: 'Data' },
+          { fieldName: 'Timestamp', fieldtype: 'Timestamp' },
+          { fieldName: 'Data e HORA', fieldtype: 'Data e HORA' },
+          { fieldName: 'URL', fieldtype: 'URL' },
+          { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' }
+        ]
       },
-      'Sistema': {
-        UF: 'texto',
-        Cidade: 'texto',
-        Email: 'Email',
-        Data: 'Data',
-        Timestamp: 'Timestamp',
-        'Data e HORA': 'Data e HORA',
-        URL: 'URL',
-        'Verdadeiro/Falso': 'Verdadeiro/Falso',
-        Telefone: 'Telefone',
-        Decimal: 'Decimal',
-        'Número inteiro': 'Número inteiro',
-        Texto: 'Texto',
-        'CPF/CNPJ': 'CPF/CNPJ',
-        DDD: 'DDD',
-        Selecionável: 'Selecionável'
+      {
+        fieldName: 'Sistema',
+        data: [
+          { fieldName: 'Telefone', fieldtype: 'texto' },
+          { fieldName: 'Cidade', fieldtype: 'texto' },
+          { fieldName: 'Email', fieldtype: 'Email' },
+          { fieldName: 'Data', fieldtype: 'Data' },
+          { fieldName: 'Timestamp', fieldtype: 'Timestamp' },
+          { fieldName: 'Data e HORA', fieldtype: 'Data e HORA' },
+          { fieldName: 'URL', fieldtype: 'URL' },
+          { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' }
+        ]
       },
-      'Já utilizados': {
-        UF: 'texto',
-        Cidade: 'texto',
-        Email: 'Email',
-        Data: 'Data',
-        Timestamp: 'Timestamp',
-        'Data e HORA': 'Data e HORA',
-        URL: 'URL',
-        'Verdadeiro/Falso': 'Verdadeiro/Falso',
-        Telefone: 'Telefone',
-        Decimal: 'Decimal',
-        'Número inteiro': 'Número inteiro',
-        Texto: 'Texto',
-        'CPF/CNPJ': 'CPF/CNPJ',
-        DDD: 'DDD',
-        Selecionável: 'Selecionável'
+      {
+        fieldName: 'Já utilizados',
+        data: [
+          { fieldName: 'Timestamp', fieldtype: 'texto' },
+          { fieldName: 'Cidade', fieldtype: 'texto' },
+          { fieldName: 'Email', fieldtype: 'Email' },
+          { fieldName: 'Data', fieldtype: 'Data' },
+          { fieldName: 'Timestamp', fieldtype: 'Timestamp' },
+          { fieldName: 'Data e HORA', fieldtype: 'Data e HORA' },
+          { fieldName: 'URL', fieldtype: 'URL' },
+          { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' }
+        ]
       }
-    }
+      /* {
+        fieldName: 'Sistema',
+        data: {
+          Telefone: 'Telefone',
+          Decimal: 'Decimal',
+          'Número inteiro': 'Número inteiro',
+          Texto: 'Texto',
+          'CPF/CNPJ': 'CPF/CNPJ',
+          DDD: 'DDD',
+          Selecionável: 'Selecionável'
+        }
+      },
+      {
+        fieldName: 'já utilizados',
+        data: {
+          Timestamp: 'Timestamp',
+          'Data e HORA': 'Data e HORA',
+          URL: 'URL',
+          'Verdadeiro/Falso': 'Verdadeiro/Falso',
+          Telefone: 'Telefone',
+          Decimal: 'Decimal',
+          'Número inteiro': 'Número inteiro'
+        }
+      }  */
+    ]
   }
 }

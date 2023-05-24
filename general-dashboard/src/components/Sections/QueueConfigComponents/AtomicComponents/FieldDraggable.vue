@@ -1,29 +1,34 @@
 <template>
-  <div
-    type="span"
-    class="Card-Datatype-outer-box fl-jcst-alcnt-fdrow p10"
-    :class="classes"
-    @click="onClick"
-    :style="style"
-  >
-    <img class="mr10" :src="DragIcon" alt="Drag Icon" />
-    <div class="fl-jcsb-alst-fdcolumn">
-      <span class="fs13-fw600-cl8F fl-jcsb-alst-fdcolumn mb2 ht5p">{{ datatypeName }}</span>
-      <span class="fs11-fw400-cl8F ht5p">{{ datatypeItem }}</span>
-    </div>
+  <div type="span"  class="field-draggable borderC5" :class="classes" @click="onClick" :style="style">
+    <draggable
+      v-model="listToRender"
+      group="people"
+      @start="drag = true"
+      @end="drag = false"
+      item-key="data"
+    >
+      <template #item="{ element }">
+        <div class=" htmax452 scroll-y borderBottomC5">
+          <CardDatatype  :datatypeItem="element.fieldtype" :datatypeName="element.fieldName" />
+        </div>
+      </template>
+    </draggable>
   </div>
 </template>
 
 <script>
-import DragIcon from '%/icons/DragIcon.svg'
+import draggable from 'vuedraggable'
+import CardDatatype from './CardDatatype.vue'
 export default {
-  name: 'componentName',
+  name: 'MenuDatatypes',
 
-  components: {},
+  components: { CardDatatype, draggable },
 
   data() {
     return {
-      DragIcon
+      drag: false,
+      isSelected: 0,
+      listToRender: this.list
     }
   },
 
@@ -45,11 +50,8 @@ export default {
     backgroundColor: {
       type: String
     },
-    datatypeName: {
-      type: String
-    },
-    datatypeItem: {
-      type: String
+    list: {
+      type: Array
     }
   },
 
@@ -62,6 +64,11 @@ export default {
         [`storybook-button--${this.size || 'medium'}`]: true
       }
     },
+    /* activeClasses() {
+      return {
+        active
+      }
+    }, */
     style() {
       return {
         backgroundColor: this.backgroundColor
@@ -78,7 +85,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-div {
-  display: flex;
+.htmax452 {
+  max-height: 452px;
 }
 </style>

@@ -14,7 +14,7 @@
           <span
             class="menu-title fs12-fw500-cl8F"
             :class="activeClasses"
-            v-for="(field, fieldIndex) in datatypeFields"
+            v-for="(field, fieldIndex) in this.datatypeFields"
             :key="fieldIndex"
           >
             <div
@@ -23,24 +23,12 @@
                 this.isSelected === fieldIndex ? 'state-field-selected' : ' fs12-fw500-cl8F'
               ]"
             >
-              {{ field }}
+              {{ field.fieldName }}
             </div>
           </span>
         </div>
-
-        <div
-          class="datatype-card-container wd100 htmax452 scroll-y"
-          v-for="(datatype, ColumnIndex) in datatypes"
-          :key="ColumnIndex"
-        >
-          <div class="borderC5" v-show="this.isSelected == ColumnIndex">
-            <CardDatatype
-              v-for="(datatypeItem, datatypeName, cardIndex) in datatype"
-              :key="cardIndex"
-              :datatypeItem="datatypeItem"
-              :datatypeName="datatypeName"
-            />
-          </div>
+        <div class="wd100" v-for="(fields, fieldIndex) in this.datatypeFields" :key="fieldIndex">
+          <FieldDraggable :list="fields.data" v-show="this.isSelected == fieldIndex" />
         </div>
       </div>
     </div>
@@ -48,19 +36,17 @@
 </template>
 
 <script>
-import { VueDraggableNext } from 'vue-draggable-next'
-import CardDatatype from './CardDatatype.vue'
+import FieldDraggable from '#/Sections/QueueConfigComponents/AtomicComponents/FieldDraggable.vue'
+import { useMailingStore } from '@/stores/useMailingStore'
+import { mapWritableState } from 'pinia'
 export default {
   name: 'MenuDatatypes',
 
-  components: { CardDatatype },
+  components: { FieldDraggable },
 
   data() {
     return {
-      isSelected: 0,
-      datatypeFields: Object.keys(this.datatypeObject),
-      datatypes: Object.values(this.datatypeObject),
-      DraggableArea: VueDraggableNext
+      isSelected: 0
     }
   },
 
@@ -81,9 +67,6 @@ export default {
     },
     backgroundColor: {
       type: String
-    },
-    datatypeObject: {
-      type: Object
     }
   },
 
@@ -105,7 +88,13 @@ export default {
       return {
         backgroundColor: this.backgroundColor
       }
-    }
+    },
+    ...mapWritableState(useMailingStore, {
+      readyToProceed: 'readyToProceed',
+      file: 'mailingCsvFile',
+      isLoading: 'isLoading',
+      datatypeFields: 'datatypeFields'
+    })
   },
 
   methods: {

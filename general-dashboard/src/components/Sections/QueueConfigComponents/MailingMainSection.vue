@@ -1,9 +1,13 @@
 <template>
-  <div type="span" class="main-outer-box" :class="classes" @click="onClick" :style="style">
-    <span class="mailing-main-header">{{ label }}</span>
-    <div class="step-container">
-      <component :list="queues" :is="vueComponent" />
-    </div>
+  <div
+    type="span"
+    class="main-outer-box fl-jcst-alst-fdcolumn bcwhite pt30 pl30 pr20 wd100"
+    :class="classes"
+    @click="onClick"
+    :style="style"
+  >
+    <span class="mailing-main-header wd100 mb20 fs20-fw700-cl44 borderBottomCE pb15">{{ label }}</span>
+    <component :list="queues" :is="vueComponent" />
   </div>
 </template>
 
@@ -61,37 +65,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.mailing-main-header {
-  border-bottom: 1px solid #CED4DA;
-  color: #444444;
-  font-family: 'Work Sans';
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  height: 40px;
-  width: 100%;
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.main-outer-box {
-  align-items: flex-start;
-  background-color: #444444;
-  background: #fafafa;
-  border-right: none;
-  border-top: none;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-right: 20px;
-  padding: 30px 0 0 5%;
-  width: 100%;
-}
-
-.step-container {
-  margin-right: 20px;
-  width: 100%;
-}
-</style>
+<style scoped lang="scss"></style>

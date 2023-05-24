@@ -1,5 +1,5 @@
 <template>
-  <div type="span" class="mapping-file-step-outer-box" :class="classes" :style="style">
+  <main type="span" class="mapping-file-step-outer-box" :class="classes" :style="style">
     <span class="mapping-file-header">
       <span class="h1">Sua Planilha</span>
       <span class="header-span">
@@ -10,8 +10,15 @@
       </span>
     </span>
 
+    <section class="fl-jcsb-alst-fdrow bd">
+      <section class="fl-jcsb-alcnt-fdcolumn">
+        <TableNotMappedColumns /> <TableMappedColumns />
+      </section>
+      <MenuDatatypes />
+    </section>
+
     <!--  <ButtonBottom label="Ir para a próxima etapa" /> -->
-  </div>
+  </main>
 </template>
 
 <script>
@@ -23,10 +30,13 @@ import TriangleUp from '@/assets/icons/TriangleUp.svg'
 import ChevronLeftIcon from '@/assets/icons/ChevronLeftIcon.svg'
 import ChevronRightIcon from '@/assets/icons/ChevronRightIcon.svg'
 import Papa from 'papaparse'
+import TableNotMappedColumns from '../AtomicComponents/TableNotMappedColumns.vue'
+import TableMappedColumns from '../AtomicComponents/TableMappedColumns.vue'
+import MenuDatatypes from '../AtomicComponents/MenuDatatypes.vue'
 export default {
   name: 'FileStep',
 
-  components: { ButtonBottom },
+  components: { ButtonBottom, TableNotMappedColumns, TableMappedColumns, MenuDatatypes },
 
   data() {
     return {
@@ -110,6 +120,7 @@ export default {
 
           complete: (results) => {
             this.file.data = results.data
+            console.log(this.file.data)
             resolve()
           }
         })
