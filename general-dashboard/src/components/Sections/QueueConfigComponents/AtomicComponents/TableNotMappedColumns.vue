@@ -69,8 +69,8 @@
       </div>
     </div>
     <div class="legend-container fl-jcst-alcnt-fdrow">
-      <LegendBox boxColor="bcbeige" label="Colunas duplicadas" />
-      <LegendBox boxColor="bcbeige" label="Colunas duplicadas" />
+      <FieldLegend boxColor="bcbeige" label="Colunas duplicadas" />
+      <FieldLegend boxColor="bcbeige" label="Colunas duplicadas" />
     </div>
   </div>
 </template>
@@ -82,12 +82,12 @@ import NotFoundIcon from '%/icons/NotFoundIcon.svg'
 import ExclamationIcon from '%/icons/ExclamationIcon.svg'
 import TrashIcon from '%/icons/TrashIcon.svg'
 import ButtonTopTable from './ButtonTopTable.vue'
-import LegendBox from './LegendBox.vue'
+import FieldLegend from './FieldLegend.vue'
 
 export default {
   name: 'TableCsvQueues',
 
-  components: { ButtonTopTable, LegendBox },
+  components: { ButtonTopTable, FieldLegend },
 
   data() {
     return {

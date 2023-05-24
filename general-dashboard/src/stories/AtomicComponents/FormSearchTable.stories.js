@@ -1,7 +1,7 @@
-import SpinnerLoader from '@/components/Sections/QueueConfigComponents/AtomicComponents/SpinnerLoader.vue'
+import FormSearchTable from '@/components/Sections/QueueConfigComponents/AtomicComponents/FormSearchTable.vue'
 export default {
-  title: 'Atom Stories/Spinners',
-  component: SpinnerLoader,
+  title: 'Atom Stories/FormSearchTable',
+  component: FormSearchTable,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -20,17 +20,18 @@ export default {
   }
 }
 
-export const SpinnerLoaderStory = {
+export const FormSearchTableComponent = {
   render: (args) => ({
-    components: { SpinnerLoader },
+    components: { FormSearchTable },
     setup() {
       return { args }
     },
-    template: '<SpinnerLoader v-bind="args" />'
+    template: '<FormSearchTable v-bind="args" />'
   }),
   args: {
     primary: true,
-    label: 'SpinnerLoader',
-    backgroundColor: '#FFFFFF'
+    label: 'FormSearchTable',
+    backgroundColor: '#FFFFFF',
+    value: {}
   }
 }

@@ -1,12 +1,27 @@
 <template>
-  <div type="span" class="outer-box" :class="classes" @click="onClick" :style="style"></div>
+  <div type="span" class="Card-Datatype-outer-box wd100 borderBottomC5" :class="classes" @click="onClick" :style="style">
+    <div class="datatype-card fl-jcst-alcnt-fdrow wd100  p10">
+      <img class="mr10" :src="DragIcon" alt="Drag Icon" />
+      <div class="fl-jcsb-alst-fdcolumn ">
+        <span class="fs13-fw600-cl8F">{{ datatypeName }}</span>
+        <span class="fs11-fw400-cl8F">{{ datatypeItem }}</span>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import DragIcon from '%/icons/DragIcon.svg'
 export default {
-  name: 'MenuLayout',
+  name: 'componentName',
 
   components: {},
+
+  data() {
+    return {
+      DragIcon
+    }
+  },
 
   props: {
     label: {
@@ -24,6 +39,12 @@ export default {
       }
     },
     backgroundColor: {
+      type: String
+    },
+    datatypeName: {
+      type: String
+    },
+    datatypeItem: {
       type: String
     }
   },
@@ -52,17 +73,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
-.outer-box {
-
-}
-
-.h1-text {
-
-}
-
-.h2-text {
-
-}
-</style>
+<style scoped lang="scss"></style>

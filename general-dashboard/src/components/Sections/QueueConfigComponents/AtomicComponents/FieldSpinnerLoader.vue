@@ -15,7 +15,7 @@
 import { useMailingStore } from '@/stores/useMailingStore'
 import { mapWritableState } from 'pinia'
 export default {
-  name: 'SpinnerLoader',
+  name: 'FieldSpinnerLoader',
 
   components: {},
 

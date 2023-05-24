@@ -1,7 +1,7 @@
-import SearchSubHeader from '@/components/Sections/QueueConfigComponents/AtomicComponents/SearchSubHeader.vue'
+import FieldSpinnerLoader from '@/components/Sections/QueueConfigComponents/AtomicComponents/FieldSpinnerLoader.vue'
 export default {
-  title: 'Atom Stories/SearchFields',
-  component: SearchSubHeader,
+  title: 'Atom Stories/Spinners',
+  component: FieldSpinnerLoader,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -20,18 +20,17 @@ export default {
   }
 }
 
-export const SearchSubHeaderComponent = {
+export const FieldSpinnerLoaderStory = {
   render: (args) => ({
-    components: { SearchSubHeader },
+    components: { FieldSpinnerLoader },
     setup() {
       return { args }
     },
-    template: '<SearchSubHeader v-bind="args" />'
+    template: '<FieldSpinnerLoader v-bind="args" />'
   }),
   args: {
     primary: true,
-    label: 'SearchSubHeader',
-    backgroundColor: '#FFFFFF',
-    value: {}
+    label: 'FieldSpinnerLoader',
+    backgroundColor: '#FFFFFF'
   }
 }

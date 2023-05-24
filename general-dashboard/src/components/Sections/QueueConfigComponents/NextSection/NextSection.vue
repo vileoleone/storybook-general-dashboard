@@ -1,19 +1,19 @@
 <template>
   <div type="span" class="next-section-outer-box" :class="classes" @click="onClick" :style="styles">
-    <NextSectionTitle class="next-section-title" label="Importação de Contatos" :list="routes" />
+    <RoutePath class="next-section-title" label="Importação de Contatos" :list="routes" />
     <ButtonTopRight label="Próximo" />
   </div>
 </template>
 
 <script>
 import ButtonTopRight from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonTopRight.vue'
-import NextSectionTitle from '#/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSectionTitle.vue'
+import RoutePath from './RoutePath.vue'
 import { useMailingStore } from '@/stores/useMailingStore'
 import { mapWritableState } from 'pinia'
 export default {
   name: 'NextSection',
 
-  components: { ButtonTopRight, NextSectionTitle },
+  components: { ButtonTopRight, RoutePath },
 
   props: {
     label: {

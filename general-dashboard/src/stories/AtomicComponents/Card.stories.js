@@ -7,10 +7,18 @@ import ChatsLogo from '%/icons/ChatsLogo.svg'
 import AgentsLogo from '%/icons/AgentsLogo.svg'
 import SettingsIcon from '%/icons/SettingsIcon.svg'
 import UserLogo from '%/icons/UserLogo.svg'
+import CardDatatype from '@/components/Sections/QueueConfigComponents/AtomicComponents/CardDatatype.vue'
+import CardConfig from '@/components/Header/CardConfig.vue'
+import CardUser from '@/components/Header/CardUser.vue'
 
 export default {
   title: 'Atom Stories/Cards',
   component: Card,
+  DashboardCard,
+  CardCalls,
+  CardDatatype,
+  CardConfig,
+  CardUser,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -131,11 +139,11 @@ export const AgentCard = {
 
 export const ConfigCard = {
   render: (args) => ({
-    components: { Card },
+    components: { CardConfig },
     setup() {
       return { args }
     },
-    template: '<Card v-bind="args" />'
+    template: '<CardConfig v-bind="args" />'
   }),
   args: {
     primary: false,
@@ -153,16 +161,33 @@ export const ConfigCard = {
 
 export const UserCard = {
   render: (args) => ({
-    components: { Card },
+    components: { CardUser },
     setup() {
       return { args }
     },
-    template: '<Card v-bind="args" />'
+    template: '<CardUser v-bind="args" />'
   }),
   args: {
     primary: false,
     label: 'Olá Rodrigo Santos',
     icon: UserLogo,
     list: ['LogIn', 'LogOut']
+  }
+}
+
+export const CardDatatypeStory = {
+  render: (args) => ({
+    components: { CardDatatype },
+    setup() {
+      return { args }
+    },
+    template:
+      '<div style=" width: 250px; border: 1px #CED4DA solid; display: flex; align-items:center;"><CardDatatype v-bind="args" /></div>'
+  }),
+  args: {
+    primary: true,
+    label: 'Example',
+    datatypeName: 'Data',
+    datatypeItem: 'DateTime'
   }
 }

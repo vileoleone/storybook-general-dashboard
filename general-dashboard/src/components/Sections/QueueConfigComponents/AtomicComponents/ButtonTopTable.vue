@@ -78,4 +78,21 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.button-pagination-left-right {
+  display: flex;
+  flex-direction: row;
+  min-width: 55px;
+  justify-content: space-between;
+
+  .button {
+    height: 24px;
+    width: 24px;
+    border-radius: 3px;
+    border: 1px solid #c5c5c5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+</style>

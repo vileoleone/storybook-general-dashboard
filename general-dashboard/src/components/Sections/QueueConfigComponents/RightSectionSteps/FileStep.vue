@@ -1,9 +1,9 @@
 <template>
   <div type="span" class="file-step-outer-box" :class="classes" :style="style">
     <main class="main-left">
-      <DropZone />
+      <FieldDropzone />
       <div class="queue-tables">
-        <SearchSubHeader />
+        <FormSearchTable />
         <div class="tables">
           <template v-if="Object.keys(queues).length > 0">
             <div v-for="(queueItens, queueName, index) in queues" :key="index">
@@ -19,18 +19,18 @@
     </main>
     <ButtonBottom :clickFunction="loadAndParse" label="Continuar para a próxima etapa" />
   </div>
-  <SpinnerLoader v-if="this.isLoading" class="loading-box" />
+  <FieldSpinnerLoader v-if="this.isLoading" class="loading-box" />
 </template>
 
 <script>
 import { mapWritableState } from 'pinia'
-import SpinnerLoader from '../AtomicComponents/SpinnerLoader.vue'
+import FieldSpinnerLoader from '../AtomicComponents/FieldSpinnerLoader.vue'
 import { useMailingStore } from '@/stores/useMailingStore'
 import { useQueueStore } from '@/stories/assets/stores/queueStore'
 import ButtonBottom from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonBottom.vue'
-import DropZone from '#/Sections/QueueConfigComponents/AtomicComponents/DropZone.vue'
+import FieldDropzone from '#/Sections/QueueConfigComponents/AtomicComponents/FieldDropzone.vue'
 import Papa from 'papaparse'
-import SearchSubHeader from '#/Sections/QueueConfigComponents/AtomicComponents/SearchSubHeader.vue'
+import FormSearchTable from '#/Sections/QueueConfigComponents/AtomicComponents/FormSearchTable.vue'
 import TableCsvQueues from '#/Sections/QueueConfigComponents/AtomicComponents/TableCsvQueues.vue'
 import TriangleDown from '@/assets/icons/TriangleDown.svg'
 import TriangleUp from '@/assets/icons/TriangleUp.svg'
@@ -38,7 +38,7 @@ import TriangleUp from '@/assets/icons/TriangleUp.svg'
 export default {
   name: 'FileStep',
 
-  components: { DropZone, TableCsvQueues, SearchSubHeader, ButtonBottom, SpinnerLoader },
+  components: { FieldDropzone, TableCsvQueues, FormSearchTable, ButtonBottom, FieldSpinnerLoader },
 
   data() {
     return {

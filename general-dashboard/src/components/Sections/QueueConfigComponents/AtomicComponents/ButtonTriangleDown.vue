@@ -8,8 +8,8 @@
     <img class="mr5" :src="SuccessMark" alt="scroll Right" />
     {{ label }}
     <q-btn class="ml30" unelevated padding="5px 0 0 0">
-      <img :src="TriangleDownGrayIcon" alt="scroll Right" />
-
+      <img :src="TriangleDownIcon" alt="scroll Right" v-show="!this.active" />
+      <img :src="TriangleDownGrayIcon" alt="scroll Right" v-show="this.active" />
       <q-menu
         square
         flat
@@ -20,8 +20,8 @@
         transition-hide="jump-up"
         class="fs13-fw500-cl6f br5"
         style="max-height: 70px; max-width: 70px"
-        @show="toogleBackground"
-        @hide="toogleBackground"
+        @before-show="this.active = !this.active"
+        @before-hide="this.active = !this.active"
       >
         <q-list class="p15">
           <q-item class="htfc mb0" clickable>
@@ -38,6 +38,7 @@
 
 <script>
 import SuccessMark from '%/icons/SuccessMark.svg'
+import TriangleDownIcon from '%/icons/TriangleDownIcon.svg'
 import TriangleDownGrayIcon from '%/icons/TriangleDownGrayIcon.svg'
 export default {
   name: 'ButtonTopTable',
@@ -47,7 +48,9 @@ export default {
   data() {
     return {
       TriangleDownGrayIcon,
-      SuccessMark
+      TriangleDownIcon,
+      SuccessMark,
+      active: false
     }
   },
 
@@ -78,7 +81,7 @@ export default {
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
         [`storybook-button--${this.size || 'medium'}`]: true,
-        noLeftBorder: this.step >= 1
+        bcgray: this.active
       }
     },
     style() {

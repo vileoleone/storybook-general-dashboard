@@ -1,7 +1,7 @@
-import NextSectionTitle from '#/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSectionTitle.vue'
+import RoutePath from '#/Sections/QueueConfigComponents/NextSection/RoutePath.vue'
 export default {
-  title: 'Atom Stories/UnderHeader',
-  component: NextSectionTitle,
+  title: 'Atom Stories/RoutePath',
+  component: RoutePath,
   tags: ['autodocs'],
   decorators: [
     (story) => ({
@@ -27,13 +27,13 @@ export default {
   }
 }
 
-export const NextSectionTitleStory = {
+export const RoutePathStory = {
   render: (args) => ({
-    components: { NextSectionTitle },
+    components: { RoutePath },
     setup() {
       return { args }
     },
-    template: '<NextSectionTitle v-bind="args" />'
+    template: '<RoutePath v-bind="args" />'
   }),
   args: {
     primary: true,

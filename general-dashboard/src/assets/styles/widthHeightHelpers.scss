@@ -1,28 +1,27 @@
 /* Width Classes */
+
+/*  min-width */
 .wdmin180 {
   min-width: 180px;
 }
 
-.wd10 {
-  width: 10px;
-}
-.ht10 {
-  height: 10px;
-}
+/* max-width */
 
 .wdmax750 {
   max-width: 750px;
 }
+/* width */
 
+.wd10 {
+  width: 10px;
+}
 .wd100 {
   width: 100%;
 }
 .wd12p {
   width: 12px;
 }
-.ht12p {
-  height: 12px;
-}
+
 .wdfc {
   width: fit-content;
 }
@@ -36,6 +35,15 @@
 }
 
 /* Height Classes */
+
+.ht12p {
+  height: 12px;
+}
+
+.ht10p {
+  height: 10px;
+}
+
 .ht100 {
   height: 100%;
 }
@@ -51,3 +59,4 @@
 .htminc {
   height: min-content;
 }
+

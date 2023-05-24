@@ -34,7 +34,7 @@ const preview = {
     },
     options: {
       storySort: {
-        order: ['Atom Stories', 'Molecule', 'Pages', '*']
+        order: ['Atom Stories', 'Molecule Stories', 'Pages', '*']
       }
     }
   }

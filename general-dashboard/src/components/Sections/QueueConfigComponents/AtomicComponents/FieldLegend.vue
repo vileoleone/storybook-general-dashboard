@@ -1,7 +1,7 @@
 <template>
   <div type="span" class="legend-outer-box" :class="classes" @click="onClick" :style="style">
     <div class="legend-block fl-jcst-alcnt-fdrow mr15">
-      <div class="color wd10 ht10 mr10" :class="boxColor"></div>
+      <div class="color wd10 ht10pmr10" :class="boxColor"></div>
       <div class="legend fs12-fw400-cl8B">{{ label }}</div>
     </div>
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'LegendBox',
+  name: 'FieldLegend',
 
   components: {},
 

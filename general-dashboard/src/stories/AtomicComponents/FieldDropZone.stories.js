@@ -1,7 +1,7 @@
-import DropZone from '@/components/Sections/QueueConfigComponents/AtomicComponents/DropZone.vue'
+import FieldDropzone from '#/Sections/QueueConfigComponents/AtomicComponents/FieldDropzone.vue'
 export default {
   title: 'Atom Stories/Dropzones',
-  component: DropZone,
+  component: FieldDropzone,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -22,15 +22,15 @@ export default {
 
 export const DropzoneStory = {
   render: (args) => ({
-    components: { DropZone },
+    components: { FieldDropzone },
     setup() {
       return { args }
     },
-    template: '<DropZone v-bind="args" />'
+    template: '<FieldDropzone v-bind="args" />'
   }),
   args: {
     primary: true,
-    label: 'DropZone',
+    label: 'FieldDropzone',
     backgroundColor: '#FFFFFF',
     value: {}
   }

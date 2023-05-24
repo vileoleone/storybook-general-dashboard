@@ -1,4 +1,4 @@
-import NextSection from '@/components/Sections/QueueConfigComponents/NextSectionUnderHeader/NextSection.vue'
+import NextSection from '@/components/Sections/QueueConfigComponents/NextSection/NextSection.vue'
 export default {
   title: 'Molecule Stories/Mailing/NextSection',
   component: NextSection,

@@ -1,20 +1,10 @@
+//no-font-color
+//Used for text with color changes
+
 .fs10-fw400 {
   font-size: 10px;
   font-weight: 400;
   font-family: 'Work Sans';
-}
-
-.fs10-fw400-cl55 {
-  font-size: 10px;
-  font-weight: 400;
-  font-family: 'Work Sans';
-  color: #555555;
-}
-.fs10-fw400-cl85 {
-  font-size: 10px;
-  font-weight: 400;
-  font-family: 'Work Sans';
-  color: #858585;
 }
 
 .fs10-fw500 {
@@ -35,11 +25,10 @@
   font-family: 'Work Sans';
 }
 
-.fs11-fw400-cl61 {
+.fs11-fw400 {
   font-size: 11px;
   font-weight: 400;
   font-family: 'Work Sans';
-  color: #616161;
 }
 
 .fs11-fw500 {
@@ -66,17 +55,69 @@
   font-family: 'Work Sans';
 }
 
+.fs12-fw700 {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Work Sans';
+}
+
+//font-color
+
+//  #555555
+
+.fs10-fw400-cl55 {
+  font-size: 10px;
+  font-weight: 400;
+  font-family: 'Work Sans';
+  color: #555555;
+}
+
+// #858585
+
+.fs10-fw400-cl85 {
+  font-size: 10px;
+  font-weight: 400;
+  font-family: 'Work Sans';
+  color: #858585;
+}
+
 .fs12-fw400-cl85 {
   font-size: 12px;
   font-weight: 400;
   font-family: 'Work Sans';
   color: #858585;
 }
-.fs12-fw400-cl8B {
-  font-size: 12px;
+
+// #8F8F8F
+
+.fs11-fw400-cl8F {
+  font-size: 11px;
   font-weight: 400;
   font-family: 'Work Sans';
-  color: #8b8b8b;
+  color: #8f8f8f;
+}
+
+.fs13-fw600-cl8F {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Work Sans';
+  color: #8f8f8f;
+}
+
+.fs12-fw500-cl8F {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Work Sans';
+  color: #8f8f8f;
+}
+
+// #616161
+
+.fs11-fw400-cl61 {
+  font-size: 11px;
+  font-weight: 400;
+  font-family: 'Work Sans';
+  color: #616161;
 }
 
 .fs12-fw500-cl61 {
@@ -84,12 +125,6 @@
   font-weight: 500;
   font-family: 'Work Sans';
   color: #616161;
-}
-.fs12-fw500-clFF {
-  font-size: 12px;
-  font-weight: 500;
-  font-family: 'Work Sans';
-  color: #ffffff;
 }
 
 .fs12-fw600-cl61 {
@@ -99,6 +134,25 @@
   color: #616161;
 }
 
+// #8b8b8b
+
+.fs12-fw400-cl8B {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Work Sans';
+  color: #8b8b8b;
+}
+
+// #FFFFFF
+.fs12-fw500-clFF {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Work Sans';
+  color: #ffffff;
+}
+
+// ##a5a5a5
+
 .fs12-fw600-clA5 {
   font-size: 12px;
   font-weight: 600;
@@ -106,17 +160,9 @@
   color: #a5a5a5;
 }
 
-.fs12-fw700 {
-  font-size: 12px;
-  font-weight: 700;
-  font-family: 'Work Sans';
-}
-
 /* Additional Font Size Classes */
-.fs13 {
-  font-size: 13px;
-  font-family: 'Work Sans';
-}
+
+// #6f6f6f
 
 .fs13-fw500-cl6f {
   font-size: 13px;
@@ -125,8 +171,23 @@
   color: #6f6f6f;
 }
 
-.fs14 {
+// #444444
+
+.fs14-fw700-cl44 {
   font-size: 14px;
+  font-weight: 700;
+  font-family: 'Work Sans';
+  color: #444444;
+}
+
+//only-colors
+
+
+
+//only-font-size
+
+.fs13 {
+  font-size: 13px;
   font-family: 'Work Sans';
 }
 

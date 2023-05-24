@@ -115,7 +115,7 @@ export const MappedColumnTable = {
   }
 }
 
-export const MappedColumnTable = {
+export const MappedColumnTableStory = {
   render: (args) => ({
     components: { TableMappedColumns },
     setup() {
