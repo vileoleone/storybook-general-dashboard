@@ -21,7 +21,7 @@
             @dragenter="handleDragEnter"
             @dragleave="handleDragLeave"
             :class="[this.isDraggingOver ? 'state-hover-card' : columnStyle]"
-            class="top-card fl-jcsb-alst-fdcolumn p10 bcpink borderRightE3 wd100"
+            class="top-card fl-jcsb-alst-fdcolumn p10 borderRightE3 wd100"
           >
             <div class="fl-jcsb-alcnt-fdrow fs12-fw600-cl61 wd100 mb5">
               <span class="">data_ano</span>
@@ -87,7 +87,8 @@ export default {
       singleClass: this.index,
       focus: false,
       isDraggingOver: false,
-      counter: 0
+      counter: 0,
+      typeOf: 'notMapped'
     }
   },
 
@@ -117,7 +118,7 @@ export default {
     },
     index: {
       type: Number
-    },
+    }
   },
 
   computed: {
@@ -136,7 +137,11 @@ export default {
     },
     columnStyle() {
       if (this.typeOf == 'notMapped') {
-        return { backgroundColor: #eacfff }
+        return 'bcpink'
+      }
+
+      if (this.typeOf == 'duplicated') {
+        return 'bcbeige'
       }
 
       return {}
