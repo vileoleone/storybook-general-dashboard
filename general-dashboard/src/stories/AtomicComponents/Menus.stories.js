@@ -48,7 +48,7 @@ export const MenuDatatypeStory = {
       return { args }
     },
     template:
-      '<div style=" width:300px; overflow-y: scroll; border:1px solid blue;;"><MenuDatatypes v-bind="args"/></div>'
+      '<div style=" box-sizing:border-box; width:320px; overflow-y: scroll; border:1px solid blue;padding: 20px; padding-bottom:20px;"><MenuDatatypes v-bind="args"/></div>'
   }),
   args: {
     primary: true,
@@ -63,7 +63,11 @@ export const MenuDatatypeStory = {
           { fieldName: 'Timestamp', fieldtype: 'Timestamp' },
           { fieldName: 'Data e HORA', fieldtype: 'Data e HORA' },
           { fieldName: 'URL', fieldtype: 'URL' },
-          { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' }
+          { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' },
+          { fieldName: 'complemento1', fieldtype: 'complemento1' },
+          { fieldName: 'complemento2', fieldtype: 'complemento2' },
+          { fieldName: 'complemento3', fieldtype: 'complemento3' },
+          { fieldName: 'complemento4', fieldtype: 'complemento4' }
         ]
       },
       {
@@ -76,7 +80,11 @@ export const MenuDatatypeStory = {
           { fieldName: 'Timestamp', fieldtype: 'Timestamp' },
           { fieldName: 'Data e HORA', fieldtype: 'Data e HORA' },
           { fieldName: 'URL', fieldtype: 'URL' },
-          { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' }
+          { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' },
+          { fieldName: 'complemento1', fieldtype: 'complemento1' },
+          { fieldName: 'complemento2', fieldtype: 'complemento2' },
+          { fieldName: 'complemento3', fieldtype: 'complemento3' },
+          { fieldName: 'complemento4', fieldtype: 'complemento4' }
         ]
       },
       {
@@ -92,30 +100,6 @@ export const MenuDatatypeStory = {
           { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' }
         ]
       }
-      /* {
-        fieldName: 'Sistema',
-        data: {
-          Telefone: 'Telefone',
-          Decimal: 'Decimal',
-          'Número inteiro': 'Número inteiro',
-          Texto: 'Texto',
-          'CPF/CNPJ': 'CPF/CNPJ',
-          DDD: 'DDD',
-          Selecionável: 'Selecionável'
-        }
-      },
-      {
-        fieldName: 'já utilizados',
-        data: {
-          Timestamp: 'Timestamp',
-          'Data e HORA': 'Data e HORA',
-          URL: 'URL',
-          'Verdadeiro/Falso': 'Verdadeiro/Falso',
-          Telefone: 'Telefone',
-          Decimal: 'Decimal',
-          'Número inteiro': 'Número inteiro'
-        }
-      }  */
     ]
   }
 }

@@ -1,15 +1,15 @@
 <template>
   <div
     type="span"
-    class="Card-Datatype-outer-box fl-jcst-alcnt-fdrow p10"
+    class="Card-Datatype-outer-box fl-jcst-alcnt-fdrow p10  "
     :class="classes"
     @click="onClick"
     :style="style"
   >
     <img class="mr10" :src="DragIcon" alt="Drag Icon" />
-    <div class="fl-jcsb-alst-fdcolumn">
-      <span class="fs13-fw600-cl8F fl-jcsb-alst-fdcolumn mb2 ht5p">{{ datatypeName }}</span>
-      <span class="fs11-fw400-cl8F ht5p">{{ datatypeItem }}</span>
+    <div class="fl-jcst-alst-fdcolumn htfc p0 ">
+      <span class="fs13-fw600-cl8F fl-jcsb-alst-fdcolumn lh0 ">{{ datatypeName }}</span>
+      <span class="fs11-fw400-cl8F lh0">{{ datatypeItem }}</span>
     </div>
   </div>
 </template>
@@ -80,5 +80,6 @@ export default {
 <style scoped lang="scss">
 div {
   display: flex;
+  box-sizing: border-box;
 }
 </style>

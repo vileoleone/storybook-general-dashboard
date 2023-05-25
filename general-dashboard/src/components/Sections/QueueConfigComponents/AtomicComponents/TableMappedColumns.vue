@@ -1,5 +1,5 @@
 <template>
-  <div type="span" class="wdmin180" :class="classes" @click="onClick" :style="style">
+  <div type="span" class="wd100" :class="classes" @click="onClick" :style="style">
     <div class="not-mapped-header wd100">
       <span class="fl-jcsb-alba-fdrow mb15">
         <span class="fs12-fw600-cl61">Colunas mapeadas</span>
@@ -20,7 +20,7 @@
             <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
           </div>
         </div>
-         <div class="mapped-column fl-jccnt-alcnt-fdcolumn">
+        <div class="mapped-column fl-jccnt-alcnt-fdcolumn">
           <ButtonTriangleDown class="borderE3 borderBottonNone" label="Nome da Coluna" />
           <div class="not-mapped-column-itens fl-jcsb-alst-fdcolumn fs12-fw400-cl85 wd100">
             <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
@@ -28,7 +28,15 @@
             <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
           </div>
         </div>
-         <div class="mapped-column fl-jccnt-alcnt-fdcolumn">
+        <div class="mapped-column fl-jccnt-alcnt-fdcolumn">
+          <ButtonTriangleDown class="borderE3 borderBottonNone" label="Nome da Coluna" />
+          <div class="not-mapped-column-itens fl-jcsb-alst-fdcolumn fs12-fw400-cl85 wd100">
+            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
+            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
+            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
+          </div>
+        </div>
+        <div class="mapped-column fl-jccnt-alcnt-fdcolumn">
           <ButtonTriangleDown class="borderE3 borderBottonNone" label="Nome da Coluna" />
           <div class="not-mapped-column-itens fl-jcsb-alst-fdcolumn fs12-fw400-cl85 wd100">
             <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>

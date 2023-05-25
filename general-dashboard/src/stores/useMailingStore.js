@@ -36,7 +36,11 @@ export const useMailingStore = defineStore('MailingStep', {
           { fieldName: 'Timestamp', fieldtype: 'Timestamp' },
           { fieldName: 'Data e HORA', fieldtype: 'Data e HORA' },
           { fieldName: 'URL', fieldtype: 'URL' },
-          { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' }
+          { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' },
+          { fieldName: 'complemento1', fieldtype: 'complemento1' },
+          { fieldName: 'complemento2', fieldtype: 'complemento2' },
+          { fieldName: 'complemento3', fieldtype: 'complemento3' },
+          { fieldName: 'complemento4', fieldtype: 'complemento4' }
         ]
       },
       {
@@ -46,10 +50,7 @@ export const useMailingStore = defineStore('MailingStep', {
           { fieldName: 'Cidade', fieldtype: 'texto' },
           { fieldName: 'Email', fieldtype: 'Email' },
           { fieldName: 'Data', fieldtype: 'Data' },
-          { fieldName: 'Timestamp', fieldtype: 'Timestamp' },
-          { fieldName: 'Data e HORA', fieldtype: 'Data e HORA' },
-          { fieldName: 'URL', fieldtype: 'URL' },
-          { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' }
+          
         ]
       },
       {

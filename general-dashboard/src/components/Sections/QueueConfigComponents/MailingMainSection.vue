@@ -1,12 +1,12 @@
 <template>
   <div
     type="span"
-    class="main-outer-box fl-jcst-alst-fdcolumn bcwhite pt30 pl30 pr20 wd100"
+    class="main-outer-box fl-jcst-alst-fdcolumn bcwhite pt30 pl30 pr20 wd100 "
     :class="classes"
     @click="onClick"
     :style="style"
   >
-    <span class="mailing-main-header wd100 mb20 fs20-fw700-cl44 borderBottomCE pb15">{{ label }}</span>
+    <span class="mailing-main-header htfc wd100 mb20 fs20-fw700-cl44 borderBottomCE pb15">{{ label }}</span>
     <component :list="queues" :is="vueComponent" />
   </div>
 </template>

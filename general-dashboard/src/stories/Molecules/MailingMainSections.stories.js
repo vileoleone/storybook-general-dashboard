@@ -69,7 +69,7 @@ export const MappingFileStepStory = {
       return { args }
     },
     template:
-      '<div style="width: 1130px; height: 620px; border: 1px solid blue;"><Main v-bind="args"/></div>'
+      '<div style="width: 1130px;  border: 1px solid blue;"><Main v-bind="args"/></div>'
   }),
   args: {
     primary: true,

@@ -1,23 +1,27 @@
 <template>
-  <main type="span" class="mapping-file-step-outer-box" :class="classes" :style="style">
-    <span class="mapping-file-header">
-      <span class="h1">Sua Planilha</span>
-      <span class="header-span">
-        <span class="p">{{ this.file.name }}</span>
-        <span>
-          <span class="h2">{{ this.file.data.length }} contatos a serem importados</span>
+  <main type="span" class="wd100 ht100 lh0" :class="classes" :style="style">
+    <section class="fl-jcsb-alst-fdrow">
+      <section class="fl-jcsb-alst-fdcolumn wd60pr">
+        <span class="fl-jcsb-alst-fdcolumn wd100 mb20">
+          <span class="mb5 fs14-fw700-cl44">Sua Planilha</span>
+          <span class="fl-jcsb-alcnt-fdrow wd100">
+            <span class="fs12-fw400-cl8B">{{ this.file.name }}</span>
+            <span>
+              <span class="fs12-fw600-cl61"
+                >{{ this.file.data.length }} contatos a serem importados</span
+              >
+            </span>
+          </span>
         </span>
-      </span>
-    </span>
-
-    <section class="fl-jcsb-alst-fdrow bd">
-      <section class="fl-jcsb-alcnt-fdcolumn">
-        <TableNotMappedColumns /> <TableMappedColumns />
+        <TableNotMappedColumns />
+        <TableMappedColumns />
       </section>
-      <MenuDatatypes />
+      <section class="wd40pr p6pr ptnone ht100">
+        <MenuDatatypes />
+      </section>
     </section>
 
-    <!--  <ButtonBottom label="Ir para a próxima etapa" /> -->
+    <!--   <ButtonBottom label="Ir para a próxima etapa" /> -->
   </main>
 </template>
 
@@ -131,50 +135,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.h1 {
-  font-weight: 700;
-  font-size: 14px;
-  color: #444444;
-  margin-bottom: 5px;
-}
-.h2 {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  color: #616161;
+.wd60pr {
+  width: 97%;
 }
 
-.p {
-  font-weight: 400;
-  font-size: 12px;
-  color: #8b8b8b;
+.p6pr {
+  padding: 0 0 0 4%;
 }
 
-.mapping-file-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  font-family: 'Work Sans';
-  font-style: normal;
-
-  margin-bottom: 20px;
-  width: 100%;
-
-  .header-span {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-}
-
-.mapping-file-step-outer-box {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-  padding: 0;
-  width: 100%;
+.wd40pr {
+  width: 40%;
 }
 </style>

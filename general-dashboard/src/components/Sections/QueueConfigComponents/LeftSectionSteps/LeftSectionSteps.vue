@@ -83,9 +83,9 @@ export default {
     font-size: 13px;
     font-style: normal;
     font-weight: 700;
-    height: 100vh;
-    padding: 30px 3% 0 3%;
-    width: fit-content;
+    
+    padding: 30px 0 0 4.8%;
+    width: 28%;
   }
 
   .section-head {

@@ -3,3 +3,18 @@
   border-bottom: 1px solid #3D55AE;
   line-height: 20px;
 }
+
+.state-hover-card {
+  background-color: #FF2B2B;
+  color: #FFFFFF;
+}
+
+.state-default {
+  background-color: #FFFFFF;
+
+}
+
+.state-rotate{
+  transition: transform 0.3s ease;
+  transform: rotate(-15deg);
+}

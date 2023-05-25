@@ -1,16 +1,16 @@
 <template>
   <div
     type="span"
-    class="menu-datatypes-outer-box"
+    class="menu-datatypes-outer-box wdmin20pr"
     :class="classes"
     @click="onClick"
     :style="style"
   >
     <div class="menu-datatype">
-      <span class="fl-jcst-alcnt-fdrow fs14-fw700-cl44 mb15">Tipos de campos</span>
+      <span class="fl-jcst-alcnt-fdrow fs14-fw700-cl44 mb10">Tipos de campos</span>
 
-      <div class="menu-datatype-field fl-jcst-alst-fdcolumn wd100">
-        <div class="fl-jcsb-alst-fdrow mb15 wd100">
+      <div class="menu-datatype-field fl-jcst-alba-fdcolumn wd100">
+        <div class="fl-jcsb-alba-fdrow mb15 wd100">
           <span
             class="menu-title fs12-fw500-cl8F"
             :class="activeClasses"
@@ -27,7 +27,12 @@
             </div>
           </span>
         </div>
-        <div class="wd100" v-for="(fields, fieldIndex) in this.datatypeFields" :key="fieldIndex">
+        <div
+          class="menu-field wd100 htmax scroll-overlay"
+          :class="{ scroll: this.show }"
+          v-for="(fields, fieldIndex) in this.datatypeFields"
+          :key="fieldIndex"
+        >
           <FieldDraggable :list="fields.data" v-show="this.isSelected == fieldIndex" />
         </div>
       </div>
@@ -46,7 +51,8 @@ export default {
 
   data() {
     return {
-      isSelected: 0
+      isSelected: 0,
+      show: false
     }
   },
 
@@ -106,7 +112,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.htmax452 {
-  max-height: 457px;
+.menu-field.htmax {
+  max-height: 362px;
+  padding-right: 5%;
+}
+
+.menu-field::-webkit-scrollbar {
+  width: 7px;
+  background: #d9d9d9;
+  border-radius: 3px;
+}
+
+.menu-field::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: #c4c4c4;
 }
 </style>

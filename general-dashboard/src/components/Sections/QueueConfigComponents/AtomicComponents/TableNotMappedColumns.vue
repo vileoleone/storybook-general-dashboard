@@ -1,5 +1,5 @@
 <template>
-  <div type="span" class="wdmin180" :class="classes" @click="onClick" :style="style">
+  <div type="span" class="wd100" :class="classes" @click="onClick" :style="style">
     <div class="not-mapped-header wd100">
       <span class="fl-jcsb-alba-fdrow mb15">
         <span class="fs12-fw600-cl61">Colunas a mapear</span>
@@ -15,41 +15,26 @@
         Faltam 4 colunas a serem inseridas
       </div>
       <div class="fl-jcsb-alst-fdrow wd100">
-        <div class="not-mapped-column fl-jccnt-alcnt-fdcolumn">
-          <div class="top-card fl-jcsb-alst-fdcolumn bcbeige p10 borderRightE3">
-            <div class="fl-jcsb-alcnt-fdrow fs12-fw600-cl61 wd100 mb5">
-              <span class="">data_ano</span>
-              <img :src="TrashIcon" alt="trashIcon" class="wd11p ht12p" />
-            </div>
-            <span class="fs10-fw400-cl55 mb5">Esta coluna pode ser:</span>
-            <div class="suggestion-cards fl-jcsb-alcnt-fdrow">
-              <div class="suggestion-card fl-jccnt-alcnt-fdrow bcwhite p5 fs10-fw400-cl85 mr5">
-                Margem_RCC
-              </div>
-              <div class="suggestion-card fl-jccnt-alcnt-fdrow bcwhite p5 fs10-fw400-cl85 mr5">
-                Data
-              </div>
-              <div class="suggestion-card fl-jccnt-alcnt-fdrow bcwhite p5 fs10-fw400-cl85 mr5">
-                Margem_RCC
-              </div>
-            </div>
-          </div>
+        <div class="not-mapped-column fl-jccnt-alcnt-fdcolumn wd12pr">
           <div
-            class="not-mapped-column-itens fl-jcsb-alst-fdcolumn fs12-fw400-cl85 bclightbeige wd100 borderE3"
+            :style="columnStyle"
+            @dragenter="handleDragEnter"
+            @dragleave="handleDragLeave"
+            :class="[this.isDraggingOver ? 'state-hover-card' : columnStyle]"
+            class="top-card fl-jcsb-alst-fdcolumn p10 bcpink borderRightE3 wd100"
           >
-            <div class="item p10 borderBottomE3 wd100">Item da coluna</div>
-          </div>
-        </div>
-
-        <div class="not-mapped-column fl-jccnt-alcnt-fdcolumn">
-          <div class="top-card fl-jcsb-alst-fdcolumn bcpink p10 borderRightE3">
             <div class="fl-jcsb-alcnt-fdrow fs12-fw600-cl61 wd100 mb5">
               <span class="">data_ano</span>
-              <img :src="TrashIcon" alt="trashIcon" class="wd11p ht12p" />
+              <img :src="TrashIcon" alt="trashIcon" class="ht12p" />
             </div>
             <span class="fs10-fw400-cl55 mb5">Esta coluna pode ser:</span>
             <div class="suggestion-cards fl-jcsb-alcnt-fdrow">
-              <div class="suggestion-card fl-jccnt-alcnt-fdrow bcwhite p5 fs10-fw400-cl85 mr5">
+              <div
+                @mouseover="onHoverState"
+                @mouseout="offHoverState"
+                class="suggestion-card fl-jccnt-alcnt-fdrow p5 fs10-fw400-cl85 mr5"
+                :class="{ 'state-hover-card': this.focus, 'state-default': !this.focus }"
+              >
                 Margem_RCC
               </div>
               <div class="suggestion-card fl-jccnt-alcnt-fdrow bcwhite p5 fs10-fw400-cl85 mr5">
@@ -64,13 +49,15 @@
             class="not-mapped-column-itens fl-jcsb-alst-fdcolumn bclightpink fs12-fw400-cl85 wd100"
           >
             <div class="item p10 borderE3 wd100">Item da coluna</div>
+            <div class="item p10 borderE3 wd100">Item da coluna</div>
+            <div class="item p10 borderE3 wd100">Item da coluna</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="legend-container fl-jcst-alcnt-fdrow">
+    <div class="legend-container fl-jcst-alcnt-fdrow mb15">
       <FieldLegend boxColor="bcbeige" label="Colunas duplicadas" />
-      <FieldLegend boxColor="bcbeige" label="Colunas duplicadas" />
+      <FieldLegend boxColor="bcpink" label="Colunas não mapeadas" />
     </div>
   </div>
 </template>
@@ -97,7 +84,10 @@ export default {
       TrashIcon,
       ExclamationIcon,
       buttonPressed: true,
-      singleClass: this.index
+      singleClass: this.index,
+      focus: false,
+      isDraggingOver: false,
+      counter: 0
     }
   },
 
@@ -127,7 +117,7 @@ export default {
     },
     index: {
       type: Number
-    }
+    },
   },
 
   computed: {
@@ -143,6 +133,13 @@ export default {
       return {
         backgroundColor: this.backgroundColor
       }
+    },
+    columnStyle() {
+      if (this.typeOf == 'notMapped') {
+        return { backgroundColor: #eacfff }
+      }
+
+      return {}
     }
   },
 
@@ -159,9 +156,31 @@ export default {
       document
         .querySelectorAll('#table-queue')
         [this.index].querySelector('.q-table__middle.scroll.table-queue-style').scrollLeft += 150
+    },
+    onHoverState() {
+      this.focus = true
+    },
+    offHoverState() {
+      this.focus = false
+    },
+    handleDragEnter() {
+      this.counter++
+      this.isDraggingOver = true
+      console.log('true')
+    },
+    handleDragLeave() {
+      this.counter--
+      if (this.counter == 0) {
+        console.log('false')
+        this.isDraggingOver = false
+      }
     }
   }
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.wd12pr {
+  width: 34%;
+}
+</style>

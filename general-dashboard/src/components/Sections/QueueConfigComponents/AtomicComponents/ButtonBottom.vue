@@ -1,6 +1,6 @@
 <template>
   <div type="span" :class="classes" @click="onClick" :style="style" v-if="this.fileIsLoaded">
-    <button  class="button-bottom" :class="classes" @click="clickFunction" :style="style">
+    <button  class="button-bottom mb20" :class="classes" @click="clickFunction" :style="style">
       {{ label }}
       <img :src="ArrowRightIcon" alt=" Arrow right" />
     </button>

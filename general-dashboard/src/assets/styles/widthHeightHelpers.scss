@@ -5,6 +5,10 @@
   min-width: 180px;
 }
 
+.wdmin20pr {
+  min-width: 20%;
+}
+
 /* max-width */
 
 .wdmax750 {
@@ -17,9 +21,6 @@
 }
 .wd100 {
   width: 100%;
-}
-.wd12p {
-  width: 12px;
 }
 
 .wdfc {
@@ -43,9 +44,8 @@
 .ht10p {
   height: 10px;
 }
-.ht5p {
-  height: 16px;
-}
+
+
 
 .ht100 {
   height: 100%;
@@ -62,4 +62,3 @@
 .htminc {
   height: min-content;
 }
-

@@ -1,5 +1,9 @@
 /* padding */
 
+.p0 {
+  padding: 0;
+}
+
 .p5 {
   padding: 5px;
 }
@@ -87,3 +91,10 @@
 .pr20 {
   padding-right: 20px;
 }
+
+
+/* padding-none */
+
+.ptnone {
+  padding-top: none;
+} 

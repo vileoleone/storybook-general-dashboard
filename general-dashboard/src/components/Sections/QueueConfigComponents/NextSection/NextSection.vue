@@ -1,5 +1,5 @@
 <template>
-  <div type="span" class="next-section-outer-box" :class="classes" @click="onClick" :style="styles">
+  <div type="span" class="next-section-outer-box bcwhite" :class="classes" @click="onClick" :style="styles">
     <RoutePath class="next-section-title" label="Importação de Contatos" :list="routes" />
     <ButtonTopRight label="Próximo" />
   </div>

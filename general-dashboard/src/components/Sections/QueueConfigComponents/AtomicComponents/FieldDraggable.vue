@@ -1,15 +1,22 @@
 <template>
-  <div type="span"  class="field-draggable borderC5" :class="classes" @click="onClick" :style="style">
+  <div
+    type="span"
+    class="field-draggable borderC5"
+    :class="classes"
+    @click="onClick"
+    :style="style"
+    drag-class="drag"
+  >
     <draggable
       v-model="listToRender"
       group="people"
-      @start="drag = true"
-      @end="drag = false"
-      item-key="data"
+      animation="150"
+      item-key="fieldName"
+      :sort="true"
     >
       <template #item="{ element }">
-        <div class=" htmax452 scroll-y borderBottomC5">
-          <CardDatatype  :datatypeItem="element.fieldtype" :datatypeName="element.fieldName" />
+        <div class="htmax452 scroll-y borderBottomC5 bcwhite">
+          <CardDatatype :datatypeItem="element.fieldtype" :datatypeName="element.fieldName" />
         </div>
       </template>
     </draggable>
@@ -28,7 +35,9 @@ export default {
     return {
       drag: false,
       isSelected: 0,
-      listToRender: this.list
+      listToRender: this.list,
+      x: 50,
+      y: 50
     }
   },
 
@@ -79,13 +88,24 @@ export default {
   methods: {
     onClick() {
       this.$emit('click')
+    },
+    rotateForward() {
+      this.rotate = true
+    },
+    rotateBack() {
+      this.rotate = false
+    },
+    handle(e) {
+      alert(e)
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.htmax452 {
-  max-height: 452px;
+.drag > div {
+  background-color: blue;
+  transition: transform 0.3s ease;
+  transform: rotate(-15deg);
 }
 </style>

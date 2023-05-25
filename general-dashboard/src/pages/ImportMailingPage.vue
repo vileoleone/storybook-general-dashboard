@@ -124,16 +124,17 @@ export default {
   z-index: 1;
 }
 .next-section-in-page {
-  margin-top: 60px;
+  margin-top: 44px;
   position: fixed;
   left: 0;
 }
 .import-sections {
   display: flex;
   width: 100%;
+
   position: fixed;
   left: 0;
-  top: 170px;
-  z-index: 1;
+  top: 153px;
+
 }
 </style>
