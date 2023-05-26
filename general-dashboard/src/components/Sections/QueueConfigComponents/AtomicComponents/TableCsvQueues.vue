@@ -46,8 +46,6 @@
 <script>
 import ChevronLeftIcon from '@/assets/icons/ChevronLeftIcon.svg'
 import ChevronRightIcon from '@/assets/icons/ChevronRightIcon.svg'
-import NotFoundIcon from '%/icons/NotFoundIcon.svg'
-import ExclamationIcon from '%/icons/ExclamationIcon.svg'
 
 export default {
   name: 'TableCsvQueues',
@@ -58,8 +56,7 @@ export default {
     return {
       ChevronLeftIcon,
       ChevronRightIcon,
-      NotFoundIcon,
-      ExclamationIcon,
+
       buttonPressed: true,
       singleClass: this.index
     }
@@ -145,6 +142,41 @@ export default {
   justify-content: space-between;
   margin-right: 10px;
 }
+.central-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1-text-table-queue {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #444444;
+}
+
+.h2-text-table-queue {
+  width: 210px;
+  text-align: center;
+  height: 28px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #444444;
+}
+
+.icon-not-found {
+  z-index: 1;
+}
+
+.icon-exclamation {
+  position: absolute;
+  z-index: 0;
+}
 
 .queue-table-scroll-button {
   height: 24px;
@@ -213,5 +245,15 @@ export default {
   padding: 0;
   height: 40px;
   padding: 0 0 0 10px;
+}
+
+.term-not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 180px;
+  padding-top: 50px;
 }
 </style>

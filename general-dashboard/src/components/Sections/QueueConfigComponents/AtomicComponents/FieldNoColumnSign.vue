@@ -1,5 +1,5 @@
 <template>
-  <div type="span" class="" :class="classes" @click="onClick" :style="style">
+  <div type="span" class="fl-jccnt-alcnt-fdcolumn" :class="classes" @click="onClick" :style="style">
     <div class="term-not-found">
       <div class="central-icon">
         <img class="icon-not-found" :src="NotFoundIcon" alt="No term Found" />
@@ -14,13 +14,15 @@
 </template>
 
 <script>
+import NotFoundIcon from '%/icons/NotFoundIcon.svg'
+import ExclamationIcon from '%/icons/ExclamationIcon.svg'
 export default {
   name: 'componentName',
 
   components: {},
 
   data() {
-    return {}
+    return { NotFoundIcon, ExclamationIcon }
   },
 
   props: {
