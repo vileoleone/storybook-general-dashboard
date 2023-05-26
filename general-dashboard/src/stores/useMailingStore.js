@@ -7,12 +7,12 @@ export const useMailingStore = defineStore('MailingStep', {
     mailingCsvFile: {
       name: 'examplenamefile.csv',
       data: [
-        ['id', 'nome', 'numero'],
-        ['4000', 'francielle', '67999263831'],
-        ['4001', 'Carlos', '6733206400'],
-        ['4002', 'Carol', '11999263831'],
-        ['4003', 'Pedro', '6733180790'],
-        ['4004', 'Carmem', '6733180791']
+        ['id', 'nome', 'numero', 'UF', 'Cidade', 'URL', 'Data'],
+        ['4000', 'francielle', '67999263831', 'MG', 'belo Horizonte', '03', 'www'],
+        ['4001', 'Carlos', '6733206400', 'MG', 'belo Horizonte', '05', 'www'],
+        ['4002', 'Carol', '11999263831', 'MS', 'Campo Grande', '09', 'www'],
+        ['4003', 'Pedro', '6733180790', 'SP', 'São Paulo', '08', 'www'],
+        ['4004', 'Carmem', '6733180791', 'RS', 'Canela', '09', 'www']
       ]
     },
     isLoading: false,
@@ -49,8 +49,7 @@ export const useMailingStore = defineStore('MailingStep', {
           { fieldName: 'Telefone', fieldtype: 'texto' },
           { fieldName: 'Cidade', fieldtype: 'texto' },
           { fieldName: 'Email', fieldtype: 'Email' },
-          { fieldName: 'Data', fieldtype: 'Data' },
-          
+          { fieldName: 'Data', fieldtype: 'Data' }
         ]
       },
       {
@@ -66,10 +65,11 @@ export const useMailingStore = defineStore('MailingStep', {
           { fieldName: 'Verdadeiro/Falso', fieldtype: 'Verdadeiro/Falso' }
         ]
       }
-    ]
+    ],
+    mapColumnsArray: []
   }),
   getters: {
-    stepSectionDict(state) {
+    stepSectionDictGetter(state) {
       const Arquivo = state.mailingCsvFile ? state.mailingCsvFile.name : ''
       const stepSectionDict = {
         Fila: state.queueToConfig,
@@ -80,6 +80,105 @@ export const useMailingStore = defineStore('MailingStep', {
         Importação: ''
       }
       return stepSectionDict
+    },
+
+    notMappedColumns(state) {
+      if (!state.mapColumnsArray) return state.mapColumnsArray
+
+      const result = state.mapColumnsArray.pop().filter((obj) => !obj.isMapped)
+
+      return result
+    },
+    mappedColumns(state) {
+      if (!state.mapColumnsArray) return state.mapColumnsArray
+
+      const result = state.mapColumnsArray.pop().filter((obj) => obj.isMapped)
+
+      return result
+    }
+  },
+  actions: {
+    extractCsvFileData() {
+      const csvFileHeader = this.mailingCsvFile.data[0]
+      const csvFileData = this.mailingCsvFile.data.slice(1, 4)
+
+      const extractedObject = {}
+
+      csvFileHeader.forEach((header, index) => {
+        extractedObject[header] = csvFileData.map((row) => row[index])
+      })
+
+      return extractedObject
+    },
+    sortOutFieldTypes() {
+      const fieldType = []
+      this.datatypeFields.forEach((field) => {
+        field.data.forEach((subField) => {
+          fieldType.push(subField.fieldName)
+        })
+      })
+      return fieldType
+    },
+
+    sortOutColumns() {
+      const csvData = this.extractCsvFileData()
+      const fieldType = this.sortOutFieldTypes()
+      const array = []
+      console.log(array)
+      for (const columnHeader of Object.keys(csvData)) {
+        const typeSearch = fieldType.find((typeMapped) => typeMapped === columnHeader)
+
+        if (typeSearch !== undefined) {
+          array.push({
+            header: columnHeader,
+            data: csvData[columnHeader],
+            isMapped: true
+          })
+          continue
+        }
+        array.push({
+          header: columnHeader,
+          data: csvData[columnHeader],
+          isMapped: false
+        })
+      }
+
+      const arrayChecked = this.checkIfHasProblem(array)
+
+      return this.mapColumnsArray.push(arrayChecked)
+    },
+
+    checkIfHasProblem(dataArray) {
+      const duplicateHeaders = new Set()
+      const extractedArray = dataArray
+        .map((obj) => {
+          if (duplicateHeaders.has(obj.header)) {
+            return (obj.type = 'duplicate')
+          }
+          obj.type = 'notMapped'
+          duplicateHeaders.add(obj.header)
+          return obj
+        })
+        .map((obj) => {
+          if (obj.isMapped == true) {
+            obj.type = 'mapped'
+            return obj
+          }
+          return obj
+        })
+      return extractedArray
     }
   }
 })
+/* [
+  { header: 'id', data: [1, 2, 'ree'], isMapped: false },
+  { header: 'nome', data: ['dsds', 2, 'ree'], isMapped: false },
+  { header: 'dsa', data: ['dsdsds', 2, 're22e'], isMapped: false }
+] */
+
+/* const dataArray = [
+  { header: 'id', data: [1, 2, 'ree'], isMapped: false },
+  { header: 'nome', data: ['dsds', 2, 'ree'], isMapped: false, type: 'duplicate' },
+  { header: 'dsa', data: ['dsdsds', 2, 're22e'], isMapped: false },
+  { header: 'nome', data: ['dsdsds', 2, 're22e'], isMapped: false, type: 'duplicate' }
+] */

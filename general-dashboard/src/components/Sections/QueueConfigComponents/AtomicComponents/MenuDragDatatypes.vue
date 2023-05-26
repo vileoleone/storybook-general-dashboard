@@ -10,7 +10,7 @@
       <span class="fl-jcst-alcnt-fdrow fs14-fw700-cl44 mb10">Tipos de campos</span>
 
       <div class="menu-datatype-field fl-jcst-alba-fdcolumn wd100">
-        <div class="fl-jcsb-alba-fdrow mb15 wd100">
+        <div class="fl-jcsb-alba-fdrow mb15 wd90">
           <span
             class="menu-title fs12-fw500-cl8F"
             :class="activeClasses"
@@ -45,7 +45,7 @@ import FieldDraggable from '#/Sections/QueueConfigComponents/AtomicComponents/Fi
 import { useMailingStore } from '@/stores/useMailingStore'
 import { mapWritableState } from 'pinia'
 export default {
-  name: 'MenuDatatypes',
+  name: 'MenuDragDatatypes',
 
   components: { FieldDraggable },
 

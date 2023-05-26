@@ -12,7 +12,7 @@
       <span class="h2-text">{{ fileSize }}</span>
       <button class="remove-file-button" @click="removeFile()">
         <img :src="trashIcon" alt="trash icon" />
-        <span style="background-color: #E3F3EB;">Remover</span>
+        <span style="background-color: #e3f3eb">Remover</span>
       </button>
     </div>
   </div>
@@ -260,7 +260,7 @@ img {
   background: #e7edff;
   border-radius: 5px;
   border: 1px solid #12b361;
-  background-color: #E3F3EB;
+  background-color: #e3f3eb;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -272,7 +272,7 @@ img {
 
 .remove-file-button {
   align-items: center;
-  border: 1px solid red;
+
   color: #495057;
   display: flex;
   flex-direction: row;

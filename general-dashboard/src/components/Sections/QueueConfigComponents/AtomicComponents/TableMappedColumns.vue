@@ -4,7 +4,7 @@
       <span class="fl-jcsb-alba-fdrow mb15">
         <span class="fs12-fw600-cl61">Colunas mapeadas</span>
         <span class="fl-jcsb-alcnt-fdrow">
-          <span class="fs11-fw400-cl61 mr20">csvfilenameexample</span>
+          <span class="fs11-fw400-cl61 mr20">{{ this.file.name }}</span>
           <ButtonTopTable />
         </span>
       </span>
@@ -12,36 +12,20 @@
 
     <div class="mapped-tables fl-jccnt-alcnt-fdcolumn wd100 mb10">
       <div class="fl-jcsb-alst-fdrow wd100">
-        <div class="mapped-column fl-jccnt-alcnt-fdcolumn">
-          <ButtonTriangleDown class="borderE3 borderBottonNone" label="Nome da Coluna" />
+        <div
+          class="mapped-column fl-jccnt-alcnt-fdcolumn wd25"
+          v-for="(column, index) in this.cards"
+          :key="index"
+        >
+          <ButtonTriangleDown class="borderE3 borderBottonNone wd100" :label="column.header" />
           <div class="not-mapped-column-itens fl-jcsb-alst-fdcolumn fs12-fw400-cl85 wd100">
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-          </div>
-        </div>
-        <div class="mapped-column fl-jccnt-alcnt-fdcolumn">
-          <ButtonTriangleDown class="borderE3 borderBottonNone" label="Nome da Coluna" />
-          <div class="not-mapped-column-itens fl-jcsb-alst-fdcolumn fs12-fw400-cl85 wd100">
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-          </div>
-        </div>
-        <div class="mapped-column fl-jccnt-alcnt-fdcolumn">
-          <ButtonTriangleDown class="borderE3 borderBottonNone" label="Nome da Coluna" />
-          <div class="not-mapped-column-itens fl-jcsb-alst-fdcolumn fs12-fw400-cl85 wd100">
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-          </div>
-        </div>
-        <div class="mapped-column fl-jccnt-alcnt-fdcolumn">
-          <ButtonTriangleDown class="borderE3 borderBottonNone" label="Nome da Coluna" />
-          <div class="not-mapped-column-itens fl-jcsb-alst-fdcolumn fs12-fw400-cl85 wd100">
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
-            <div class="item p10 borderE3 borderBottonNone wd100">Item da coluna</div>
+            <div
+              class="item p10 borderE3 borderBottonNone wd100"
+              v-for="(item, index) in column.data"
+              :key="index"
+            >
+              {{ item }}
+            </div>
           </div>
         </div>
       </div>
@@ -57,6 +41,8 @@ import ExclamationIcon from '%/icons/ExclamationIcon.svg'
 import TrashIcon from '%/icons/TrashIcon.svg'
 import ButtonTopTable from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonTopTable.vue'
 import ButtonTriangleDown from './ButtonTriangleDown.vue'
+import { mapWritableState } from 'pinia'
+import { useMailingStore } from '@/stores/useMailingStore'
 export default {
   name: 'TableCsvQueues',
 
@@ -92,10 +78,7 @@ export default {
     backgroundColor: {
       type: String
     },
-    queueName: {
-      type: String
-    },
-    queueData: {
+    cards: {
       type: Object
     },
     index: {
@@ -116,7 +99,10 @@ export default {
       return {
         backgroundColor: this.backgroundColor
       }
-    }
+    },
+    ...mapWritableState(useMailingStore, {
+      file: 'mailingCsvFile'
+    })
   },
 
   methods: {

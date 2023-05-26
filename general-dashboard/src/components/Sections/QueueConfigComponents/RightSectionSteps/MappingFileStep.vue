@@ -4,6 +4,7 @@
       <section class="fl-jcsb-alst-fdcolumn wd60pr">
         <span class="fl-jcsb-alst-fdcolumn wd100 mb20">
           <span class="mb5 fs14-fw700-cl44">Sua Planilha</span>
+
           <span class="fl-jcsb-alcnt-fdrow wd100">
             <span class="fs12-fw400-cl8B">{{ this.file.name }}</span>
             <span>
@@ -13,11 +14,11 @@
             </span>
           </span>
         </span>
-        <TableNotMappedColumns />
-        <TableMappedColumns />
+        <TableNotMappedColumns :cards="this.notMappedObj" v-if="this.notMappedObj" />
+        <TableMappedColumns :cards="this.mappedObj" v-if="this.mappedObj" />
       </section>
       <section class="wd40pr p6pr ptnone ht100">
-        <MenuDatatypes />
+        <MenuDragDatatypes />
       </section>
     </section>
 
@@ -28,7 +29,7 @@
 <script>
 import { mapWritableState } from 'pinia'
 import { useMailingStore } from '@/stores/useMailingStore'
-import ButtonBottom from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonBottom.vue'
+//import ButtonBottom from '#/Sections/QueueConfigComponents/AtomicComponents/ButtonBottom.vue'
 import TriangleDown from '@/assets/icons/TriangleDown.svg'
 import TriangleUp from '@/assets/icons/TriangleUp.svg'
 import ChevronLeftIcon from '@/assets/icons/ChevronLeftIcon.svg'
@@ -36,11 +37,12 @@ import ChevronRightIcon from '@/assets/icons/ChevronRightIcon.svg'
 import Papa from 'papaparse'
 import TableNotMappedColumns from '../AtomicComponents/TableNotMappedColumns.vue'
 import TableMappedColumns from '../AtomicComponents/TableMappedColumns.vue'
-import MenuDatatypes from '../AtomicComponents/MenuDatatypes.vue'
+import MenuDragDatatypes from '../AtomicComponents/MenuDragDatatypes.vue'
+import { mapActions } from 'pinia'
 export default {
   name: 'FileStep',
 
-  components: { ButtonBottom, TableNotMappedColumns, TableMappedColumns, MenuDatatypes },
+  components: { TableNotMappedColumns, TableMappedColumns, MenuDragDatatypes },
 
   data() {
     return {
@@ -53,8 +55,9 @@ export default {
     }
   },
 
-  mounted() {
-    console.log(this.file)
+  beforeMount() {
+    this.sortOutColumns()
+    console.log(this.sortOutColumns())
   },
 
   props: {
@@ -95,7 +98,9 @@ export default {
     ...mapWritableState(useMailingStore, {
       readyToProceed: 'readyToProceed',
       file: 'mailingCsvFile',
-      isLoading: 'isLoading'
+      isLoading: 'isLoading',
+      notMappedObj: 'notMappedColumns',
+      mappedObj: 'mappedColumns'
     })
   },
   methods: {
@@ -129,7 +134,8 @@ export default {
           }
         })
       )
-    }
+    },
+    ...mapActions(useMailingStore, { sortOutColumns: 'sortOutColumns' })
   }
 }
 </script>

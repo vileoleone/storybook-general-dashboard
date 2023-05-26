@@ -1,5 +1,5 @@
 import MenuList from '#/Header/MenuList.vue'
-import MenuDatatypes from '#/Sections/QueueConfigComponents/AtomicComponents/MenuDatatypes.vue'
+import MenuDragDatatypes from '#/Sections/QueueConfigComponents/AtomicComponents/MenuDragDatatypes.vue'
 export default {
   title: 'Atom Stories/Menus',
   component: MenuList,
@@ -41,14 +41,14 @@ export const MenuStory = {
   }
 }
 
-export const MenuDatatypeStory = {
+export const MenuDragDatatypestory = {
   render: (args) => ({
-    components: { MenuDatatypes },
+    components: { MenuDragDatatypes },
     setup() {
       return { args }
     },
     template:
-      '<div style=" box-sizing:border-box; width:320px; overflow-y: scroll; border:1px solid blue;padding: 20px; padding-bottom:20px;"><MenuDatatypes v-bind="args"/></div>'
+      '<div style=" box-sizing:border-box; width:320px; overflow-y: scroll; border:1px solid blue;padding: 20px; padding-bottom:20px;"><MenuDragDatatypes v-bind="args"/></div>'
   }),
   args: {
     primary: true,
