@@ -1,29 +1,66 @@
 <template>
   <span
     type="span"
-    class="fl-jcsb-alst-fdrow bcblue wd100 fixed-top-left-0 max-height-60px mr5 borderBottomC5"
+    class="fl-jcsb-alst-fdrow bcblue wd100 fixed-top-left-0 max-height-60px borderBottomC5"
     :class="classes"
     @click="onClick"
     :style="style"
   >
-    <span class="fl-jcsb-alst-fdrow mr40px">
-      <CardDashboard label="Dashboards" :icon="DashboardsLogo" :list="dashboardList" />
-      <CardCalls label="Chamadas" :icon="iconPhone" :list="ChamadasList" />
-      <Cards label="Conversas" :icon="ChatsLogo" :list="ConversasList" />
-      <Cards label="Agentes" :icon="AgentsLogo" :list="AgentesList" />
-      <CardConfig label="Configurações" :icon="SettingsIcon" :list="ConfiguraçõesList" />
+    <span class="fl-jcsb-alst-fdrow mr20px">
+      <Card
+        label="Dashboards"
+        :icon="DashboardsLogo"
+        :list="dashboardList"
+        :menuList="MenuList"
+        width="160"
+        :leftLogo="Logo"
+      />
+      <Card
+        label="Chamadas"
+        :icon="iconPhone"
+        :list="ChamadasList"
+        :menuList="menuListCalls"
+        width="175"
+      />
+      <Card
+        label="Conversas"
+        :icon="ChatsLogo"
+        :list="ConversasList"
+        :menuList="MenuList"
+        width="160"
+      />
+      <Card
+        label="Agentes"
+        :icon="AgentsLogo"
+        :list="AgentesList"
+        :menuList="MenuList"
+        width="160"
+      />
+      <Card
+        label="Configurações"
+        :icon="SettingsIcon"
+        :list="ConfiguraçõesList"
+        :menuList="MenuList"
+        width="175"
+      />
     </span>
-    <span class="fl-jcsb-alcnt-fdrow min-width-330px min-height-60px">
+    <span class="fl-jcsb-alcnt-fdrow min-width-330px min-height-60px pl15px">
       <img class="cursor-pointer als-c" :src="ApiButton" alt="ApiButton" />
       <img class="cursor-pointer als-c" :src="ChangeLogButton" alt="ChangeLogButton" />
-      <CardUser label="Olá Rodrigo Santos" :icon="UserLogo" />
+      <Card
+        label="Olá Rodrigo Santos"
+        :icon="UserLogo"
+        :list="userList"
+        :menuList="MenuList"
+        width="190"
+      />
     </span>
   </span>
 </template>
 
 <script>
-import Cards from './Cards.vue'
-import CardDashboard from './CardDashboard.vue'
+import MenuListCalls from './MenuListCalls.vue'
+import Card from './Cards.vue'
 import DashboardsLogo from '%/icons/DashboardsLogo.svg'
 import iconPhone from '%/icons/IconPhone.svg'
 import ChatsLogo from '%/icons/ChatsLogo.svg'
@@ -32,16 +69,18 @@ import SettingsIcon from '%/icons/SettingsIcon.svg'
 import UserLogo from '%/icons/UserLogo.svg'
 import ApiButton from '%/icons/ApiButton.svg'
 import ChangeLogButton from '%/icons/ChangeLogButton.svg'
-import CardCalls from './CardCalls.vue'
-import CardUser from './CardUser.vue'
-import CardConfig from './CardConfig.vue'
+import MenuList from './MenuList.vue'
+import Logo from './Logo.vue'
 export default {
   name: 'HeaderLayout',
 
-  components: { Cards, CardUser, CardCalls, CardDashboard, CardConfig },
+  components: { Card },
 
   data() {
     return {
+      MenuList,
+      MenuListCalls,
+      Logo,
       DashboardsLogo,
       iconPhone,
       ChatsLogo,
@@ -99,7 +138,8 @@ export default {
         'Respostas rápidas',
         'Planos e tarifas',
         'Usuários'
-      ]
+      ],
+      userList: ['sair']
     }
   },
 

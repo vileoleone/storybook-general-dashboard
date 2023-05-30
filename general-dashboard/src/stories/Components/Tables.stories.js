@@ -1,6 +1,6 @@
 import TableCsvQueues from '@/components/Sections/QueueConfigComponents/Components/TableCsvQueues.vue'
-import TableNotMappedColumns from '@/components/Sections/QueueConfigComponents/Components/TableNotMappedColumns.vue'
-import TableMappedColumns from '@/components/Sections/QueueConfigComponents/Components/TableMappedColumns.vue'
+/* import TableNotMappedColumns from '@/components/Sections/QueueConfigComponents/Components/TableNotMappedColumns.vue'
+import TableMappedColumns from '@/components/Sections/QueueConfigComponents/Components/TableMappedColumns.vue' */
 export default {
   title: 'Components/Tables',
   component: TableCsvQueues,
@@ -86,7 +86,7 @@ export const TableCsvQueuesStoryNoData = {
     backgroundColor: '#FFFFFF'
   }
 }
-
+/* 
 export const NotMappedColumnTable = {
   render: (args) => ({
     components: { TableNotMappedColumns },
@@ -99,8 +99,8 @@ export const NotMappedColumnTable = {
     primary: false,
     label: 'TableNotMappedColumns'
   }
-}
-
+} */
+/* 
 export const MappedColumnTable = {
   render: (args) => ({
     components: { TableMappedColumns },
@@ -113,8 +113,8 @@ export const MappedColumnTable = {
     primary: false,
     label: 'TableMappedColumns'
   }
-}
-
+} */
+/* 
 export const MappedColumnTableStory = {
   render: (args) => ({
     components: { TableMappedColumns },
@@ -128,3 +128,4 @@ export const MappedColumnTableStory = {
     label: 'TableMappedColumns'
   }
 }
+ */

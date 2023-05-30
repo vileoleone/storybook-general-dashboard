@@ -103,7 +103,7 @@ export default {
       return {}
     },
     ...mapWritableState(useMailingStore, {
-      notMappedArray: 'notMappedColumns'
+      mapColumnsArray: 'mapColumnsArray'
     })
   },
 
@@ -128,6 +128,12 @@ export default {
         console.log('false')
         this.isDraggingOver = false
       }
+    },
+    deleteColumn() {
+      const indexToExclude = this.mapColumnsArray.findIndex((item) => item.id === this.index)
+
+      this.mapColumnsArray.splice(indexToExclude, 1)
+      this.$emit('delete-not-mapped-column', indexToExclude)
     }
   }
 }

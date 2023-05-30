@@ -1,7 +1,7 @@
 <template>
   <div
     type="span"
-    class="brb5 borderC5 borderTopNone cursor-pointer fl-jcst-alst-fdcolumn fs13-fw500-cl6F pl20px pt20px pb2px pb wd160px"
+    class="brb5 borderC5 borderTopNone cursor-pointer fl-jcst-alst-fdcolumn fs13-fw500-cl6F pt20px pb2px pl20px"
     :class="classes"
     :style="style"
   >
@@ -66,6 +66,9 @@ export default {
     },
     list: {
       type: Array
+    },
+    width: {
+      type: String
     }
   },
 
@@ -82,7 +85,8 @@ export default {
     },
     style() {
       return {
-        backgroundColor: this.backgroundColor
+        backgroundColor: this.backgroundColor,
+        width: this.width + 'px'
       }
     }
   },

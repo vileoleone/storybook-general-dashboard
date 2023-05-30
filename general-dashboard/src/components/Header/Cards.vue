@@ -1,11 +1,14 @@
 <template>
-  <div class="card-outer-box">
+  <div class="als-center fl-jcst-alst-fdrow ">
+    <component :is="leftLogo" :active="this.showList" />
     <q-btn
-      class="fl-jccnt-alcnt-fdrow cursor-pointer borderBottomC5 min-height-60px wd160px"
+      no-caps
+      class="fl-jccnt-alcnt-fdrow cursor-pointer borderBottomC5 min-height-60px"
       type="button"
       flat
       :square="true"
       :class="[this.showList ? 'state-header-selected' : 'state-header-default']"
+      :style="{ width: this.width + 'px' }"
     >
       <span class="fl-jcsb-alcnt-fdrow">
         <div class="als-c" :style="styles">
@@ -21,7 +24,7 @@
         @before-show="showList = true"
         @before-hide="showList = false"
       >
-        <MenuList :list="list" />
+        <component :is="menuList" :width="this.width" :list="list" />
       </q-menu>
     </q-btn>
   </div>
@@ -29,12 +32,12 @@
 
 <script>
 import ArrowDown from '%/icons/ArrowDown.svg'
-import MenuList from '#/Header/MenuList.vue'
 import ArrowUpIcon from '@/assets/icons/ArrowUpIcon.svg'
+
 export default {
   name: 'CardLayout',
 
-  components: { MenuList },
+  components: {},
 
   data() {
     return {
@@ -66,9 +69,14 @@ export default {
     icon: {
       type: String
     },
+    width: {
+      type: String
+    },
     list: {
       type: Array
-    }
+    },
+    menuList: {},
+    leftLogo: {}
   },
 
   mounted() {

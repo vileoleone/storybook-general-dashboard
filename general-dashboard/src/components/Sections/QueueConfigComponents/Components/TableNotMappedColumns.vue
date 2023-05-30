@@ -27,10 +27,10 @@
       <div class="fl-jcsb-alst-fdrow wd100">
         <CardNotMapped
           :column="column"
-          v-for="(column, index) in this.cards"
+          v-for="column in this.cards"
           @delete-not-mapped-column="updateTable"
-          :key="index"
-          :index="index"
+          :key="column.id"
+          :index="column.id"
         />
       </div>
     </div>
@@ -87,9 +87,7 @@ export default {
     backgroundColor: {
       type: String
     },
-    index: {
-      type: Number
-    },
+
     cards: {
       type: Object
     }
@@ -129,7 +127,7 @@ export default {
         [this.index].querySelector('.q-table__middle.scroll.table-queue-style').scrollLeft += 150
     },
     updateTable(index) {
-      console.log(index)
+      this.$emit('update-table', index)
     }
   }
 }

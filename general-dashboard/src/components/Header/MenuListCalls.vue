@@ -1,14 +1,12 @@
 <template>
   <div
     type="span"
-    class="brb5 borderC5 borderTopNone cursor-pointer fl-jcst-alst-fdcolumn fs13-fw500-cl6F pl20px pt10px pb2px pb width-170px"
+    class="brb5 borderC5 borderTopNone cursor-pointer fl-jcst-alst-fdcolumn fs13-fw500-cl6F pl20px pt10px pb2px pb"
     :class="classes"
     :style="style"
   >
     <span class="menu-list-call-header">
-      <h1 class="calls-h1 fl-jccnt-alcnt-fdrow fs13-fw500-cl6F borderBottomD9 pb10px lh0">
-        Todas as chamadas
-      </h1>
+      <h1 class="calls-h1 fl-jccnt-alcnt-fdrow fs13-fw500-cl6F pb20px lh0">Todas as chamadas</h1>
       <h2 class="fl-jcst-alcnt-fdrow fs10-fw500-cl9F lh0">Chamadas por:</h2>
     </span>
     <q-list v-for="(item, index) in list" :key="index">
@@ -75,7 +73,7 @@ export default {
     list: {
       type: Array
     },
-    marginBottom: {
+    width: {
       type: String
     }
   },
@@ -93,7 +91,8 @@ export default {
     },
     style() {
       return {
-        backgroundColor: this.backgroundColor
+        backgroundColor: this.backgroundColor,
+        width: this.width + 'px'
       }
     }
   },

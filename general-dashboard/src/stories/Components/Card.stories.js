@@ -1,6 +1,4 @@
 import Card from '@/components/Header/Cards.vue'
-import DashboardCard from '#/Header/CardDashboard.vue'
-import CardCalls from '#/Header/CardCalls.vue'
 import DashboardsLogo from '%/icons/DashboardsLogo.svg'
 import iconPhone from '%/icons/IconPhone.svg'
 import ChatsLogo from '%/icons/ChatsLogo.svg'
@@ -8,17 +6,14 @@ import AgentsLogo from '%/icons/AgentsLogo.svg'
 import SettingsIcon from '%/icons/SettingsIcon.svg'
 import UserLogo from '%/icons/UserLogo.svg'
 import CardDatatype from '@/components/Sections/QueueConfigComponents/Components/CardDatatype.vue'
-import CardConfig from '@/components/Header/CardConfig.vue'
-import CardUser from '@/components/Header/CardUser.vue'
-
+import MenuList from '@/components/Header/MenuList.vue'
+import MenuListCalls from '@/components/Header/MenuListCalls.vue'
+import Logo from '@/components/Header/Logo.vue'
 export default {
   title: 'Components/Cards',
   component: Card,
-  DashboardCard,
-  CardCalls,
   CardDatatype,
-  CardConfig,
-  CardUser,
+
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -45,17 +40,26 @@ export const CardStory = {
   args: {
     primary: true,
     label: 'Example',
-    icon: DashboardsLogo
+    icon: DashboardsLogo,
+    width: '160',
+    list: [
+      'Agentes',
+      'Filas',
+      { Atendimentos: ['Acompanhamento', 'Importação'] },
+      'Campanhas',
+      'Geral'
+    ],
+    menuList: MenuList
   }
 }
 
 export const DashboardCardStory = {
   render: (args) => ({
-    components: { DashboardCard },
+    components: { Card },
     setup() {
       return { args }
     },
-    template: '<DashboardCard v-bind="args" />'
+    template: '<Card v-bind="args" />'
   }),
   args: {
     primary: false,
@@ -67,29 +71,41 @@ export const DashboardCardStory = {
       { Atendimentos: ['Acompanhamento', 'Importação'] },
       'Campanhas',
       'Geral'
-    ]
+    ],
+    width: '160',
+    menuList: MenuList,
+    leftLogo: Logo
   }
 }
 
 export const CardCallsStory = {
   render: (args) => ({
-    components: { CardCalls },
+    components: { Card },
     setup() {
       return { args }
     },
-    template: '<CardCalls v-bind="args" />'
+    template: '<Card v-bind="args" />'
   }),
   args: {
     primary: false,
     label: 'Chamadas',
     icon: iconPhone,
     list: [
-      'Agentes',
+      'Todas as chamadas',
+      'Abandono',
+      'Tipo',
+      'Número',
+      'Localidade',
+      'Operadora',
+      'Tronco',
+      'Horário',
+      'Duração',
       'Filas',
-      { Atendimentos: ['Acompanhamento', 'Importação'] },
-      'Campanhas',
-      'Geral'
-    ]
+      'Desempenho',
+      'Atendimentos por horário'
+    ],
+    width: '175',
+    menuList: MenuListCalls
   }
 }
 
@@ -105,13 +121,9 @@ export const TalksCard = {
     primary: false,
     label: 'Conversas',
     icon: ChatsLogo,
-    list: [
-      'Agentes',
-      'Filas',
-      { Atendimentos: ['Acompanhamento', 'Importação'] },
-      'Campanhas',
-      'Geral'
-    ]
+    list: ['Chat', 'Email', 'Mensagens de Email'],
+    width: '160',
+    menuList: MenuList
   }
 }
 
@@ -128,50 +140,70 @@ export const AgentCard = {
     label: 'Agentes',
     icon: AgentsLogo,
     list: [
-      'Agentes',
-      'Filas',
-      { Atendimentos: ['Acompanhamento', 'Importação'] },
-      'Campanhas',
-      'Geral'
-    ]
+      'Visão Geral',
+      'Ranking',
+      'Pausas',
+      'Frequência',
+      'Frequência/Dia',
+      'Sessões',
+      'Detalhado',
+      'Ociosidade'
+    ],
+    width: '160',
+    menuList: MenuList
   }
 }
 
 export const ConfigCard = {
   render: (args) => ({
-    components: { CardConfig },
+    components: { Card },
     setup() {
       return { args }
     },
-    template: '<CardConfig v-bind="args" />'
+    template: '<Card v-bind="args" />'
   }),
   args: {
     primary: false,
     label: 'Configurações',
     icon: SettingsIcon,
     list: [
-      'Agentes',
       'Filas',
-      { Atendimentos: ['Acompanhamento', 'Importação'] },
-      'Campanhas',
-      'Geral'
-    ]
+      'Filas de Fonação',
+      'Agentes',
+      'Ramais',
+      'Uras',
+      'Cadastro de audios',
+      'Número de Entrada',
+      'Rotas de saída',
+      'Ramais administrativos',
+      'Perfiladores',
+      'Motivos de pausas',
+      'Brokers de atendimento',
+      'Tokens',
+      'Respostas rápidas',
+      'Planos e tarifas',
+      'Usuários'
+    ],
+    width: '175',
+    menuList: MenuList
   }
 }
 
 export const UserCard = {
   render: (args) => ({
-    components: { CardUser },
+    components: { Card },
     setup() {
       return { args }
     },
-    template: '<CardUser v-bind="args" />'
+    template: '<Card v-bind="args" />'
   }),
   args: {
     primary: false,
     label: 'Olá Rodrigo Santos',
     icon: UserLogo,
-    list: ['LogIn', 'LogOut']
+    list: ['sair'],
+    width: '190',
+    menuList: MenuList
   }
 }
 

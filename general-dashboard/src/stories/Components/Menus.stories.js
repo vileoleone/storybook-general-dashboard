@@ -1,8 +1,8 @@
-import MenuList from '@/components/Header/MenuList.vue'
+import menuList from '@/components/Header/menuList.vue'
 import MenuDragDatatypes from '@/components/Sections/QueueConfigComponents/Components/MenuDragDatatypes.vue'
 export default {
   title: 'Components/Menus',
-  component: MenuList,
+  component: menuList,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: {
@@ -20,11 +20,11 @@ export default {
 
 export const MenuStory = {
   render: (args) => ({
-    components: { MenuList },
+    components: { menuList },
     setup() {
       return { args }
     },
-    template: '<MenuList v-bind="args" />'
+    template: '<menuList v-bind="args" />'
   }),
   args: {
     primary: true,

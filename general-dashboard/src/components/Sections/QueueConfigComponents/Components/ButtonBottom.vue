@@ -1,7 +1,7 @@
 <template>
   <div type="span" :class="classes" @click="onClick" :style="style" v-if="this.fileIsLoaded">
     <button
-      class="bclightblue border4B br5px mb20px fl-jccnt-alcnt-fdrow fs12-fw700-clFF p20px wd100"
+      class="bclightblue border4B br5px mb20px fl-jccnt-alcnt-fdrow fs12-fw700-clFF p20px wd100 ht100"
       :class="classes"
       @click="clickFunction"
       :style="style"

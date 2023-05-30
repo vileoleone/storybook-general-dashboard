@@ -16,10 +16,18 @@
             </span>
           </span>
         </span>
-        <TableNotMappedColumns :cards="this.notMappedObj" v-if="this.notMappedObj.length > 0" />
+        <TableNotMappedColumns
+          @update-table="updateTable"
+          :cards="this.notMappedObj"
+          v-if="this.notMappedObj.length > 0"
+        />
         <TableMappedColumns :cards="this.mappedObj" v-if="this.mappedObj" />
         <FormMappingFile v-if="this.notMappedObj.length === 0" />
-        <ButtonBottom class="wd100" label="Ir para a próxima etapa" v-if="this.notMappedObj.length === 0" />
+        <ButtonBottom
+          class="wd100"
+          label="Ir para a próxima etapa"
+          v-if="this.notMappedObj.length === 0"
+        />
       </section>
       <section class="wd30 pl2 ht100">
         <MenuDragDatatypes />
@@ -109,7 +117,8 @@ export default {
       file: 'mailingCsvFile',
       isLoading: 'isLoading',
       notMappedObj: 'notMappedColumns',
-      mappedObj: 'mappedColumns'
+      mappedObj: 'mappedColumns',
+      mapColumnsArray: 'mapColumnsArray'
     })
   },
   methods: {
@@ -144,6 +153,7 @@ export default {
         })
       )
     },
+    updateTable() {},
     ...mapActions(useMailingStore, { sortOutColumns: 'sortOutColumns' })
   }
 }

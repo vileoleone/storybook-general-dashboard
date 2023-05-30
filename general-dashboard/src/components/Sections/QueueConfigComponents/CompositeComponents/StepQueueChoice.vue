@@ -3,7 +3,7 @@
     label="Escolha uma Fila *"
     width="500px"
     placeholder="Escolha uma opção"
-    :list="this.queues"
+    :list="list"
     :onChoice="choiceFunction"
   />
 </template>

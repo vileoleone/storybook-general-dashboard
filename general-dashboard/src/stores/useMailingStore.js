@@ -124,12 +124,12 @@ export const useMailingStore = defineStore('MailingStep', {
       const csvData = this.extractCsvFileData()
       const fieldType = this.sortOutFieldTypes()
       const array = []
-      console.log(array)
-      for (const columnHeader of Object.keys(csvData)) {
+      for (const [index, columnHeader] of Object.keys(csvData).entries()) {
         const typeSearch = fieldType.find((typeMapped) => typeMapped === columnHeader)
 
         if (typeSearch !== undefined) {
           array.push({
+            id: index,
             header: columnHeader,
             data: csvData[columnHeader],
             isMapped: true
@@ -137,6 +137,7 @@ export const useMailingStore = defineStore('MailingStep', {
           continue
         }
         array.push({
+          id: index,
           header: columnHeader,
           data: csvData[columnHeader],
           isMapped: false
@@ -144,7 +145,7 @@ export const useMailingStore = defineStore('MailingStep', {
       }
 
       const arrayChecked = this.checkIfHasProblem(array)
-
+      console.log(arrayChecked)
       return this.mapColumnsArray.push(arrayChecked)
     },
 
