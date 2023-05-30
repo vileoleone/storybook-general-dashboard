@@ -1,15 +1,21 @@
 <template>
-  <span type="span" class="header-outer-box" :class="classes" @click="onClick" :style="style">
-    <span class="left-section-cards">
+  <span
+    type="span"
+    class="fl-jcsb-alst-fdrow bcblue wd100 fixed-top-left-0 max-height-60px mr5 borderBottomC5"
+    :class="classes"
+    @click="onClick"
+    :style="style"
+  >
+    <span class="fl-jcsb-alst-fdrow mr40px">
       <CardDashboard label="Dashboards" :icon="DashboardsLogo" :list="dashboardList" />
       <CardCalls label="Chamadas" :icon="iconPhone" :list="ChamadasList" />
       <Cards label="Conversas" :icon="ChatsLogo" :list="ConversasList" />
       <Cards label="Agentes" :icon="AgentsLogo" :list="AgentesList" />
       <CardConfig label="Configurações" :icon="SettingsIcon" :list="ConfiguraçõesList" />
     </span>
-    <span class="right-section-cards">
-      <img class="api-button-icon" :src="ApiButton" alt="ApiButton" />
-      <img class="changeLog-button-icon" :src="ChangeLogButton" />
+    <span class="fl-jcsb-alcnt-fdrow min-width-330px min-height-60px">
+      <img class="cursor-pointer als-c" :src="ApiButton" alt="ApiButton" />
+      <img class="cursor-pointer als-c" :src="ChangeLogButton" alt="ChangeLogButton" />
       <CardUser label="Olá Rodrigo Santos" :icon="UserLogo" />
     </span>
   </span>
@@ -129,54 +135,8 @@ export default {
     }
   },
 
-  methods: {
-  }
+  methods: {}
 }
 </script>
 
-<style scoped lang="scss">
-.api-button-icon {
-  align-self: center;
-  cursor: pointer;
-  height: 11px;
-  width: 20px;
-}
-.changeLog-button-icon {
-  align-self: center;
-  cursor: pointer;
-  height: 18px;
-  width: 18px;
-}
-.header-outer-box {
-  background-color: #3d55ae;
-  display: flex;
-  height: 59px;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-.left-button {
-  display: flex;
-}
-.left-button.active {
-  display: flex;
-   background-color: #FD9802;
-}
-
-.left-section-cards {
-  display: flex;
-  flex-direction: row;
-  max-height: 60px;
-}
-.right-section-cards {
-  display: flex;
-  flex-direction: row;
-  img {
-    margin-right: 43px;
-  }
-}
-
-</style>
+<style scoped lang="scss"></style>

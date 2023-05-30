@@ -2,53 +2,53 @@
   <div type="span" class="mailing-page" :class="classes" @click="onClick" :style="style">
     <HeaderComponent id="header-in-page" />
 
-    <NextSection class="next-section-in-page" :routes="nextSectionList" />
+    <RoutePathSection class="next-section-in-page" :routes="RoutePathSectionList" />
 
     <div v-if="this.step == 0" class="import-sections">
-      <StepSection label="Etapas de Importação" :dict="stepSectionDict" :step="0" />
+      <LeftSection label="Etapas de Importação" :dict="stepSectionDict" :step="0" />
 
-      <MailingMainSection label="Fila" :queues="queueList" :vueComponent="QueueStep" />
+      <RightSection label="Fila" :queues="queueList" :vueComponent="StepQueueChoice" />
     </div>
 
     <div v-if="this.step == 1" class="import-sections">
-      <StepSection label="Etapas de Importação" :dict="stepSectionDict" :step="1" />
+      <LeftSection label="Etapas de Importação" :dict="stepSectionDict" :step="1" />
 
-      <MailingMainSection label="Arquivo" :queues="queueList" :vueComponent="FileStep" />
+      <RightSection label="Arquivo" :queues="queueList" :vueComponent="StepFileImport" />
     </div>
 
     <div v-if="this.step == 2" class="import-sections">
-      <StepSection label="Etapas de Importação" :dict="stepSectionDict" :step="2" />
+      <LeftSection label="Etapas de Importação" :dict="stepSectionDict" :step="2" />
 
-      <MailingMainSection label="Mapeamento" :queues="queueList" :vueComponent="MappingFileStep" />
+      <RightSection label="Mapeamento" :queues="queueList" :vueComponent="StepMappingFile" />
     </div>
   </div>
 </template>
 
 <script>
-import { default as FileStep } from '#/Sections/QueueConfigComponents/RightSectionSteps/FileStep.vue'
+import StepFileImport from '#/Sections/QueueConfigComponents/CompositeComponents/StepFileImport.vue'
 import { default as HeaderComponent } from '#/Header/Header.vue'
-import { default as MailingMainSection } from '#/Sections/QueueConfigComponents/MailingMainSection.vue'
+import RightSection from '#/Sections/QueueConfigComponents/CompositeComponents/RightSection.vue'
 import { mapWritableState } from 'pinia'
 import { useMailingStore } from '@/stores/useMailingStore'
-import NextSection from '#/Sections/QueueConfigComponents/NextSection/NextSection.vue'
-import QueueStep from '#/Sections/QueueConfigComponents/RightSectionSteps/QueueStep.vue'
-import StepSection from '#/Sections/QueueConfigComponents/LeftSectionSteps/LeftSectionSteps.vue'
-import MappingFileStep from '@/components/Sections/QueueConfigComponents/RightSectionSteps/MappingFileStep.vue'
+import RoutePathSection from '#/Sections/QueueConfigComponents/CompositeComponents/RoutePathSection.vue'
+import StepQueueChoice from '#/Sections/QueueConfigComponents/CompositeComponents/StepQueueChoice.vue'
+import LeftSection from '#/Sections/QueueConfigComponents/CompositeComponents/LeftSection.vue'
+import StepMappingFile from '#/Sections/QueueConfigComponents/CompositeComponents/StepMappingFile.vue'
 export default {
   name: 'ImportMailingPage',
   components: {
     HeaderComponent,
-    NextSection,
-    StepSection,
-    MailingMainSection
+    RoutePathSection,
+    LeftSection,
+    RightSection
   },
 
   data() {
     return {
-      QueueStep,
-      FileStep,
-      MappingFileStep,
-      nextSectionList: ['Dashboards', 'Campanhas', 'Importação'],
+      StepQueueChoice,
+      StepFileImport,
+      StepMappingFile,
+      RoutePathSectionList: ['Dashboards', 'Campanhas', 'Importação'],
       queueList: ['filafonacao', 'filaatendimento']
     }
   },
@@ -135,6 +135,5 @@ export default {
   position: fixed;
   left: 0;
   top: 153px;
-
 }
 </style>

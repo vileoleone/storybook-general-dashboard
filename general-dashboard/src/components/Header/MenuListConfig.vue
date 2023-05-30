@@ -1,15 +1,20 @@
 <template>
-  <div type="span" class="menu-list-outer-box" :class="classes" :style="style">
-    <q-list v-for="(item, index) in list" :key="index">
+  <div
+    type="span"
+    class="brb5 borderC5 borderTopNone cursor-pointer fl-jcst-alst-fdcolumn fs13-fw500-cl6F pl20px pt20px pb2px pb wd195px"
+    :class="classes"
+    :style="style"
+  >
+    <q-list class="ht100" v-for="(item, index) in list" :key="index">
       <template v-if="typeof item === 'object'">
         <div v-for="(value, key) in item" :key="key">
-          <span class="menu-list-object" @click="this.showList = !this.showList">
+          <span class="fl-jcst-alst-fdrow" @click="this.showList = !this.showList">
             <MenuItem :label="key" />
             <img :src="ChevronUpIcon" v-if="showList == true" alt="Close Menu" />
-            <img :src="ChevronDownIcon" v-if="showList == false" alt="open Menu" />
+            <img :src="ChevronDownNoBorder" v-if="showList == false" alt="open Menu" />
           </span>
           <span v-if="showList == true">
-            <MenuItem class="subitem" v-for="item in value" :label="item" :key="item"
+            <MenuItem class="state-subitem pl10px" v-for="item in value" :label="item" :key="item"
               >{{ item }}
             </MenuItem>
           </span>
@@ -92,65 +97,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.active {
-  background-color: #f0f0f0;
-  box-sizing: border-box;
-  color: #252525 !important;
-  display: flex;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  justify-content: flex-start;
-  max-height: fit-content;
-  width: 100%;
-  padding-left: 10px;
-  padding-bottom: 0;
-}
-
-.menu-list-object {
-  align-items: flex-start;
-  background: #f0f0f0;
-  display: flex;
-  flex-direction: row;
-  max-height: 25px;
-  margin-bottom: 5px;
-  width: max-content;
-}
-
-.menu-list-outer-box {
-  background: #ffffff;
-  border-color: #c5c5c5;
-  border-radius: 0px 0px 5px 5px;
-  border-style: solid;
-  border-width: 0px 1px 1px 1px;
-  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
-  color: #6f6f6f;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Work Sans';
-  font-size: 13px;
-  font-style: normal;
-  height: max-content;
-  font-weight: 500;
-  padding: 20px 2px 0 20px;
-  width: 182px;
-  li {
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 14.5px;
-    margin-right: 10px;
-    max-height: 25px;
-    width: fit-content;
-  }
-}
-
-.subitem {
-  padding-left: 10px;
-}
-.subitem.active {
-  padding-left: 20px;
+.q-menu {
+  max-height: 100%;
 }
 </style>

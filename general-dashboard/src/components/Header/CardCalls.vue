@@ -1,13 +1,19 @@
 <template>
-  <div class="card-outer-box">
-    <q-btn type="span" :class="classes" :style="style" flat :square="true">
-      <span class="inner-style">
-        <div class="icon-left" :style="styles">
+  <div :class="classes" :style="style">
+    <q-btn
+      class="fl-jccnt-alcnt-fdrow cursor-pointer borderBottomC5 min-height-60px width-170px"
+      type="button"
+      flat
+      :square="true"
+      :class="[this.showList ? 'state-header-selected' : 'state-header-default']"
+    >
+      <span class="fl-jcsb-alcnt-fdrow">
+        <div class="als-c" :style="styles">
           <img :src="icon" :alt="label" />
         </div>
-        <p class='callscard-label'>{{ label }}</p>
-        <img :src="ArrowDown" v-if="showList == false" class="icon-right" alt="close Icon" />
-        <img :src="ArrowUpIcon" v-if="showList == true" class="icon-right" alt="open Icon" />
+        <p class="ml5px mr10px fs13-fw700-clFF mb0">{{ label }}</p>
+        <img :src="ArrowDown" v-show="showList == false" alt="close Icon" />
+        <img :src="ArrowUpIcon" v-show="showList == true" alt="open Icon" />
       </span>
       <q-menu
         anchor="bottom middle"
@@ -83,7 +89,7 @@ export default {
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
         [`storybook-button--${this.size || 'medium'}`]: true,
-        cards: true,
+
         onHover: this.showList
       }
     },
@@ -107,56 +113,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.card-outer-box {
-  display: flex;
-  flex-direction: column;
-  max-width: fit-content;
-  max-height: fit-content;
-}
-.card-call.onHover {
-  background-color: #fd9802;
-}
-.icon-left {
-  height: 18px;
-  margin-right: 5px;
-  width: 18px;
-}
-
-.icon-right {
-  border-radius: 0px;
-  display: flex;
-  height: 7.12px;
-  justify-content: center;
-  margin-left: 11.29px;
-  width: 11.41px;
-}
-
-.cards {
-  align-items: center;
-  align-self: flex-start;
-  background-color: #3d55ae;
-  border-bottom: 1px solid #c5c5c5;
-  color: #ffffff;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  min-height: 60px;
-  width: 159px;
-}
-
-.cards.onHover {
-  background-color: #fd9802;
-}
-
-.callscard-label{
-  color: #ffffff;
-  display: flex;
-  font-family: 'Work Sans';
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 700;
-  margin-bottom: 0;
-}
-</style>
+<style scoped lang="scss"></style>

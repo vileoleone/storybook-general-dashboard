@@ -1,28 +1,17 @@
 <template>
-  <div
-    :style="style"
-    class="wd60px ht60px z-index-0 borderBottomC5"
-    :class="[this.active ? 'state-header-selected' : 'state-header-default']"
-  >
-    <div type="span" class="z-index-1 " :style="style"></div>
-    <div class="borderBottomFF ht60px fl-jccnt-alcnt-fdrow wd100 bcwhite brr110 ">
-      <img :src="VonixLogo" alt="VonixLogo" />
+  <div type="span" class="legend-outer-box" :class="classes" @click="onClick" :style="style">
+    <div class="legend-block fl-jcst-alcnt-fdrow mr15px">
+      <div class="color wd10px ht10px mr5px" :class="boxColor"></div>
+      <div class="legend fs12-fw400-cl8B">{{ label }}</div>
     </div>
   </div>
 </template>
 
 <script>
-import VonixLogo from '%/icons/VonixLogo.svg'
-
 export default {
-  name: 'LogoCard',
+  name: 'FieldLegend',
 
   components: {},
-  data() {
-    return {
-      VonixLogo
-    }
-  },
 
   props: {
     label: {
@@ -42,8 +31,8 @@ export default {
     backgroundColor: {
       type: String
     },
-    active: {
-      type: Boolean
+    boxColor: {
+      type: String
     }
   },
 
@@ -71,6 +60,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

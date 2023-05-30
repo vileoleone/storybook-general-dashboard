@@ -1,8 +1,13 @@
-//no-font-color
-//Used for text with color changes
-.lh0{
-  line-height:100%;
+/* no-font-color */
+
+/* line-height */
+
+.lh0 {
+  line-height: 100%;
 }
+
+/* without color */
+
 .fs10-fw400 {
   font-size: 10px;
   font-weight: 400;
@@ -63,9 +68,71 @@
   font-family: 'Work Sans';
 }
 
-//font-color
+/* with font-color  */
 
-//  #555555
+/* #a5a5a5   */
+
+.fs12-fw600-clA5 {
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Work Sans';
+  color: #a5a5a5;
+}
+
+/* #FFFFFF  */
+
+.fs12-fw500-clFF {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Work Sans';
+  color: #ffffff;
+}
+
+.fs12-fw700-clFF {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Work Sans';
+  color: #ffffff;
+}
+
+.fs13-fw700-clFF {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Work Sans';
+  color: #ffffff;
+}
+
+/* #444444  */
+
+.fs12-fw400-cl44 {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Work Sans';
+  color: #444444;
+}
+
+.fs13-fw600-cl44 {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Work Sans';
+  color: #444444;
+}
+
+.fs14-fw700-cl44 {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Work Sans';
+  color: #444444;
+}
+
+.fs20-fw700-cl44 {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Work Sans';
+  color: #444444;
+}
+
+/* #555555 */
 
 .fs10-fw400-cl55 {
   font-size: 10px;
@@ -74,46 +141,16 @@
   color: #555555;
 }
 
-// #858585
+/* #6f6f6f  */
 
-.fs10-fw400-cl85 {
-  font-size: 10px;
-  font-weight: 400;
-  font-family: 'Work Sans';
-  color: #858585;
-}
-
-.fs12-fw400-cl85 {
-  font-size: 12px;
-  font-weight: 400;
-  font-family: 'Work Sans';
-  color: #858585;
-}
-
-// #8F8F8F
-
-.fs11-fw400-cl8F {
-  font-size: 11px;
-  font-weight: 400;
-  font-family: 'Work Sans';
-  color: #8f8f8f;
-}
-
-.fs13-fw600-cl8F {
+.fs13-fw500-cl6F {
   font-size: 13px;
-  font-weight: 600;
-  font-family: 'Work Sans';
-  color: #8f8f8f;
-}
-
-.fs12-fw500-cl8F {
-  font-size: 12px;
   font-weight: 500;
   font-family: 'Work Sans';
-  color: #8f8f8f;
+  color: #6f6f6f;
 }
 
-// #616161
+/* #616161 */
 
 .fs11-fw400-cl61 {
   font-size: 11px;
@@ -136,7 +173,7 @@
   color: #616161;
 }
 
-// #8b8b8b
+/*  #8b8b8b */
 
 .fs12-fw400-cl8B {
   font-size: 12px;
@@ -144,88 +181,70 @@
   font-family: 'Work Sans';
   color: #8b8b8b;
 }
+.fs13-fw400-cl8B {
+  color: #8b949e;
+  font-family: 'Work Sans';
+  font-size: 13px;
+  font-weight: 400;
+}
 
-// #FFFFFF
-.fs12-fw500-clFF {
+.fs13-fw600-cl8B {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Work Sans';
+  color: #8b8b8b;
+}
+
+/* #858585 */
+
+.fs10-fw400-cl85 {
+  font-size: 10px;
+  font-weight: 400;
+  font-family: 'Work Sans';
+  color: #858585;
+}
+
+.fs12-fw400-cl85 {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Work Sans';
+  color: #858585;
+}
+
+/*  #8F8F8F  */
+
+.fs11-fw400-cl8F {
+  font-size: 11px;
+  font-weight: 400;
+  font-family: 'Work Sans';
+  color: #8f8f8f;
+}
+
+.fs12-fw500-cl8F {
   font-size: 12px;
   font-weight: 500;
   font-family: 'Work Sans';
-  color: #ffffff;
+  color: #8f8f8f;
 }
 
-// ##a5a5a5
-
-.fs12-fw600-clA5 {
-  font-size: 12px;
-  font-weight: 600;
-  font-family: 'Work Sans';
-  color: #a5a5a5;
-}
-
-/* Additional Font Size Classes */
-
-// #6f6f6f
-
-.fs13-fw500-cl6f {
+.fs13-fw600-cl8F {
   font-size: 13px;
   font-weight: 600;
   font-family: 'Work Sans';
-  color: #6f6f6f;
+  color: #8f8f8f;
 }
 
-// #444444
+/* 9F9F9F */
 
-.fs14-fw700-cl44 {
-  font-size: 14px;
-  font-weight: 700;
+.fs10-fw500-cl9F {
+  font-size: 10px;
+  font-weight: 500;
   font-family: 'Work Sans';
-  color: #444444;
+  color: #9f9f9f;
 }
 
-.fs20-fw700-cl44 {
-  font-size: 20px;
-  font-weight: 700;
-  font-family: 'Work Sans';
-  color: #444444;
-}
+/* text-align */
 
-//only-colors
-
-
-
-//only-font-size
-
-.fs13 {
-  font-size: 13px;
-  font-family: 'Work Sans';
-}
-
-.fs15 {
-  font-size: 15px;
-  font-family: 'Work Sans';
-}
-
-.fs16 {
-  font-size: 16px;
-  font-family: 'Work Sans';
-}
-
-.fs17 {
-  font-size: 17px;
-  font-family: 'Work Sans';
-}
-
-.fs18 {
-  font-size: 18px;
-  font-family: 'Work Sans';
-}
-
-.fs19 {
-  font-size: 19px;
-  font-family: 'Work Sans';
-}
-
-.fs20 {
-  font-size: 20px;
-  font-family: 'Work Sans';
+.txt-al-cnt {
+  text-align: center;
 }

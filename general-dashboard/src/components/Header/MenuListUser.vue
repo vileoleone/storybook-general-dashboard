@@ -1,15 +1,20 @@
 <template>
-  <div type="span" class="menu-list-outer-box" :class="classes" :style="style">
-    <q-list v-for="(item, index) in list" :key="index">
+  <div
+    type="span"
+    class="brb5 borderC5 borderTopNone cursor-pointer fl-jcst-alst-fdcolumn fs13-fw500-cl6F pl20px pt20px pb2px pb wd195px"
+    :class="classes"
+    :style="style"
+  >
+    <q-list class="ht100" v-for="(item, index) in list" :key="index">
       <template v-if="typeof item === 'object'">
         <div v-for="(value, key) in item" :key="key">
-          <span class="menu-list-object" @click="this.showList = !this.showList">
+          <span class="fl-jcst-alst-fdrow" @click="this.showList = !this.showList">
             <MenuItem :label="key" />
             <img :src="ChevronUpIcon" v-if="showList == true" alt="Close Menu" />
-            <img :src="ChevronDownIcon" v-if="showList == false" alt="open Menu" />
+            <img :src="ChevronDownNoBorder" v-if="showList == false" alt="open Menu" />
           </span>
           <span v-if="showList == true">
-            <MenuItem class="subitem" v-for="item in value" :label="item" :key="item"
+            <MenuItem class="state-subitem pl10px" v-for="item in value" :label="item" :key="item"
               >{{ item }}
             </MenuItem>
           </span>

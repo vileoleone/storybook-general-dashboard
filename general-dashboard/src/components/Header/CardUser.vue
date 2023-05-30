@@ -1,15 +1,28 @@
 <template>
-  <div class="user-card-outer-box">
-    <q-btn flat :square="true" :id="label" type="span" :class="classes" :style="style" @click="showList = true">
-      <span class="inner-style">
-        <div class="icon-left" :style="styles">
+  <div>
+    <q-btn
+      flat
+      :square="true"
+      :id="label"
+      type="span"
+      :style="style"
+      class="fl-jccnt-alcnt-fdrow cursor-pointer ht60px borderBottomC5"
+      :class="[this.showList ? 'state-header-selected' : 'state-header-default']"
+    >
+      <span class="fl-jcsb-alcnt-fdrow">
+        <div class="als-c" :style="styles">
           <img :src="icon" :alt="label" />
         </div>
-        <p class="card-button-label"> {{ label }}</p>
-        <img :src="ArrowDown" v-if="showList == false" class="icon-right" alt="close Icon" />
-        <img :src="ArrowUpIcon" v-if="showList == true" class="icon-right" alt="open Icon" />
+        <p class="ml5px mr10px fs13-fw700-clFF mb0">{{ label }}</p>
+        <img :src="ArrowDown" v-show="showList == false" alt="close Icon" />
+        <img :src="ArrowUpIcon" v-show="showList == true" alt="open Icon" />
       </span>
-      <q-menu anchor="bottom middle" self="top middle"  class="q-menu-user" @before-hide="showList = false">
+      <q-menu
+        anchor="bottom middle"
+        self="top middle"
+        @before-show="showList = true"
+        @before-hide="showList = false"
+      >
         <MenuListUser :list="list" />
       </q-menu>
     </q-btn>
@@ -24,13 +37,13 @@ import ArrowUpIcon from '@/assets/icons/ArrowUpIcon.svg'
 export default {
   name: 'CardLayout',
 
-  components: { MenuListUser},
+  components: { MenuListUser },
 
   data() {
     return {
       showList: false,
       ArrowUpIcon,
-      ArrowDown, 
+      ArrowDown,
       anchor: null
     }
   },
@@ -86,58 +99,13 @@ export default {
   methods: {
     ToogleMenu() {
       this.showList = !this.showList
-    },
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
-
-.user-card-outer-box {
-  display: flex;
-}
-
-.q-btn {
-  min-width: 230px;
-  max-height: 60px;
-
-}
-.cards.onHover {
-  background-color: #fd9802;
-}
-
-.icon-left {
-  height: 18px;
-  margin-right: 5px;
-  width: 18px;
-}
-
-.icon-right {
-  border-radius: 0px;
-  display: flex;
-  height: 7.12px;
-  justify-content: center;
-  margin-left: 11.29px;
-  width: 11.41px;
-}
-.inner-style {
-  display: flex;
-  align-items: center;
-  align-self: center;
-  max-height: 50px;
-  min-width: 100%;
-}
-
-.card-button-label {
-  color: #ffffff;
-  font-family: 'Work Sans';
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 700;
-  margin-bottom: 0;
-}
 .q-menu {
-  max-width: fit-content;
-  position: absolute;
+  max-height: 100%;
 }
 </style>

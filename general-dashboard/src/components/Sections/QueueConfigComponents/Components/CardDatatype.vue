@@ -1,26 +1,29 @@
 <template>
   <div
+    type="span"
+    class="Card-Datatype-outer-box fl-jcst-alcnt-fdrow p10px  "
+    :class="classes"
+    @click="onClick"
     :style="style"
-    class="wd60px ht60px z-index-0 borderBottomC5"
-    :class="[this.active ? 'state-header-selected' : 'state-header-default']"
   >
-    <div type="span" class="z-index-1 " :style="style"></div>
-    <div class="borderBottomFF ht60px fl-jccnt-alcnt-fdrow wd100 bcwhite brr110 ">
-      <img :src="VonixLogo" alt="VonixLogo" />
+    <img class="mr10px" :src="DragIcon" alt="Drag Icon" />
+    <div class="fl-jcst-alst-fdcolumn htfc p0 ">
+      <span class="fs13-fw600-cl8F fl-jcsb-alst-fdcolumn lh0 ">{{ datatypeName }}</span>
+      <span class="fs11-fw400-cl8F lh0">{{ datatypeItem }}</span>
     </div>
   </div>
 </template>
 
 <script>
-import VonixLogo from '%/icons/VonixLogo.svg'
-
+import DragIcon from '%/icons/DragIcon.svg'
 export default {
-  name: 'LogoCard',
+  name: 'componentName',
 
   components: {},
+
   data() {
     return {
-      VonixLogo
+      DragIcon
     }
   },
 
@@ -42,8 +45,11 @@ export default {
     backgroundColor: {
       type: String
     },
-    active: {
-      type: Boolean
+    datatypeName: {
+      type: String
+    },
+    datatypeItem: {
+      type: String
     }
   },
 
@@ -72,5 +78,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+div {
+  display: flex;
+  box-sizing: border-box;
+}
 </style>

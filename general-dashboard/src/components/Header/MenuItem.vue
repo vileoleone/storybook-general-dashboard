@@ -19,7 +19,7 @@ export default {
 
   data() {
     return {
-      isActive: false,
+      active: false,
       clicked: false
     }
   },
@@ -53,20 +53,19 @@ export default {
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
         [`storybook-button--${this.size || 'medium'}`]: true,
-        active: this.isActive
+        'state-hover-menu-list': this.active
       }
     },
     style() {
       return {
-        backgroundColor: this.backgroundColor,
-        marginBottom: this.marginBottom + 'px'
+        backgroundColor: this.backgroundColor
       }
     }
   },
 
   methods: {
     onMouse() {
-      this.isActive = !this.isActive
+      this.active = !this.active
     }
   }
 }
@@ -74,10 +73,10 @@ export default {
 
 <style scoped lang="scss">
 .q-item {
-    padding: 0;
-    min-height: fit-content;
-  }
- #li {
+  padding: 0;
+  min-height: fit-content;
+}
+#li {
   margin-bottom: 10px;
- } 
+}
 </style>

@@ -1,24 +1,26 @@
 <template>
-  <div class="card-outer-box">
-    <Logo :class="{ active: showList }" />
+  <div class="als-c">
+    <Logo :active="this.showList" />
     <q-btn
+      class="fl-jccnt-alcnt-fdrow cursor-pointer min-height-60px wd160px borderBottomC5"
+      type="button"
       flat
       :square="true"
-      class="anchor"
-      type="span"
-      :class="classes"
-      :style="style"
-      @click="showList = true"
+      :class="[this.showList ? 'state-header-selected' : 'state-header-default']"
     >
-      <span class="inner-style">
-        <div class="icon-left" :style="styles">
+      <span class="fl-jcsb-alcnt-fdrow">
+        <div class="als-c" :style="styles">
           <img :src="icon" :alt="label" />
         </div>
-        <p class="dashboard-label">{{ label }}</p>
-        <img :src="ArrowDown" v-if="showList == false" class="icon-right" alt="close Icon" />
-        <img :src="ArrowUpIcon" v-if="showList == true" class="icon-right" alt="open Icon" />
+        <p class="ml5px mr10px fs13-fw700-clFF mb0">{{ label }}</p>
+        <img :src="ArrowDown" v-show="showList == false" alt="close Icon" />
+        <img :src="ArrowUpIcon" v-show="showList == true" alt="open Icon" />
       </span>
-      <q-menu class="q-menu-dashboard" @before-hide="showList = false">
+      <q-menu
+        class="q-menu-dashboard"
+        @before-show="showList = true"
+        @before-hide="showList = false"
+      >
         <MenuList anchor="bottom middle" self="top middle" :list="list" />
       </q-menu>
     </q-btn>
@@ -104,64 +106,7 @@ export default {
 </script>
 
 <style lang="scss">
-.card-outer-box {
-  display: flex;
-  max-width: fit-content;
-}
-
-.cards {
-  align-items: center;
-  align-self: flex-start;
-  background-color: #3d55ae;
-  border: none;
-  border-bottom: 1px solid #c5c5c5;
-  color: #ffffff;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  min-height: 60px;
-  width: 159px;
-}
-
-.cards.onHover {
-  background-color: #fd9802;
-}
-
-.icon-left {
-  height: 18px;
-  margin-right: 5px;
-  width: 18px;
-}
-
-.icon-right {
-  border-radius: 0px;
-  display: flex;
-  height: 7.12px;
-  justify-content: center;
-  margin-left: 11.29px;
-  width: 11.41px;
-}
-.inner-style {
-  display: flex;
-  align-items: center;
-  align-self: center;
-}
-
-.dashboard-label {
-  align-items: center;
-  color: #ffffff;
-  display: flex;
-  font-family: 'Work Sans';
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 700;
-  height: 15px;
-  line-height: 15px;
-   margin-bottom: 0;
-}
-.q-menu-dashboard {
-  max-width: fit-content;
-  position: absolute;
+.q-menu {
+  max-height: 100%;
 }
 </style>

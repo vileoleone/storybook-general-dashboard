@@ -1,27 +1,25 @@
 <template>
-  <div
-    :style="style"
-    class="wd60px ht60px z-index-0 borderBottomC5"
-    :class="[this.active ? 'state-header-selected' : 'state-header-default']"
-  >
-    <div type="span" class="z-index-1 " :style="style"></div>
-    <div class="borderBottomFF ht60px fl-jccnt-alcnt-fdrow wd100 bcwhite brr110 ">
-      <img :src="VonixLogo" alt="VonixLogo" />
+  <div type="span" :class="classes" @click="onClick" :style="style">
+    <div class="fl-jcsb-alcnt-fdcolumn p100px pt50px">
+      <div class="fl-jccnt-alcnt-fdcolumn mb15px">
+        <img :src="icon" alt="no-column-sign" />
+      </div>
+      <span class="fs14-fw700-cl44 mb10px">{{ text }}</span>
+      <span class="fl-jcst-alcnt-fdcolumn fs12-fw400-cl44 mb10px wd210px txt-al-cnt">{{
+        subtext
+      }}</span>
     </div>
   </div>
 </template>
 
 <script>
-import VonixLogo from '%/icons/VonixLogo.svg'
-
 export default {
-  name: 'LogoCard',
+  name: 'componentName',
 
   components: {},
+
   data() {
-    return {
-      VonixLogo
-    }
+    return {}
   },
 
   props: {
@@ -42,8 +40,17 @@ export default {
     backgroundColor: {
       type: String
     },
-    active: {
-      type: Boolean
+
+    icon: {
+      type: Image
+    },
+
+    text: {
+      type: String
+    },
+
+    subtext: {
+      type: String
     }
   },
 
@@ -71,6 +78,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

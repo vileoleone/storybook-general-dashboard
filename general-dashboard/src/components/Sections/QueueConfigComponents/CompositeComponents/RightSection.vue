@@ -1,28 +1,21 @@
 <template>
   <div
+    type="span"
+    class="main-outer-box fl-jcst-alst-fdcolumn bcwhite pt30px pl30px pr20px wd100 "
+    :class="classes"
+    @click="onClick"
     :style="style"
-    class="wd60px ht60px z-index-0 borderBottomC5"
-    :class="[this.active ? 'state-header-selected' : 'state-header-default']"
   >
-    <div type="span" class="z-index-1 " :style="style"></div>
-    <div class="borderBottomFF ht60px fl-jccnt-alcnt-fdrow wd100 bcwhite brr110 ">
-      <img :src="VonixLogo" alt="VonixLogo" />
-    </div>
+    <span class="mailing-main-header htfc wd100 mb20px fs20-fw700-cl44 borderBottomCE pb15px">{{ label }}</span>
+    <component :list="queues" :is="vueComponent" />
   </div>
 </template>
 
 <script>
-import VonixLogo from '%/icons/VonixLogo.svg'
-
 export default {
-  name: 'LogoCard',
+  name: 'MailingMainSection',
 
   components: {},
-  data() {
-    return {
-      VonixLogo
-    }
-  },
 
   props: {
     label: {
@@ -42,9 +35,10 @@ export default {
     backgroundColor: {
       type: String
     },
-    active: {
-      type: Boolean
-    }
+    queues: {
+      type: Array
+    },
+    vueComponent: {}
   },
 
   computed: {
@@ -71,6 +65,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

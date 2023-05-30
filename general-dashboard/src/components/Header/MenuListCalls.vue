@@ -1,22 +1,29 @@
 <template>
-  <div type="span" class="menu-list-call-outer-box" :class="classes" :style="style">
-    
+  <div
+    type="span"
+    class="brb5 borderC5 borderTopNone cursor-pointer fl-jcst-alst-fdcolumn fs13-fw500-cl6F pl20px pt10px pb2px pb width-170px"
+    :class="classes"
+    :style="style"
+  >
     <span class="menu-list-call-header">
-
-      <h1 class="calls-h1">Todas as chamadas</h1>
-      <h2 class="calls-h2">Chamadas por: </h2> 
-      
-      </span>
+      <h1 class="calls-h1 fl-jccnt-alcnt-fdrow fs13-fw500-cl6F borderBottomD9 pb10px lh0">
+        Todas as chamadas
+      </h1>
+      <h2 class="fl-jcst-alcnt-fdrow fs10-fw500-cl9F lh0">Chamadas por:</h2>
+    </span>
     <q-list v-for="(item, index) in list" :key="index">
       <template v-if="typeof item === 'object'">
         <div v-for="(value, key) in item" :key="key">
-          <span class="menu-list-object" @click="this.showList = !this.showList">
+          <span
+            class="menu-list-object fl-jcst-alcnt-fdrow"
+            @click="this.showList = !this.showList"
+          >
             <MenuItem :label="key" />
             <img :src="ChevronUpIcon" v-if="showList == true" alt="Close Menu" />
             <img :src="ChevronDownIcon" v-if="showList == false" alt="open Menu" />
           </span>
-          <span  v-if="showList == true">
-            <MenuItem class="subitem"  v-for="item in value" :label="item" :key="item"
+          <span v-if="showList == true">
+            <MenuItem class="state-subitem pl10px" v-for="item in value" :label="item" :key="item"
               >{{ item }}
             </MenuItem>
           </span>
@@ -37,13 +44,13 @@ import ChevronDownIcon from '%/icons/ChevronDownIcon.svg'
 export default {
   name: 'MenuLayout',
 
-  components: { MenuItem,  },
+  components: { MenuItem },
 
   data() {
     return {
       isActive: false,
-      clicked: false, 
-      ChevronUpIcon, 
+      clicked: false,
+      ChevronUpIcon,
       ChevronDownIcon
     }
   },
@@ -80,7 +87,7 @@ export default {
         'storybook-button--primary': this.primary,
         'storybook-button--secondary': !this.primary,
         [`storybook-button--${this.size || 'medium'}`]: true,
-        active: this.isActive,
+
         clicked: this.clicked
       }
     },
@@ -101,89 +108,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.active {
-  background-color: #f0f0f0;
-  box-sizing: border-box;
-  color: #252525 !important;
-  display: flex;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  justify-content: flex-start;
-  max-height: fit-content;
-  width: 100%;
-  padding-left: 5px;
-  padding-bottom:0;
+.q-menu {
+  max-height: 100%;
 }
-.calls-h1 {
-
-  align-items: center;
-  color: #6F6F6F;
-  display: flex;
-  font-family: 'Work Sans';
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  height: 15px;
-  line-height: 15px;
-  margin-top: 0;
-  width: 100%;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #D9D9D9 ;
-
-}
-.calls-h2 {
-
-  align-items: center;
-  color: #9F9F9F;
-  display: flex;
-  font-family: 'Work Sans';
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 500;
-  height: 20px;
-  margin-top: 0;
-  width: 100%;
-}
-
-
-.menu-list-object {
-  align-items: flex-start;
-  background: #f0f0f0;
-  display: flex;
-  flex-direction: row;
-  max-height: 25px;
-  padding: 0;
-  width: max-content;
-}
-
-.menu-list-call-outer-box {
-  background: #ffffff;
-  border-color: #c5c5c5;
-  border-radius: 0px 0px 5px 5px;
-  border-style: solid;
-  border-width: 0px 1px 1px 1px;
-  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
-  color: #6f6f6f;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Work Sans';
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  list-style-type: none;
-  padding: 20px 2px 0 10px;
-  width: 159px;
-}
-
-.subitem {
-  padding-left: 10px;
-}
-
-.subitem.active {
-  padding-left: 20px;
-}
-
 </style>

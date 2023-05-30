@@ -1,20 +1,43 @@
 .state-field-selected {
-  color:  #3D55AE;
-  border-bottom: 1px solid #3D55AE;
+  color: #3d55ae;
+  border-bottom: 1px solid #3d55ae;
   line-height: 20px;
 }
 
 .state-hover-card {
-  background-color: #FF2B2B;
-  color: #FFFFFF;
+  background-color: #ff2b2b;
+  color: #ffffff;
+}
+
+.state-header-default {
+  background-color: #3d55ae;
+}
+
+.state-hover-menu-list {
+  width: 100%;
+  color: #252525;
+  padding-left: 10px;
+}
+
+.state-subitem.state-hover-menu-list {
+  padding-left: 20px;
+}
+
+.state-header-selected {
+  background-color: #fd9802;
 }
 
 .state-default {
-  background-color: #FFFFFF;
-
+  background-color: #ffffff;
 }
 
-.state-rotate{
+.state-rotate {
   transition: transform 0.3s ease;
   transform: rotate(-15deg);
+}
+
+/* cursor */
+
+.cursor-pointer {
+  cursor: pointer;
 }

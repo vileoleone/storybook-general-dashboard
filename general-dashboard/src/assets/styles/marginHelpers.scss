@@ -1,18 +1,22 @@
 /* Margin Top */
-.mt5 {
+.mt5px {
   margin-top: 5px;
 }
 
-.mt10 {
+.mt10px {
   margin-top: 10px;
 }
 
-.mt15 {
+.mt15px {
   margin-top: 15px;
 }
 
-.mt20 {
+.mt20px {
   margin-top: 20px;
+}
+
+.mt30px {
+  margin-top: 30px;
 }
 
 /* Margin Bottom */
@@ -21,80 +25,84 @@
   margin-bottom: 0;
 }
 
-.mb2 {
+.mb2px {
   margin-bottom: 2px;
 }
 
-.mb5 {
+.mb5px {
   margin-bottom: 5px;
 }
 
-.mb10 {
+.mb10px {
   margin-bottom: 10px;
 }
 
-.mb15 {
+.mb15px {
   margin-bottom: 15px;
-  box-sizing: border-box;
 }
 
-.mb20 {
+.mb20px {
   margin-bottom: 20px;
 }
 
 /* Margin Left */
 
-.ml5 {
+.ml5px {
   margin-left: 5px;
 }
 
-.ml10 {
+.ml10px {
   margin-left: 10px;
 }
 
-.ml15 {
+.ml15px {
   margin-left: 15px;
 }
 
-.ml20 {
+.ml20px {
   margin-left: 20px;
 }
 
-.ml30 {
+.ml30px {
   margin-left: 20px;
 }
 
 /* Margin Right */
+
 .mr2 {
-  margin-right: 2px;
+  margin-right: 2%;
 }
+
+.mr3 {
+  margin-right: 3%;
+}
+
 .mr5 {
+  margin-right: 5%;
+}
+
+.mr5px {
   margin-right: 5px;
 }
 
-.mr5pr {
-  margin-right: 5%;
-}
-.mr10 {
+.mr10px {
   margin-right: 10px;
 }
 
-.mr15 {
+.mr15px {
   margin-right: 15px;
 }
 
-.mr20 {
+.mr20px {
   margin-right: 20px;
 }
 
-.mr165 {
-  margin-right: 165px;
+.mr40px {
+  margin-right: 40px;
 }
 
-/* margin-percentage */
-
-.mr3pr {
-  margin-right: 3%;
+.mr165px {
+  margin-right: 165px;
 }
 
 /* overflow-y */
@@ -108,5 +116,9 @@
 }
 
 .scroll-overlay {
-  overflow: overlay
+  overflow: overlay;
+}
+
+.scroll-visible {
+  overflow-y: visible;
 }

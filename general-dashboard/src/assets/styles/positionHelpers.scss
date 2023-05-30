@@ -9,11 +9,20 @@
 .fl-fdcolumn - Applies display: flex; flex-direction: column;
 .fl-alst-jccnt-fdrow - Applies display: flex; align-items: flex-start; justify-content: center; flex-direction: row; */
 
-.als-c{
+.fl {
+  display: flex;
+}
+/* flex-wrap */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.als-c {
+  display: flex;
   align-self: center;
 }
 
-.als-ba{
+.als-ba {
   align-self: baseline;
 }
 
@@ -233,6 +242,13 @@
   flex-direction: row;
 }
 
+.fl-jcsa-alcnt-fdrow {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
 .fl-jcsb-alcnt-fdcolumn {
   display: flex;
   justify-content: space-between;
@@ -322,4 +338,20 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+}
+
+/* Position */
+
+.fixed-top-left-0 {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
 }
