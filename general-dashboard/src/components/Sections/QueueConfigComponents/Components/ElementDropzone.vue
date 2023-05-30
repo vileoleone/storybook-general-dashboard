@@ -272,7 +272,7 @@ img {
 
 .remove-file-button {
   align-items: center;
-
+  border: none;
   color: #495057;
   display: flex;
   flex-direction: row;

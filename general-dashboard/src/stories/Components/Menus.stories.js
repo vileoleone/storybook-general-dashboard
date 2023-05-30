@@ -18,7 +18,7 @@ export default {
   }
 }
 
-export const MenuStory = {
+export const MenuForHeaderStory = {
   render: (args) => ({
     components: { menuList },
     setup() {
@@ -41,7 +41,7 @@ export const MenuStory = {
   }
 }
 
-export const MenuDragDatatypestory = {
+export const MenuDragDatatypeStory = {
   render: (args) => ({
     components: { MenuDragDatatypes },
     setup() {

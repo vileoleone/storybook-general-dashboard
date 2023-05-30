@@ -2,7 +2,7 @@
   <FormComponent
     label="Escolha uma Fila *"
     width="500px"
-    placeholder="Escolha uma opção"
+    :placeholder="dynamicLabel"
     :list="list"
     :onChoice="choiceFunction"
   />
@@ -23,7 +23,8 @@ export default {
     return {
       TriangleDown,
       TriangleUp,
-      active: false
+      active: false,
+      dynamicLabel: 'Escolha uma opção'
     }
   },
 
@@ -64,6 +65,7 @@ export default {
         backgroundColor: this.backgroundColor
       }
     },
+
     ...mapWritableState(useMailingStore, {
       step: 'globalStep',
       queues: 'queues',
@@ -78,6 +80,7 @@ export default {
       this.active = !this.active
     },
     choiceFunction(item) {
+      this.dynamicLabel = item
       this.readyToProceed = true
       this.queueToConfig = item
       this.active = !this.active

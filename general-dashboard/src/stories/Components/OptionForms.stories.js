@@ -3,7 +3,7 @@ import FormMappingFile from '@/components/Sections/QueueConfigComponents/Compone
 import Form from '@/components/Sections/QueueConfigComponents/Components/Form.vue'
 
 export default {
-  title: 'Components/Forms/OptionForm',
+  title: 'Components/Forms/OptionForms',
   component: FormSearchTable,
   tags: ['autodocs'],
   argTypes: {

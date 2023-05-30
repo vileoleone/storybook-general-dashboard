@@ -19,7 +19,7 @@
         label="Chamadas"
         :icon="iconPhone"
         :list="ChamadasList"
-        :menuList="menuListCalls"
+        :menuList="MenuListCalls"
         width="175"
       />
       <Card
